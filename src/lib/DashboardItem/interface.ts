@@ -14,7 +14,8 @@ export interface IDashboardItemProps extends PropsWithChildren {
   minH?: number;
   maxH?: number;
   padding?: number | string;
-
+  itemProps?: Record<string, any>;
+  forceFullScreen?: boolean;
   gridSize: {
     w: number;
     h: number;

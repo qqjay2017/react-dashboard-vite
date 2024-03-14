@@ -1,4 +1,10 @@
-import { TestChildA, TestChildB, TestChildC } from "./TestChild";
+import {
+  TestChildA,
+  TestChildB,
+  TestChildC1,
+  TestChildC2,
+  TestChildC3,
+} from "./TestChild";
 import { DashboardAppResponsive, jfDarkTheme } from "./lib";
 import "./base.css";
 const App = () => {
@@ -7,6 +13,44 @@ const App = () => {
       style={{}}
       theme={jfDarkTheme}
       layouts={{
+        showroom: [
+          {
+            i: "A1",
+            w: 3,
+            h: 12,
+            x: 0,
+            y: 0,
+          },
+          {
+            i: "B1",
+            w: 6,
+            h: 12,
+            x: 3,
+            y: 0,
+            padding: "20px",
+          },
+          {
+            i: "C1",
+            w: 3,
+            h: 4,
+            x: 9,
+            y: 0,
+          },
+          {
+            i: "C2",
+            w: 3,
+            h: 4,
+            x: 9,
+            y: 4,
+          },
+          {
+            i: "C3",
+            w: 3,
+            h: 4,
+            x: 9,
+            y: 8,
+          },
+        ],
         desktop: [
           {
             i: "A1",
@@ -43,6 +87,44 @@ const App = () => {
             h: 4,
             x: 9,
             y: 8,
+          },
+        ],
+        tablet: [
+          {
+            i: "A1",
+            w: 12,
+            h: 8,
+            x: 0,
+            y: 0,
+          },
+          {
+            i: "B1",
+            w: 12,
+            h: 8,
+            x: 0,
+            y: 8,
+            padding: "20px",
+          },
+          {
+            i: "C1",
+            w: 12,
+            h: 4,
+            x: 0,
+            y: 16,
+          },
+          {
+            i: "C2",
+            w: 12,
+            h: 4,
+            x: 0,
+            y: 20,
+          },
+          {
+            i: "C3",
+            w: 12,
+            h: 4,
+            x: 0,
+            y: 24,
           },
         ],
         mobile: [
@@ -85,7 +167,7 @@ const App = () => {
         ],
       }}
       cols={{ showroom: 24, desktop: 12, tablet: 12, mobile: 12 }}
-      headerHeight={{ showroom: 150, desktop: 132, tablet: 120, mobile: 80 }}
+      headerHeight={{ showroom: 150, desktop: 132, tablet: 120, mobile: 120 }}
       forceFullScreen={{
         showroom: true,
         desktop: true,
@@ -93,12 +175,15 @@ const App = () => {
         mobile: false,
       }}
       rowHeight={78}
-      componentMap={{
+      itemProps={{
+        myName: "huang",
+      }}
+      itemMap={{
         A1: TestChildA,
         B1: TestChildB,
-        C1: TestChildC,
-        C2: TestChildC,
-        C3: TestChildC,
+        C1: TestChildC1,
+        C2: TestChildC2,
+        C3: TestChildC3,
       }}
     />
   );

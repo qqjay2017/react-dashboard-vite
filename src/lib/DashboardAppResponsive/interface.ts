@@ -26,7 +26,7 @@ export interface IDashboardAppResponsiveProps extends PropsWithChildren {
   layouts?: Layouts;
   headerHeight?: ResponsiveHeaderHeight;
   forceFullScreen?: ResponsiveForceFullScreen;
-  componentMap: ComponentMap;
+  itemMap: ComponentMap;
   /**
    * 外壳的className,优先级大于theme
    */
@@ -35,4 +35,5 @@ export interface IDashboardAppResponsiveProps extends PropsWithChildren {
    * 外壳的style,优先级大于theme
    */
   style?: React.CSSProperties;
+  itemProps?: Record<string, any>;
 }

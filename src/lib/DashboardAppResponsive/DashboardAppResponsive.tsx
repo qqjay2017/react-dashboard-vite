@@ -9,6 +9,7 @@ import { getBreakpointFromWidth } from "./responsiveUtils";
 import { DashboardApp } from "../DashboardApp";
 import React from "react";
 import { sizeFormat } from "../utils/sizeFormat";
+import { DesignerContextProvider } from "../context";
 export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   const {
     children,
@@ -18,10 +19,11 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
     rowHeight = 78,
     theme = jfDarkTheme,
     forceFullScreen = {},
-    componentMap = {},
+    itemMap = {},
     layouts = {},
     className,
     style,
+    itemProps,
   } = props;
   const { ref, width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({});
 
@@ -73,7 +75,8 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
         headerHeight={matchHeaderHeight}
         matchBreak={matchBreak}
         forceFullScreen={matchForceFullScreen}
-        componentMap={componentMap}
+        itemProps={itemProps}
+        itemMap={itemMap}
       >
         {children}
       </DashboardApp>

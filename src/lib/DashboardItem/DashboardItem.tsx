@@ -17,6 +17,7 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
     theme,
     className,
     style,
+    itemProps,
     ...rest
   } = props;
   const getStyle = () => {
@@ -50,6 +51,7 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
       {Content && (
         <Content
           {...rest}
+          {...itemProps}
           theme={theme}
           matchBreak={matchBreak}
           gridSize={gridSize}

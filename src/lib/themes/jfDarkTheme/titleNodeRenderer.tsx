@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./titleNodeRenderer.module.less";
-import { cn } from "@/lib";
-export const titleNodeRenderer = () => {
+import "./titleNodeRenderer.less";
+import { cn, useDashboard } from "@/lib";
+export const TitleNodeRenderer = (props: any) => {
+  const { matchBreak } = useDashboard();
+
   return (
-    <div className={cn("titleNodeRenderer", styles.titleNodeRenderer)}>
-      titleNodeRenderer
-    </div>
+    <div className={cn("titleNodeRenderer", matchBreak)}>titleNodeRenderer</div>
   );
 };
