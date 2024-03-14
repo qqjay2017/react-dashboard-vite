@@ -18,7 +18,7 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
     rowHeight = 78,
     theme = jfDartTheme,
     forceFullScreen = {},
-
+    componentMap = {},
     layouts = {},
   } = props;
   const { ref, width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({});
@@ -28,7 +28,7 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   const matchLayout = matchBreak ? layouts[matchBreak] : [];
   const matchHeaderHeight = matchBreak ? headerHeight[matchBreak] : 0;
   const matchForceFullScreen = matchBreak ? forceFullScreen[matchBreak] : false;
-  console.log(height, "height");
+
   const getStyle = () => {
     const s: React.CSSProperties = {};
     if (matchForceFullScreen) {
@@ -62,6 +62,7 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
         headerHeight={matchHeaderHeight}
         matchBreak={matchBreak}
         forceFullScreen={matchForceFullScreen}
+        componentMap={componentMap}
       >
         {children}
       </DashboardApp>

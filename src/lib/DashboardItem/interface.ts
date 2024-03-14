@@ -1,9 +1,10 @@
 import { PropsWithChildren } from "react";
+import { DashBoardTheme } from "../themes";
 
 export interface IDashboardItemProps extends PropsWithChildren {
   i: string;
   matchBreak?: string;
-
+  theme?: DashBoardTheme;
   w: number;
   h: number;
   x: number;
@@ -20,4 +21,12 @@ export interface IDashboardItemProps extends PropsWithChildren {
   };
   // 预留字段
   itemType?: any;
+  Content?: React.ElementType;
+}
+
+export interface IDashboardItemChldBaseProps extends PropsWithChildren {
+  gridSize: { w: number; h: number };
+  i: string;
+  matchBreak: string;
+  theme?: DashBoardTheme;
 }

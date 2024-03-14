@@ -3,6 +3,7 @@ import { DashboardItem, cn, jfDartTheme } from "..";
 import { sizeFormat } from "../utils/sizeFormat";
 import { computedMaxRow } from "./appUtil";
 import styles from "./index.module.less";
+import { Children } from "react";
 export const DashboardApp = (props: IDashboardAppProps) => {
   const {
     children,
@@ -15,6 +16,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     headerHeight = 0,
     matchBreak = "",
     forceFullScreen = false,
+    componentMap = {},
   } = props;
   const gridSize = {
     w: sizeFormat(width / col),
@@ -22,10 +24,6 @@ export const DashboardApp = (props: IDashboardAppProps) => {
   };
 
   const row = computedMaxRow(layout);
-
-  const renderDashboardItemInnerChild = () => {
-    return <div>123</div>;
-  };
 
   return (
     <div
@@ -41,15 +39,18 @@ export const DashboardApp = (props: IDashboardAppProps) => {
       }}
     >
       {layout.map((l) => {
+        if (!componentMap[l.i || ""]) {
+          return null;
+        }
         return (
           <DashboardItem
             {...l}
+            theme={theme}
+            Content={componentMap[l.i || ""]}
             matchBreak={matchBreak}
             gridSize={gridSize}
             key={`DashboardItem-${l.i}`}
-          >
-            {renderDashboardItemInnerChild()}
-          </DashboardItem>
+          />
         );
       })}
     </div>

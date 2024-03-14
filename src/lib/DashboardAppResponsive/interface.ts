@@ -1,6 +1,11 @@
 import { PropsWithChildren } from "react";
 import { DashBoardTheme } from "../themes";
-import { Breakpoints, DefaultBreakpointType, Layout } from "../DashboardApp";
+import {
+  Breakpoints,
+  ComponentMap,
+  DefaultBreakpointType,
+  Layout,
+} from "../DashboardApp";
 
 export type Layouts = DefaultBreakpointType<Layout[]> & {
   [property: string]: any;
@@ -21,4 +26,5 @@ export interface IDashboardAppResponsiveProps extends PropsWithChildren {
   layouts?: Layouts;
   headerHeight?: ResponsiveHeaderHeight;
   forceFullScreen?: ResponsiveForceFullScreen;
+  componentMap: ComponentMap;
 }

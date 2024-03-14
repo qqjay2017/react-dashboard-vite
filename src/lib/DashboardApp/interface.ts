@@ -16,7 +16,9 @@ export type Layout = Partial<IDashboardItemProps>;
 export type Breakpoints = DefaultBreakpointType<number> & {
   [property: string]: any;
 };
-
+export type ComponentMap = {
+  [key: string]: React.ElementType;
+};
 export interface IDashboardAppProps extends PropsWithChildren {
   // cols无法匹配上时候  ,将会使用col
   col: number;
@@ -29,4 +31,5 @@ export interface IDashboardAppProps extends PropsWithChildren {
   headerHeight?: number;
   matchBreak?: string;
   forceFullScreen?: boolean;
+  componentMap: ComponentMap;
 }

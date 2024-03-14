@@ -44,6 +44,44 @@ const App = () => {
             y: 8,
           },
         ],
+        mobile: [
+          {
+            i: "A1",
+            w: 12,
+            h: 8,
+            x: 0,
+            y: 0,
+          },
+          {
+            i: "B1",
+            w: 12,
+            h: 8,
+            x: 0,
+            y: 8,
+            padding: "20px",
+          },
+          {
+            i: "C1",
+            w: 12,
+            h: 4,
+            x: 0,
+            y: 16,
+          },
+          {
+            i: "C2",
+            w: 12,
+            h: 4,
+            x: 0,
+            y: 20,
+          },
+          {
+            i: "C3",
+            w: 12,
+            h: 4,
+            x: 0,
+            y: 24,
+          },
+        ],
       }}
       cols={{ showroom: 24, desktop: 12, tablet: 12, mobile: 12 }}
       headerHeight={{ showroom: 150, desktop: 132, tablet: 120, mobile: 80 }}
@@ -54,23 +92,14 @@ const App = () => {
         mobile: false,
       }}
       rowHeight={78}
-    >
-      <div key={"A1"}>
-        <TestChildA />
-      </div>
-      <div key={"B1"}>
-        <TestChildB />
-      </div>
-      <div key={"C1"}>
-        <TestChildC />
-      </div>
-      <div key={"C2"}>
-        <TestChildC />
-      </div>
-      <div key={"C3"}>
-        <TestChildC />
-      </div>
-    </DashboardAppResponsive>
+      componentMap={{
+        A1: TestChildA,
+        B1: TestChildB,
+        C1: TestChildC,
+        C2: TestChildC,
+        C3: TestChildC,
+      }}
+    ></DashboardAppResponsive>
   );
 };
 
