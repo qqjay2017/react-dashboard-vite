@@ -33,7 +33,8 @@ export const DashboardApp = (props: IDashboardAppProps) => {
         "dashboardApp",
         styles.dashboardApp,
         theme?.className ? `dashboardApp-${theme?.className}` : "",
-        className ? `dashboardApp-${className}` : ""
+        className ? `dashboardApp-${className}` : "",
+        matchBreak
       )}
       style={{
         ...style,
@@ -51,7 +52,8 @@ export const DashboardApp = (props: IDashboardAppProps) => {
             "titleNodeRendererWrap",
             styles.titleNodeRendererWrap,
             theme?.className ? `titleNodeRendererWrap-${theme?.className}` : "",
-            className ? `titleNodeRendererWrap-${className}` : ""
+            className ? `titleNodeRendererWrap-${className}` : "",
+            matchBreak
           )}
           style={{
             height: headerHeight,

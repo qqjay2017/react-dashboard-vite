@@ -54,7 +54,8 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
         "dashboardAppResponsive",
         styles.dashboardAppResponsive,
         theme?.className,
-        className
+        className,
+        matchBreak
       )}
       style={getStyle()}
     >

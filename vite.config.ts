@@ -19,15 +19,15 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/": {
-        target: "http://dev-oss.kxgcc.com:30872",
+        target: "https://test-ymsl.kxgcc.com:30195",
         changeOrigin: true,
       },
       "/public/": {
-        target: "http://dev-oss.kxgcc.com:30872",
+        target: "https://test-ymsl.kxgcc.com:30195",
         changeOrigin: true,
       },
       "/cms-static/": {
-        target: "http://dev-oss.kxgcc.com:30872",
+        target: "https://test-ymsl.kxgcc.com:30195",
         changeOrigin: true,
       },
     },

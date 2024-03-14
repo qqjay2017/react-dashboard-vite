@@ -40,7 +40,8 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
         "dashboardItem",
         styles.dashboardItem,
         theme?.className ? `dashboardItem-${theme?.className}` : "",
-        className ? `dashboardItem-${className}` : ""
+        className ? `dashboardItem-${className}` : "",
+        matchBreak
       )}
       style={{
         ...getStyle(),

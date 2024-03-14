@@ -1,15 +1,29 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { IDashboardItemChldBaseProps } from "./lib";
 
 export const TestChildA = (props: IDashboardItemChldBaseProps) => {
-  console.log(props, "TestChildA props");
-  return <div>A</div>;
+  const { theme } = props;
+  const WrapCom = Fragment;
+  return <WrapCom {...props}>A</WrapCom>;
 };
 
-export const TestChildB = () => {
-  return <div>B</div>;
+export const TestChildB = (props: IDashboardItemChldBaseProps) => {
+  const { theme } = props;
+  const WrapCom = Fragment;
+  return <WrapCom {...props}>A</WrapCom>;
 };
 
-export const TestChildC = () => {
-  return <div>C</div>;
+export const TestChildC = (props: IDashboardItemChldBaseProps) => {
+  const { theme } = props;
+  const WrapCom = theme?.nodeContentRenderer || Fragment;
+  return (
+    <WrapCom
+      {...props}
+      title={"项目阶段情况"}
+      subTitle={"（单位：亿元）"}
+      exact={<input />}
+    >
+      A
+    </WrapCom>
+  );
 };
