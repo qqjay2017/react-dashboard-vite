@@ -32,4 +32,6 @@ export interface IDashboardAppProps extends PropsWithChildren {
   matchBreak?: string;
   forceFullScreen?: boolean;
   componentMap: ComponentMap;
+  className?: string;
+  style?: React.CSSProperties;
 }

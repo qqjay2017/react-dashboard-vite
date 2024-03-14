@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 import { DashBoardTheme } from "../themes";
 
 export interface IDashboardItemProps extends PropsWithChildren {
@@ -22,6 +22,8 @@ export interface IDashboardItemProps extends PropsWithChildren {
   // 预留字段
   itemType?: any;
   Content?: React.ElementType;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export interface IDashboardItemChldBaseProps extends PropsWithChildren {

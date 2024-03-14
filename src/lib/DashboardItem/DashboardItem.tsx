@@ -15,10 +15,14 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
     matchBreak = "",
     Content,
     theme,
+    className,
+    style,
     ...rest
   } = props;
   const getStyle = () => {
-    const s: React.CSSProperties = {};
+    const s: React.CSSProperties = {
+      ...style,
+    };
     s.width = sizeFormat(w * gridSize?.w);
     s.height = sizeFormat(h * gridSize?.h);
     s.transform = ` translate( ${sizeFormat(x * gridSize?.w)}px , ${sizeFormat(
@@ -32,7 +36,12 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
   };
   return (
     <div
-      className={cn("dashboardItem", styles.dashboardItem)}
+      className={cn(
+        "dashboardItem",
+        styles.dashboardItem,
+        theme?.className ? `dashboardItem-${theme?.className}` : "",
+        className ? `dashboardItem-${className}` : ""
+      )}
       style={{
         ...getStyle(),
       }}

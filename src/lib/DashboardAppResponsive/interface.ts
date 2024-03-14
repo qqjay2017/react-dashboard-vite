@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 import { DashBoardTheme } from "../themes";
 import {
   Breakpoints,
@@ -27,4 +27,12 @@ export interface IDashboardAppResponsiveProps extends PropsWithChildren {
   headerHeight?: ResponsiveHeaderHeight;
   forceFullScreen?: ResponsiveForceFullScreen;
   componentMap: ComponentMap;
+  /**
+   * 外壳的className,优先级大于theme
+   */
+  className?: string;
+  /**
+   * 外壳的style,优先级大于theme
+   */
+  style?: React.CSSProperties;
 }

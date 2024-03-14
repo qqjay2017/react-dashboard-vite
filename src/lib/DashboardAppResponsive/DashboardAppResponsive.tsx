@@ -1,5 +1,5 @@
 import { IDashboardAppResponsiveProps } from ".";
-import { jfDartTheme } from "..";
+import { jfDarkTheme } from "..";
 
 import useResizeObserver from "use-resize-observer";
 import styles from "./index.module.less";
@@ -16,10 +16,12 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
     cols = { showroom: 24, desktop: 12, tablet: 12, mobile: 12 },
     headerHeight = { showroom: 150, desktop: 132, tablet: 120, mobile: 80 },
     rowHeight = 78,
-    theme = jfDartTheme,
+    theme = jfDarkTheme,
     forceFullScreen = {},
     componentMap = {},
     layouts = {},
+    className,
+    style,
   } = props;
   const { ref, width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({});
 
@@ -30,7 +32,10 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   const matchForceFullScreen = matchBreak ? forceFullScreen[matchBreak] : false;
 
   const getStyle = () => {
-    const s: React.CSSProperties = {};
+    const s: React.CSSProperties = {
+      ...theme?.style,
+      ...style,
+    };
     if (matchForceFullScreen) {
       s.height = "100vh";
       s.minHeight = "650px";
@@ -45,7 +50,12 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   return (
     <div
       ref={ref}
-      className={cn("dashboardAppResponsive", styles.dashboardAppResponsive)}
+      className={cn(
+        "dashboardAppResponsive",
+        styles.dashboardAppResponsive,
+        theme?.className,
+        className
+      )}
       style={getStyle()}
     >
       <DashboardApp

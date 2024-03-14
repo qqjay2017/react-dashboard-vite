@@ -1,15 +1,15 @@
 import { IDashboardAppProps } from "./interface";
-import { DashboardItem, cn, jfDartTheme } from "..";
+import { DashboardItem, cn, jfDarkTheme } from "..";
 import { sizeFormat } from "../utils/sizeFormat";
 import { computedMaxRow } from "./appUtil";
 import styles from "./index.module.less";
-import { Children } from "react";
+
 export const DashboardApp = (props: IDashboardAppProps) => {
   const {
     children,
     col = 0,
     layout = [],
-    theme = jfDartTheme,
+    theme = jfDarkTheme,
     width = 0,
     height = 0,
     rowHeight = 78,
@@ -17,6 +17,8 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     matchBreak = "",
     forceFullScreen = false,
     componentMap = {},
+    className,
+    style,
   } = props;
   const gridSize = {
     w: sizeFormat(width / col),
@@ -27,17 +29,39 @@ export const DashboardApp = (props: IDashboardAppProps) => {
 
   return (
     <div
-      className={cn("dashboardApp", styles.dashboardApp)}
+      className={cn(
+        "dashboardApp",
+        styles.dashboardApp,
+        theme?.className ? `dashboardApp-${theme?.className}` : "",
+        className ? `dashboardApp-${className}` : ""
+      )}
       style={{
+        ...style,
         width,
         paddingTop: headerHeight,
 
-        height: Math.max(
-          height || 0,
-          (row || 0) * (rowHeight || 0) + headerHeight
-        ),
+        height: forceFullScreen
+          ? "100vh"
+          : Math.max(height || 0, (row || 0) * (rowHeight || 0) + headerHeight),
       }}
     >
+      {Boolean(headerHeight && theme?.titleNodeRenderer) && (
+        <div
+          className={cn(
+            "titleNodeRendererWrap",
+            styles.titleNodeRendererWrap,
+            theme?.className ? `titleNodeRendererWrap-${theme?.className}` : "",
+            className ? `titleNodeRendererWrap-${className}` : ""
+          )}
+          style={{
+            height: headerHeight,
+          }}
+        >
+          {theme.titleNodeRenderer({
+            matchBreak,
+          })}
+        </div>
+      )}
       {layout.map((l) => {
         if (!componentMap[l.i || ""]) {
           return null;

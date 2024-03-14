@@ -1,10 +1,11 @@
 import { TestChildA, TestChildB, TestChildC } from "./TestChild";
-import { DashboardAppResponsive, jfDartTheme } from "./lib";
+import { DashboardAppResponsive, jfDarkTheme } from "./lib";
 import "./base.css";
 const App = () => {
   return (
     <DashboardAppResponsive
-      theme={jfDartTheme}
+      style={{}}
+      theme={jfDarkTheme}
       layouts={{
         desktop: [
           {
@@ -99,7 +100,7 @@ const App = () => {
         C2: TestChildC,
         C3: TestChildC,
       }}
-    ></DashboardAppResponsive>
+    />
   );
 };
 
