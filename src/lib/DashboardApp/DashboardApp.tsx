@@ -2,7 +2,7 @@ import { IDashboardAppProps } from "./interface";
 import { DashboardItem, cn } from "..";
 import { sizeFormat } from "../utils/sizeFormat";
 import { computedMaxRow } from "./appUtil";
-import styles from "./index.module.less";
+import "./index.less";
 import { DesignerContextProvider } from "../context";
 import { Fragment } from "react/jsx-runtime";
 
@@ -65,7 +65,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
       <div
         className={cn(
           "dashboardApp",
-          styles.dashboardApp,
+
           theme?.className ? `dashboardApp-${theme?.className}` : "",
           className ? `dashboardApp-${className}` : "",
           matchBreak
@@ -88,7 +88,6 @@ export const DashboardApp = (props: IDashboardAppProps) => {
           <div
             className={cn(
               "titleNodeRendererWrap",
-              styles.titleNodeRendererWrap,
               theme?.className
                 ? `titleNodeRendererWrap-${theme?.className}`
                 : "",

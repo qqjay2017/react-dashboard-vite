@@ -1,7 +1,7 @@
 import { IDashboardAppResponsiveProps } from ".";
 
 import useResizeObserver from "use-resize-observer";
-import styles from "./index.module.less";
+import "./index.less";
 import { cn } from "../utils";
 import { getBreakpointFromWidth } from "./responsiveUtils";
 
@@ -55,7 +55,6 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
       ref={ref}
       className={cn(
         "dashboardAppResponsive",
-        styles.dashboardAppResponsive,
         theme?.className,
         className,
         matchBreak

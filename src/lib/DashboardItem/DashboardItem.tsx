@@ -2,7 +2,7 @@ import React from "react";
 import { IDashboardItemProps } from "./interface";
 import { sizeFormat } from "../utils/sizeFormat";
 import { cn } from "..";
-import styles from "./index.module.less";
+import "./index.less";
 export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
   const {
     gridSize = { w: 0, h: 0 },
@@ -39,7 +39,6 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
     <div
       className={cn(
         "dashboardItem",
-        styles.dashboardItem,
         theme?.className ? `dashboardItem-${theme?.className}` : "",
         className ? `dashboardItem-${className}` : "",
         matchBreak
