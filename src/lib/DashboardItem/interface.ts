@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { DashBoardTheme } from "../themes";
+import { DashBoardTheme } from "../themes/interface";
 
 export interface IDashboardItemProps extends PropsWithChildren {
   i: string;

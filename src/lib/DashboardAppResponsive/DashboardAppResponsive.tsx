@@ -1,5 +1,4 @@
 import { IDashboardAppResponsiveProps } from ".";
-import { jfDarkTheme } from "..";
 
 import useResizeObserver from "use-resize-observer";
 import styles from "./index.module.less";
@@ -9,7 +8,7 @@ import { getBreakpointFromWidth } from "./responsiveUtils";
 import { DashboardApp } from "../DashboardApp";
 import React from "react";
 import { sizeFormat } from "../utils/sizeFormat";
-import { DesignerContextProvider } from "../context";
+
 export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   const {
     children,
@@ -17,13 +16,15 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
     cols = { showroom: 24, desktop: 12, tablet: 12, mobile: 12 },
     headerHeight = { showroom: 150, desktop: 132, tablet: 120, mobile: 80 },
     rowHeight = 78,
-    theme = jfDarkTheme,
+    theme,
     forceFullScreen = {},
     itemMap = {},
     layouts = {},
     className,
     style,
     itemProps,
+    minHeight = 861,
+    titleNodeChildRenderer,
   } = props;
   const { ref, width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({});
 
@@ -40,7 +41,7 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
     };
     if (matchForceFullScreen) {
       s.height = "100vh";
-      s.minHeight = "650px";
+      s.minHeight = minHeight;
       s.maxHeight = "100vh";
     }
 
@@ -77,6 +78,8 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
         forceFullScreen={matchForceFullScreen}
         itemProps={itemProps}
         itemMap={itemMap}
+        minHeight={minHeight}
+        titleNodeChildRenderer={titleNodeChildRenderer}
       >
         {children}
       </DashboardApp>

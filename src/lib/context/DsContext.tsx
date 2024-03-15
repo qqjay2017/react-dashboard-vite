@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { DashBoardTheme } from "..";
 
 export type DsContextType = {
   globalStatus: Record<string, any>;

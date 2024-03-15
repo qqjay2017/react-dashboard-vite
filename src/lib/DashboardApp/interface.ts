@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { DashBoardTheme } from "../themes";
+import { DashBoardTheme } from "../themes/interface";
 import { IDashboardItemProps } from "../DashboardItem";
 
 export type DefaultBreakpoints = "showroom" | "desktop" | "tablet" | "mobile";
@@ -19,11 +19,10 @@ export type Breakpoints = DefaultBreakpointType<number> & {
 export type ComponentMap = {
   [key: string]: React.ElementType;
 };
-export interface IDashboardAppProps extends PropsWithChildren {
+export interface IDashboardAppProps extends IDashboardAppPropsExtend {
   // cols无法匹配上时候  ,将会使用col
   col: number;
-  // rowHeight = 78px
-  rowHeight?: number;
+
   theme: DashBoardTheme;
   layout?: Layout[];
   width?: number;
@@ -31,8 +30,19 @@ export interface IDashboardAppProps extends PropsWithChildren {
   headerHeight?: number;
   matchBreak?: string;
   forceFullScreen?: boolean;
-  itemMap: ComponentMap;
+}
+
+/**
+ * 共用的属性,透传
+ */
+export interface IDashboardAppPropsExtend extends PropsWithChildren {
+  minHeight?: number;
+  titleNodeChildRenderer?: (props: any) => React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
   itemProps?: Record<string, any>;
+  itemMap: ComponentMap;
+  theme: DashBoardTheme;
+  // rowHeight = 78px
+  rowHeight?: number;
 }

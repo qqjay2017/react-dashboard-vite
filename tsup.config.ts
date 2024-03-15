@@ -1,6 +1,7 @@
-import { defineConfig } from "tsup";
+import { Options, defineConfig } from "tsup";
 import { lessLoader } from "esbuild-plugin-less";
-export default defineConfig({
+
+const baseConfig: Options = {
   format: ["cjs", "esm"],
   target: "es2016",
   external: ["react", "react-dom", "antd"],
@@ -12,4 +13,19 @@ export default defineConfig({
   treeshake: true,
   injectStyle: false,
   esbuildPlugins: [lessLoader()],
-});
+};
+
+const themes = ["jfDarkTheme", "jfLightTheme"];
+
+export default defineConfig([
+  {
+    ...baseConfig,
+    entry: ["./src/lib/index.ts"],
+    outDir: "dist",
+  },
+  {
+    ...baseConfig,
+    entry: themes.map((fn) => `./src/lib/themes/${fn}/index.ts`),
+    outDir: "themes",
+  },
+]);

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./nodeContentRenderer.module.less";
-import { INodeContentRenderer, cn } from "@/lib";
+import { cn } from "@/lib";
+import { INodeContentRenderer } from "../interface";
 export const nodeContentRenderer: INodeContentRenderer<{
   title?: string | React.ReactNode;
   subTitle?: string | React.ReactNode;
@@ -16,6 +17,7 @@ export const nodeContentRenderer: INodeContentRenderer<{
           styles.nodeContentRendererTitle
         )}
       >
+        <div className={cn(styles.nodeContentRendererTitleBg)}></div>
         {title ? (
           <div className={cn("nrtTitle", styles.nrtTitle)}>{title}</div>
         ) : null}

@@ -5,8 +5,10 @@ import {
   TestChildC2,
   TestChildC3,
 } from "./TestChild";
-import { DashboardAppResponsive, jfDarkTheme } from "./lib";
+import { DashboardAppResponsive } from "./lib";
+
 import "./base.css";
+import { jfDarkTheme } from "./lib/themes/jfDarkTheme";
 const App = () => {
   return (
     <DashboardAppResponsive
@@ -184,6 +186,10 @@ const App = () => {
         C1: TestChildC1,
         C2: TestChildC2,
         C3: TestChildC3,
+      }}
+      titleNodeChildRenderer={(props) => {
+        console.log(props, "props");
+        return <div>124</div>;
       }}
     />
   );

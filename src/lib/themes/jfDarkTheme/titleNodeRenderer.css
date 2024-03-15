@@ -5,8 +5,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
-  &.mobile {
-    background-image: url("@/assets/jfDarkTheme/m-header.png");
-    background-size: 100%;
-  }
+}
+.titleNodeRenderer.mobile {
+  background-image: url("@/assets/jfDarkTheme/m-header.png");
+  background-size: 100%;
 }

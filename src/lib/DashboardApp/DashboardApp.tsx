@@ -1,19 +1,38 @@
 import { IDashboardAppProps } from "./interface";
-import { DashboardItem, cn, jfDarkTheme, useDashboard } from "..";
+import { DashboardItem, cn } from "..";
 import { sizeFormat } from "../utils/sizeFormat";
 import { computedMaxRow } from "./appUtil";
 import styles from "./index.module.less";
 import { DesignerContextProvider } from "../context";
+import { Fragment } from "react/jsx-runtime";
 
-const TitleNode = ({ theme }: { theme: IDashboardAppProps["theme"] }) => {
-  return theme?.titleNodeRenderer();
+const TitleNode = ({
+  theme,
+  titleNodeChildRenderer,
+  matchBreak,
+}: {
+  theme: IDashboardAppProps["theme"];
+  titleNodeChildRenderer?: any;
+  matchBreak?: string;
+}) => {
+  const TitleNodeRenderer = theme?.titleNodeRenderer || Fragment;
+  const TitleNodeChildRenderer = titleNodeChildRenderer || Fragment;
+  const TitleNodeRendererProps = theme?.titleNodeRenderer ? { matchBreak } : {};
+  const TitleNodeChildRendererProps = titleNodeChildRenderer
+    ? { matchBreak }
+    : {};
+  return (
+    <TitleNodeRenderer {...TitleNodeRendererProps}>
+      <TitleNodeChildRenderer {...TitleNodeChildRendererProps} />
+    </TitleNodeRenderer>
+  );
 };
 
 export const DashboardApp = (props: IDashboardAppProps) => {
   const {
     col = 0,
     layout = [],
-    theme = jfDarkTheme,
+    theme,
     width = 0,
     height = 0,
     rowHeight = 78,
@@ -24,6 +43,8 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     className,
     style,
     itemProps,
+    minHeight = 861,
+    titleNodeChildRenderer,
   } = props;
   const gridSize = {
     w: sizeFormat(width / col),
@@ -53,6 +74,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
           ...style,
           width,
           paddingTop: headerHeight,
+          minHeight: minHeight,
 
           height: forceFullScreen
             ? "100vh"
@@ -77,7 +99,11 @@ export const DashboardApp = (props: IDashboardAppProps) => {
               height: headerHeight,
             }}
           >
-            <TitleNode theme={theme} />
+            <TitleNode
+              matchBreak={matchBreak}
+              theme={theme}
+              titleNodeChildRenderer={titleNodeChildRenderer}
+            />
             {/* {theme.titleNodeRenderer({
               matchBreak,
             })} */}

@@ -7,7 +7,7 @@
     "dev": "vite",
     "release": "yarn build && release-it",
     "clean": "rimraf dist ",
-    "build": "tsup src/lib/index.ts  --format esm,cjs   --dts --treeshake",
+    "build": "tsup  --format esm,cjs   --dts --treeshake",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "build2": "tsc && vite build",

@@ -1,9 +1,8 @@
-import React, { PropsWithChildren } from "react";
-import { DashBoardTheme } from "../themes";
+import { DashBoardTheme } from "../themes/interface";
 import {
   Breakpoints,
-  ComponentMap,
   DefaultBreakpointType,
+  IDashboardAppPropsExtend,
   Layout,
 } from "../DashboardApp";
 
@@ -18,7 +17,7 @@ type ResponsiveForceFullScreen = DefaultBreakpointType<boolean> & {
   [property: string]: any;
 };
 
-export interface IDashboardAppResponsiveProps extends PropsWithChildren {
+export interface IDashboardAppResponsiveProps extends IDashboardAppPropsExtend {
   breakpoints?: Breakpoints;
   cols?: Breakpoints;
   rowHeight: number;
@@ -26,14 +25,4 @@ export interface IDashboardAppResponsiveProps extends PropsWithChildren {
   layouts?: Layouts;
   headerHeight?: ResponsiveHeaderHeight;
   forceFullScreen?: ResponsiveForceFullScreen;
-  itemMap: ComponentMap;
-  /**
-   * 外壳的className,优先级大于theme
-   */
-  className?: string;
-  /**
-   * 外壳的style,优先级大于theme
-   */
-  style?: React.CSSProperties;
-  itemProps?: Record<string, any>;
 }

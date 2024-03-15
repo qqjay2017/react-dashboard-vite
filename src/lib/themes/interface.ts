@@ -2,11 +2,17 @@
  * theme如何设计?
  */
 
+import { FC } from "react";
 import { IDashboardItemChldBaseProps } from "../DashboardItem";
 
 export type INodeContentRenderer<CustomeProps = Record<string, any>> = (
   props: IDashboardItemChldBaseProps & CustomeProps
 ) => React.ReactNode;
+
+export type TitleNodeRendererType = FC<{
+  matchBreak?: string;
+  children?: React.ReactNode | undefined;
+}>;
 export interface DashBoardTheme {
   themeName: string;
   /**
@@ -16,7 +22,7 @@ export interface DashBoardTheme {
   /**
    * 上面标题栏
    */
-  titleNodeRenderer?: any;
+  titleNodeRenderer?: TitleNodeRendererType;
 
   /**
    * 外壳的style

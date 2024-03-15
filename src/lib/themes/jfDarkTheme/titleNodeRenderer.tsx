@@ -1,10 +1,10 @@
-import React from "react";
 import "./titleNodeRenderer.less";
-import { cn, useDashboard } from "@/lib";
-export const TitleNodeRenderer = (props: any) => {
-  const { matchBreak } = useDashboard();
+import { TitleNodeRendererType } from "../interface";
+import { cn } from "@/lib";
 
-  return (
-    <div className={cn("titleNodeRenderer", matchBreak)}>titleNodeRenderer</div>
-  );
+export const TitleNodeRenderer: TitleNodeRendererType = ({
+  children,
+  matchBreak,
+}) => {
+  return <div className={cn("titleNodeRenderer", matchBreak)}>{children}</div>;
 };
