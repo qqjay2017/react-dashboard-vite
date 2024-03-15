@@ -11,3 +11,4 @@ export const jfDarkTheme: DashBoardTheme = {
     backgroundColor: "#052B54",
   },
 };
+export * from "../interface";

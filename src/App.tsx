@@ -8,7 +8,7 @@ import {
 import { DashboardAppResponsive } from "./lib";
 
 import "./base.css";
-import { jfDarkTheme } from "./lib/themes/jfDarkTheme";
+import { jfDarkTheme } from "./lib/themes/jfDarkTheme/jfDarkTheme";
 const App = () => {
   return (
     <DashboardAppResponsive

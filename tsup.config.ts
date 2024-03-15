@@ -16,7 +16,9 @@ const baseConfig: Options = {
 };
 
 const themes = ["jfDarkTheme", "jfLightTheme"];
-
+/**
+ * themes.map((fn) => `./src/lib/themes/${fn}/${fn}.ts`)
+ */
 export default defineConfig([
   {
     ...baseConfig,
@@ -25,7 +27,10 @@ export default defineConfig([
   },
   {
     ...baseConfig,
-    entry: themes.map((fn) => `./src/lib/themes/${fn}/index.ts`),
-    outDir: "themes",
+    entry: {
+      jfDarkTheme: "./src/lib/themes/jfDarkTheme/jfDarkTheme.ts",
+      jfLightTheme: "./src/lib/themes/jfLightTheme/jfLightTheme.ts",
+    },
+    outDir: "dist/themes",
   },
 ]);
