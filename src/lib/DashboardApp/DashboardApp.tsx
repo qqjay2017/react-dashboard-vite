@@ -5,7 +5,8 @@ import { computedMaxRow } from "./appUtil";
 import "./index.less";
 import { DesignerContextProvider } from "../context";
 import { Fragment } from "react/jsx-runtime";
-
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { useMemo } from "react";
 const TitleNode = ({
   theme,
   titleNodeChildRenderer,
@@ -45,7 +46,12 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     itemProps,
     minHeight = 861,
     titleNodeChildRenderer,
+    queryClient,
   } = props;
+  const finalQueryClient = useMemo(
+    () => queryClient || new QueryClient(),
+    [queryClient]
+  );
   const gridSize = {
     w: sizeFormat(width / col),
     h: sizeFormat(rowHeight),
@@ -54,78 +60,80 @@ export const DashboardApp = (props: IDashboardAppProps) => {
   const row = computedMaxRow(layout);
 
   return (
-    <DesignerContextProvider
-      config={{
-        itemProps,
-        forceFullScreen,
-        matchBreak,
-        gridSize,
-      }}
-    >
-      <div
-        className={cn(
-          "dashboardApp",
-
-          theme?.className ? `dashboardApp-${theme?.className}` : "",
-          className ? `dashboardApp-${className}` : "",
-          matchBreak
-        )}
-        style={{
-          ...style,
-          width,
-          paddingTop: headerHeight,
-          minHeight: minHeight,
-
-          height: forceFullScreen
-            ? "100vh"
-            : Math.max(
-                height || 0,
-                (row || 0) * (rowHeight || 0) + headerHeight
-              ),
+    <QueryClientProvider client={finalQueryClient}>
+      <DesignerContextProvider
+        config={{
+          itemProps,
+          forceFullScreen,
+          matchBreak,
+          gridSize,
         }}
       >
-        {Boolean(headerHeight && theme?.titleNodeRenderer) && (
-          <div
-            className={cn(
-              "titleNodeRendererWrap",
-              theme?.className
-                ? `titleNodeRendererWrap-${theme?.className}`
-                : "",
-              className ? `titleNodeRendererWrap-${className}` : "",
-              matchBreak
-            )}
-            style={{
-              height: headerHeight,
-            }}
-          >
-            <TitleNode
-              matchBreak={matchBreak}
-              theme={theme}
-              titleNodeChildRenderer={titleNodeChildRenderer}
-            />
-            {/* {theme.titleNodeRenderer({
+        <div
+          className={cn(
+            "dashboardApp",
+
+            theme?.className ? `dashboardApp-${theme?.className}` : "",
+            className ? `dashboardApp-${className}` : "",
+            matchBreak
+          )}
+          style={{
+            ...style,
+            width,
+            paddingTop: headerHeight,
+            minHeight: minHeight,
+
+            height: forceFullScreen
+              ? "100vh"
+              : Math.max(
+                  height || 0,
+                  (row || 0) * (rowHeight || 0) + headerHeight
+                ),
+          }}
+        >
+          {Boolean(headerHeight && theme?.titleNodeRenderer) && (
+            <div
+              className={cn(
+                "titleNodeRendererWrap",
+                theme?.className
+                  ? `titleNodeRendererWrap-${theme?.className}`
+                  : "",
+                className ? `titleNodeRendererWrap-${className}` : "",
+                matchBreak
+              )}
+              style={{
+                height: headerHeight,
+              }}
+            >
+              <TitleNode
+                matchBreak={matchBreak}
+                theme={theme}
+                titleNodeChildRenderer={titleNodeChildRenderer}
+              />
+              {/* {theme.titleNodeRenderer({
               matchBreak,
             })} */}
-          </div>
-        )}
-        {layout.map((l) => {
-          if (!itemMap[l.i || ""]) {
-            return null;
-          }
-          return (
-            <DashboardItem
-              {...l}
-              itemProps={itemProps}
-              theme={theme}
-              forceFullScreen={forceFullScreen}
-              Content={itemMap[l.i || ""]}
-              matchBreak={matchBreak}
-              gridSize={gridSize}
-              key={`DashboardItem-${l.i}`}
-            />
-          );
-        })}
-      </div>
-    </DesignerContextProvider>
+            </div>
+          )}
+          {layout.map((l) => {
+            if (!itemMap[l.i || ""]) {
+              return null;
+            }
+            return (
+              <DashboardItem
+                {...l}
+                itemProps={itemProps}
+                theme={theme}
+                forceFullScreen={forceFullScreen}
+                Content={itemMap[l.i || ""]}
+                matchBreak={matchBreak}
+                gridSize={gridSize}
+                key={`DashboardItem-${l.i}`}
+              />
+            );
+          })}
+        </div>
+      </DesignerContextProvider>
+    </QueryClientProvider>
   );
 };

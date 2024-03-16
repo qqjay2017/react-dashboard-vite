@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import { DashBoardTheme } from "../themes/interface";
 import { IDashboardItemProps } from "../DashboardItem";
+import { QueryClient } from "@tanstack/react-query";
 
 export type DefaultBreakpoints = "showroom" | "desktop" | "tablet" | "mobile";
 
@@ -45,4 +46,5 @@ export interface IDashboardAppPropsExtend extends PropsWithChildren {
   theme: DashBoardTheme;
   // rowHeight = 78px
   rowHeight?: number;
+  queryClient?: QueryClient;
 }
