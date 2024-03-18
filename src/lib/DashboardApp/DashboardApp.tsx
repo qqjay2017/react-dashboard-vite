@@ -49,7 +49,15 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     queryClient,
   } = props;
   const finalQueryClient = useMemo(
-    () => queryClient || new QueryClient(),
+    () =>
+      queryClient ||
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            retry: false,
+          },
+        },
+      }),
     [queryClient]
   );
   const gridSize = {
