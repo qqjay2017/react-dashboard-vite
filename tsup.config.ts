@@ -33,4 +33,11 @@ export default defineConfig([
     },
     outDir: "dist/themes",
   },
+  {
+    ...baseConfig,
+    entry: {
+      index: "./src/lib/scroll-area/index.ts",
+    },
+    outDir: "dist/scroll-area",
+  },
 ]);
