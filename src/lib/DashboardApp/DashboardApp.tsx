@@ -131,7 +131,9 @@ export const DashboardApp = (props: IDashboardAppProps) => {
                 Content={itemMap[l.i || ""]}
                 matchBreak={matchBreak}
                 gridSize={gridSize}
-                key={`DashboardItem-${l.i}`}
+                key={`DashboardItem-${l.i}-${
+                  rerenderOnChangeBreakPoint ? matchBreak : ""
+                }`}
               />
             );
           })}
