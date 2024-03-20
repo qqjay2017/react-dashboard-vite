@@ -123,12 +123,13 @@ export const DashboardApp = (props: IDashboardAppProps) => {
             })} */}
             </div>
           )}
-          {layout.map((l) => {
+          {layout.map((l, index) => {
             if (!itemMap[l.i || ""]) {
               return null;
             }
             return (
               <DashboardItem
+                zIndex={index + 3}
                 {...l}
                 itemProps={itemProps}
                 theme={theme}

@@ -25,6 +25,7 @@ export interface IDashboardItemProps extends PropsWithChildren {
   Content?: React.ElementType;
   className?: string;
   style?: React.CSSProperties;
+  zIndex?: number;
 }
 
 export interface IDashboardItemChldBaseProps extends PropsWithChildren {

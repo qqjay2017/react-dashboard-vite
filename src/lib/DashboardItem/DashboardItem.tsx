@@ -18,12 +18,14 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
     className,
     style,
     itemProps,
+    zIndex,
     ...rest
   } = props;
   const getStyle = () => {
     const s: React.CSSProperties = {
       ...style,
     };
+    s.zIndex = zIndex;
     s.width = sizeFormat(w * gridSize?.w);
     s.height = sizeFormat(h * gridSize?.h);
     s.transform = ` translate( ${sizeFormat(x * gridSize?.w)}px , ${sizeFormat(
