@@ -20,15 +20,16 @@
   touch-action: none;
   padding: 2px;
   background: transparent;
+  z-index: 99;
   // transition: background 160ms ease-out;
 }
 .ScrollAreaScrollbar:hover {
   background: transparent;
 }
-.ScrollAreaScrollbar[data-orientation='vertical'] {
+.ScrollAreaScrollbar[data-orientation="vertical"] {
   width: var(--scrollbar-size);
 }
-.ScrollAreaScrollbar[data-orientation='horizontal'] {
+.ScrollAreaScrollbar[data-orientation="horizontal"] {
   flex-direction: column;
   height: var(--scrollbar-size);
 }
@@ -41,7 +42,7 @@
 }
 
 .ScrollAreaThumb::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
