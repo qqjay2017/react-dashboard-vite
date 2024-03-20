@@ -47,4 +47,5 @@ export interface IDashboardAppPropsExtend extends PropsWithChildren {
   // rowHeight = 78px
   rowHeight?: number;
   queryClient?: QueryClient;
+  rerenderOnChangeBreakPoint?: boolean;
 }

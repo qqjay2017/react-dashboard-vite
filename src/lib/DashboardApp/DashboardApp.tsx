@@ -46,6 +46,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     minHeight = 861,
     titleNodeChildRenderer,
     queryClient,
+    rerenderOnChangeBreakPoint = true,
   } = props;
 
   const gridSize = {
@@ -66,6 +67,11 @@ export const DashboardApp = (props: IDashboardAppProps) => {
         }}
       >
         <div
+          key={
+            rerenderOnChangeBreakPoint
+              ? `wrapDivKey-${matchBreak}`
+              : `wrapDivKey`
+          }
           className={cn(
             "dashboardApp",
 
