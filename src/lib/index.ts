@@ -5,3 +5,4 @@ export * from "./DashboardItem";
 export * from "./utils";
 export * from "./hooks";
 export * from "./scroll-area";
+export * from "./context/QueryClientProvider";

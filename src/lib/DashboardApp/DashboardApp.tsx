@@ -1,12 +1,11 @@
 import { IDashboardAppProps } from "./interface";
-import { DashboardItem, cn } from "..";
+import { DashboardItem, QueryClientProvider, cn } from "..";
 import { sizeFormat } from "../utils/sizeFormat";
 import { computedMaxRow } from "./appUtil";
 import "./index.less";
 import { DesignerContextProvider } from "../context";
 import { Fragment } from "react/jsx-runtime";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { useMemo } from "react";
+
 const TitleNode = ({
   theme,
   titleNodeChildRenderer,
@@ -48,18 +47,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     titleNodeChildRenderer,
     queryClient,
   } = props;
-  const finalQueryClient = useMemo(
-    () =>
-      queryClient ||
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            retry: false,
-          },
-        },
-      }),
-    [queryClient]
-  );
+
   const gridSize = {
     w: sizeFormat(width / col),
     h: sizeFormat(rowHeight),
@@ -68,7 +56,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
   const row = computedMaxRow(layout);
 
   return (
-    <QueryClientProvider client={finalQueryClient}>
+    <QueryClientProvider queryClient={queryClient}>
       <DesignerContextProvider
         config={{
           itemProps,

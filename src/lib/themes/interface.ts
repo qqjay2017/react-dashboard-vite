@@ -9,10 +9,12 @@ export type INodeContentRenderer<CustomeProps = Record<string, any>> = (
   props: IDashboardItemChldBaseProps & CustomeProps
 ) => React.ReactNode;
 
-export type TitleNodeRendererType = FC<{
-  matchBreak?: string;
-  children?: React.ReactNode | undefined;
-}>;
+export type TitleNodeRendererType<T = Record<string, any>> = FC<
+  {
+    matchBreak?: string;
+    children?: React.ReactNode | undefined;
+  } & T
+>;
 export interface DashBoardTheme {
   themeName: string;
   /**
