@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import * as SelectPrimitive from "@radix-ui/react-select";
-
+import { ChevronUpIcon } from "@radix-ui/react-icons";
 import "./select.less";
 import { cn } from "../utils";
 const Select = SelectPrimitive.Root;
@@ -29,7 +29,7 @@ const SelectContent = React.forwardRef<
       ref={ref}
       className={cn(
         "SelectContent",
-        position === "popper" && props.sideOffset && "SelectContentPopper",
+        position === "popper" && "SelectContentPopper",
         className
       )}
       position={position}
@@ -45,6 +45,9 @@ const SelectContent = React.forwardRef<
       >
         {children}
       </SelectPrimitive.Viewport>
+      <SelectPrimitive.ScrollDownButton className="SelectScrollButton">
+        <ChevronUpIcon />
+      </SelectPrimitive.ScrollDownButton>
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
 ));
