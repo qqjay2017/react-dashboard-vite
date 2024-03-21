@@ -25,7 +25,7 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
     itemProps,
     minHeight = 861,
     titleNodeChildRenderer,
-    rerenderOnChangeBreakPoint = true,
+    rerenderOnChangeBreakPoint = false,
     ...rest
   } = props;
   const { ref, width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({});

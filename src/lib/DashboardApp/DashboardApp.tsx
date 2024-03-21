@@ -4,7 +4,7 @@ import { sizeFormat } from "../utils/sizeFormat";
 import { computedMaxRow } from "./appUtil";
 import "./index.less";
 import { DesignerContextProvider } from "../context";
-import { Fragment } from "react/jsx-runtime";
+import { Fragment } from "react";
 
 const TitleNode = ({
   theme,
@@ -46,7 +46,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     minHeight = 861,
     titleNodeChildRenderer,
     queryClient,
-    rerenderOnChangeBreakPoint = true,
+    rerenderOnChangeBreakPoint = false,
   } = props;
 
   const gridSize = {
