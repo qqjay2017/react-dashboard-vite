@@ -27,17 +27,17 @@
   background: transparent;
 }
 .ScrollAreaScrollbar[data-orientation="vertical"] {
-  width: var(--scrollbar-size);
+  width: var(--scrollbar-size, 10px);
 }
 .ScrollAreaScrollbar[data-orientation="horizontal"] {
   flex-direction: column;
-  height: var(--scrollbar-size);
+  height: var(--scrollbar-size, 10px);
 }
 
 .ScrollAreaThumb {
   flex: 1;
-  background: var(--thumb-color);
-  border-radius: var(--scrollbar-size);
+  background: var(--thumb-color, rgba(59, 120, 239, 0.5));
+  border-radius: var(--scrollbar-size, 10px);
   position: relative;
 }
 

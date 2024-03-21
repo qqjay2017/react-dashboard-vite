@@ -29,7 +29,7 @@ const SelectContent = React.forwardRef<
       ref={ref}
       className={cn(
         "SelectContent",
-        position === "popper" && "SelectContentPopper",
+        position === "popper" && props.sideOffset && "SelectContentPopper",
         className
       )}
       position={position}
