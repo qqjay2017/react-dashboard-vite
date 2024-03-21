@@ -33,11 +33,13 @@ export default defineConfig([
     },
     outDir: "dist/themes",
   },
-  {
-    ...baseConfig,
-    entry: {
-      index: "./src/lib/scroll-area/index.ts",
-    },
-    outDir: "dist/scroll-area",
-  },
+  ...["scroll-area", "select"].map((component) => {
+    return {
+      ...baseConfig,
+      entry: {
+        index: `./src/lib/${component}/index.ts`,
+      },
+      outDir: `dist/${component}`,
+    };
+  }),
 ]);
