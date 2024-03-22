@@ -1,5 +1,5 @@
 import React, { Fragment, memo, useEffect } from "react";
-import { IDashboardItemChldBaseProps, useDashboard } from "./lib";
+import { IDashboardItemChldBaseProps, SkeletonKit, useDashboard } from "./lib";
 
 export const TestChildA = (props: IDashboardItemChldBaseProps) => {
   const { theme } = props;
@@ -18,7 +18,11 @@ const TestChildMemo = memo(() => {
   useEffect(() => {
     console.log("TestChildMemo effct");
   }, []);
-  return <h1>123</h1>;
+  return (
+    <SkeletonKit loading={true}>
+      <div>123</div>
+    </SkeletonKit>
+  );
 });
 
 export const TestChildC1 = (props: IDashboardItemChldBaseProps) => {

@@ -7,3 +7,5 @@ export * from "./hooks";
 export * from "./scroll-area";
 export * from "./select";
 export * from "./context/QueryClientProvider";
+
+export * from "./skeleton";
