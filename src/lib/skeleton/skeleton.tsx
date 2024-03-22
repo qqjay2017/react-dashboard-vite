@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import "./skeleton.less";
-import { PropsWithChildren } from "react";
+import { FC, PropsWithChildren } from "react";
 function Skeleton({
   className,
   ...props
@@ -21,10 +21,10 @@ const SkeletonRoundFull = () => {
   return <Skeleton className="rounded-full" />;
 };
 
-const SkeletonKit = ({
+const SkeletonKit: FC<PropsWithChildren<{ loading?: boolean }>> = ({
   children,
   loading = false,
-}: PropsWithChildren<{ loading?: boolean }>) => {
+}) => {
   if (!loading) {
     return children;
   }
