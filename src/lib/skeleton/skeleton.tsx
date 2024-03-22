@@ -23,7 +23,7 @@ const SkeletonRoundFull = () => {
 
 const SkeletonKit: FC<PropsWithChildren<{ loading?: boolean }>> = ({
   children,
-  loading = false,
+  loading = true,
 }) => {
   if (!loading) {
     return children;
