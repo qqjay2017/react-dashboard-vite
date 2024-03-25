@@ -1,3 +1,4 @@
+import "./globals.css";
 export * from "./DashboardAppResponsive";
 export * from "./DashboardApp";
 export * from "./DashboardItem";
@@ -9,3 +10,5 @@ export * from "./select";
 export * from "./context/QueryClientProvider";
 
 export * from "./skeleton";
+export * from "./badge";
+export * from "./tabs";

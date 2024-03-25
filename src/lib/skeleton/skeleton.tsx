@@ -6,14 +6,7 @@ function Skeleton({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      className={cn(
-        "Skeleton",
-        "animate-pulse rounded-md bg-primary/10",
-        className
-      )}
-      {...props}
-    />
+    <div className={cn("Skeleton", "animate-pulse", className)} {...props} />
   );
 }
 
@@ -21,11 +14,17 @@ const SkeletonRoundFull = () => {
   return <Skeleton className="rounded-full" />;
 };
 
-const SkeletonKit: FC<PropsWithChildren<{ loading?: boolean }>> = ({
-  children,
-  loading = true,
-}) => {
+const SkeletonKit: FC<
+  PropsWithChildren<{ loading?: boolean; isEmpty?: boolean }>
+> = ({ children, loading = true, isEmpty = false }) => {
   if (!loading) {
+    if (isEmpty) {
+      return (
+        <div className="SkeletonKitFlexWrap">
+          <span className="SkeletonKitEmptySpan">暂无数据</span>
+        </div>
+      );
+    }
     return children;
   }
   return (

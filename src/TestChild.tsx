@@ -1,5 +1,14 @@
 import React, { Fragment, memo, useEffect } from "react";
-import { IDashboardItemChldBaseProps, SkeletonKit, useDashboard } from "./lib";
+import {
+  Badge,
+  IDashboardItemChldBaseProps,
+  SkeletonKit,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  useDashboard,
+} from "./lib";
 
 export const TestChildA = (props: IDashboardItemChldBaseProps) => {
   const { theme } = props;
@@ -19,8 +28,23 @@ const TestChildMemo = memo(() => {
     console.log("TestChildMemo effct");
   }, []);
   return (
-    <SkeletonKit loading={true}>
-      <div>123</div>
+    <SkeletonKit loading={false} isEmpty={false}>
+      <div>
+        <Tabs
+          defaultValue="bim"
+          onValueChange={(e) => {
+            console.log(e, "eee");
+          }}
+        >
+          <TabsList>
+            <TabsTrigger value="bim">模型</TabsTrigger>
+            <TabsTrigger value="video">视频</TabsTrigger>
+            <TabsTrigger value="video1" disabled>
+              禁用
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
     </SkeletonKit>
   );
 });

@@ -36,12 +36,7 @@ const SelectContent = React.forwardRef<
       {...props}
     >
       <SelectPrimitive.Viewport
-        className={cn(
-          "SelectViewport",
-          "p-1",
-          position === "popper" &&
-            "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"
-        )}
+        className={cn("SelectViewport", position === "popper" && " w-full ")}
       >
         {children}
       </SelectPrimitive.Viewport>
@@ -59,11 +54,7 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn(
-      "SelectLabel",
-      "px-2 py-1.5 text-sm font-semibold",
-      className
-    )}
+    className={cn("SelectLabel", className)}
     {...props}
   />
 ));
@@ -94,7 +85,7 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
-    className={cn("SelectSeparator", "-mx-1 my-1 h-px bg-muted", className)}
+    className={cn("SelectSeparator", className)}
     {...props}
   />
 ));
