@@ -1,7 +1,7 @@
 import { IDashboardAppProps } from "./interface";
 import { DashboardItem, QueryClientProvider, cn } from "..";
 import { sizeFormat } from "../utils/sizeFormat";
-import { computedMaxRow } from "./appUtil";
+
 import "./index.less";
 import { DesignerContextProvider } from "../context";
 import { Fragment } from "react";
