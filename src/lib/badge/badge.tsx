@@ -25,6 +25,9 @@ const badgeVariants = cva(
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {
+  /**
+   * hex值
+   */
   color?: string;
 }
 
@@ -34,6 +37,20 @@ function Badge({
   color = "#F4A52E",
   ...props
 }: BadgeProps) {
+  const backgroundColorMemo = React.useMemo(() => {
+    if (!color) {
+      return "";
+    }
+    try {
+      return `${hexRgb(color, {
+        alpha: 0.4,
+        format: "css",
+      })}`;
+    } catch (error) {
+      return "";
+    }
+  }, [color]);
+
   return (
     <div
       className={cn(
@@ -44,10 +61,7 @@ function Badge({
       {...props}
       style={{
         color: color,
-        backgroundColor: `${hexRgb(color, {
-          alpha: 0.4,
-          format: "css",
-        })}`,
+        backgroundColor: backgroundColorMemo,
       }}
     />
   );

@@ -8,6 +8,7 @@ import { getBreakpointFromWidth } from "./responsiveUtils";
 import { DashboardApp } from "../DashboardApp";
 import React from "react";
 import { sizeFormat } from "../utils/sizeFormat";
+import { computedMaxRow } from "../DashboardApp/appUtil";
 
 export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   const {
@@ -31,10 +32,21 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   const { ref, width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({});
 
   const matchBreak = getBreakpointFromWidth(breakpoints, width);
-  const matchCol = matchBreak ? cols[matchBreak] : 0;
+  const matchCol = matchBreak ? cols[matchBreak] : 12;
   const matchLayout = matchBreak ? layouts[matchBreak] : [];
   const matchHeaderHeight = matchBreak ? headerHeight[matchBreak] : 0;
   const matchForceFullScreen = matchBreak ? forceFullScreen[matchBreak] : false;
+  const matchRowHeight = matchForceFullScreen
+    ? sizeFormat((height - matchHeaderHeight) / matchCol)
+    : rowHeight;
+  const maxRow = computedMaxRow(matchLayout);
+  console.log(maxRow, "maxRow");
+  const matchHeight = matchForceFullScreen
+    ? "100vh"
+    : Math.max(
+        height,
+        (maxRow || 0) * (matchRowHeight || 0) + matchHeaderHeight
+      );
 
   const getStyle = () => {
     const s: React.CSSProperties = {
@@ -45,6 +57,8 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
       s.height = "100vh";
       s.minHeight = minHeight;
       s.maxHeight = "100vh";
+    } else {
+      s.height = matchHeight;
     }
 
     return s;
@@ -68,12 +82,8 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
         layout={matchLayout}
         theme={theme}
         width={width}
-        rowHeight={
-          matchForceFullScreen
-            ? sizeFormat((height - matchHeaderHeight) / matchCol)
-            : rowHeight
-        }
-        height={height}
+        rowHeight={matchRowHeight}
+        height={matchHeight}
         headerHeight={matchHeaderHeight}
         matchBreak={matchBreak}
         forceFullScreen={matchForceFullScreen}

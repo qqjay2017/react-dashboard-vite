@@ -4,16 +4,15 @@ import { Badge } from "../lib";
 const meta: Meta<typeof Badge> = {
   title: "Components/Badge",
   component: Badge,
-  // ...
+  tags: ["autodocs"],
 };
 
 export default meta;
-// type Story = StoryObj<Badge>;
+type Story = StoryObj<typeof meta>;
 
-// export const Primary: Story = {
-//   args: {
-//     primary: true,
-//     label: "Click",
-//     background: "red",
-//   },
-// };
+export const Primary: Story = {
+  args: {
+    color: "#1677FF",
+    children: "徽章",
+  },
+};

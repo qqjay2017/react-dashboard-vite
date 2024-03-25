@@ -27,7 +27,7 @@ export interface IDashboardAppProps extends IDashboardAppPropsExtend {
   theme: DashBoardTheme;
   layout?: Layout[];
   width?: number;
-  height?: number;
+  height?: number | string;
   headerHeight?: number;
   matchBreak?: string;
   forceFullScreen?: boolean;

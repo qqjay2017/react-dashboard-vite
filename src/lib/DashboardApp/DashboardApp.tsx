@@ -30,11 +30,11 @@ const TitleNode = ({
 
 export const DashboardApp = (props: IDashboardAppProps) => {
   const {
-    col = 0,
+    col = 12,
     layout = [],
     theme,
     width = 0,
-    height = 0,
+
     rowHeight = 78,
     headerHeight = 0,
     matchBreak = "",
@@ -43,6 +43,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     className,
     style,
     itemProps,
+    height,
     minHeight = 861,
     titleNodeChildRenderer,
     queryClient,
@@ -53,8 +54,6 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     w: sizeFormat(width / col),
     h: sizeFormat(rowHeight),
   };
-
-  const row = computedMaxRow(layout);
 
   return (
     <QueryClientProvider queryClient={queryClient}>
@@ -85,12 +84,7 @@ export const DashboardApp = (props: IDashboardAppProps) => {
             paddingTop: headerHeight,
             minHeight: minHeight,
 
-            height: forceFullScreen
-              ? "100vh"
-              : Math.max(
-                  height || 0,
-                  (row || 0) * (rowHeight || 0) + headerHeight
-                ),
+            height: height,
           }}
         >
           {Boolean(headerHeight && theme?.titleNodeRenderer) && (
