@@ -33,7 +33,15 @@ export default defineConfig([
     },
     outDir: "dist/themes",
   },
-  ...["scroll-area", "select", "skeleton", "badge", "tabs"].map((component) => {
+  ...[
+    "scroll-area",
+    "select",
+    "skeleton",
+    "badge",
+    "tabs",
+    "carousel",
+    "button",
+  ].map((component) => {
     return {
       ...baseConfig,
       entry: {

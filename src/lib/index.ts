@@ -12,3 +12,6 @@ export * from "./context/QueryClientProvider";
 export * from "./skeleton";
 export * from "./badge";
 export * from "./tabs";
+
+export * from "./button";
+export * from "./carousel";
