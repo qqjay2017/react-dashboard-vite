@@ -56,83 +56,79 @@ export const DashboardApp = (props: IDashboardAppProps) => {
   };
 
   return (
-    <QueryClientProvider queryClient={queryClient}>
-      <DesignerContextProvider
-        config={{
-          itemProps,
-          forceFullScreen,
-          matchBreak,
-          gridSize,
+    <DesignerContextProvider
+      config={{
+        itemProps,
+        forceFullScreen,
+        matchBreak,
+        gridSize,
+      }}
+    >
+      <div
+        key={
+          rerenderOnChangeBreakPoint ? `wrapDivKey-${matchBreak}` : `wrapDivKey`
+        }
+        className={cn(
+          "dashboardApp",
+
+          theme?.className ? `dashboardApp-${theme?.className}` : "",
+          className ? `dashboardApp-${className}` : "",
+          matchBreak
+        )}
+        style={{
+          ...style,
+          width,
+          paddingTop: headerHeight,
+          minHeight: minHeight,
+
+          height: height,
         }}
       >
-        <div
-          key={
-            rerenderOnChangeBreakPoint
-              ? `wrapDivKey-${matchBreak}`
-              : `wrapDivKey`
-          }
-          className={cn(
-            "dashboardApp",
-
-            theme?.className ? `dashboardApp-${theme?.className}` : "",
-            className ? `dashboardApp-${className}` : "",
-            matchBreak
-          )}
-          style={{
-            ...style,
-            width,
-            paddingTop: headerHeight,
-            minHeight: minHeight,
-
-            height: height,
-          }}
-        >
-          {Boolean(headerHeight && theme?.titleNodeRenderer) && (
-            <div
-              className={cn(
-                "titleNodeRendererWrap",
-                theme?.className
-                  ? `titleNodeRendererWrap-${theme?.className}`
-                  : "",
-                className ? `titleNodeRendererWrap-${className}` : "",
-                matchBreak
-              )}
-              style={{
-                height: headerHeight,
-              }}
-            >
-              <TitleNode
-                matchBreak={matchBreak}
-                theme={theme}
-                titleNodeChildRenderer={titleNodeChildRenderer}
-              />
-              {/* {theme.titleNodeRenderer({
+        {Boolean(headerHeight && theme?.titleNodeRenderer) && (
+          <div
+            className={cn(
+              "titleNodeRendererWrap",
+              theme?.className
+                ? `titleNodeRendererWrap-${theme?.className}`
+                : "",
+              className ? `titleNodeRendererWrap-${className}` : "",
+              matchBreak
+            )}
+            style={{
+              height: headerHeight,
+            }}
+          >
+            <TitleNode
+              matchBreak={matchBreak}
+              theme={theme}
+              titleNodeChildRenderer={titleNodeChildRenderer}
+            />
+            {/* {theme.titleNodeRenderer({
               matchBreak,
             })} */}
-            </div>
-          )}
-          {layout.map((l, index) => {
-            if (!itemMap[l.i || ""]) {
-              return null;
-            }
-            return (
-              <DashboardItem
-                zIndex={index + 3}
-                {...l}
-                itemProps={itemProps}
-                theme={theme}
-                forceFullScreen={forceFullScreen}
-                Content={itemMap[l.i || ""]}
-                matchBreak={matchBreak}
-                gridSize={gridSize}
-                key={`DashboardItem-${l.i}-${
-                  rerenderOnChangeBreakPoint ? matchBreak : ""
-                }`}
-              />
-            );
-          })}
-        </div>
-      </DesignerContextProvider>
-    </QueryClientProvider>
+          </div>
+        )}
+        {layout.map((l, index) => {
+          if (!itemMap[l.i || ""]) {
+            return null;
+          }
+          return (
+            <DashboardItem
+              zIndex={index + 3}
+              {...l}
+              itemProps={itemProps}
+              theme={theme}
+              forceFullScreen={forceFullScreen}
+              Content={itemMap[l.i || ""]}
+              matchBreak={matchBreak}
+              gridSize={gridSize}
+              key={`DashboardItem-${l.i}-${
+                rerenderOnChangeBreakPoint ? matchBreak : ""
+              }`}
+            />
+          );
+        })}
+      </div>
+    </DesignerContextProvider>
   );
 };

@@ -9,6 +9,7 @@ import { DashboardApp } from "../DashboardApp";
 import React from "react";
 import { sizeFormat } from "../utils/sizeFormat";
 import { computedMaxRow } from "../DashboardApp/appUtil";
+import { QueryClientProvider } from "..";
 
 export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   const {
@@ -67,35 +68,37 @@ export const DashboardAppResponsive = (props: IDashboardAppResponsiveProps) => {
   //   console.log(child, "child");
   // });
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "dashboardAppResponsive",
-        theme?.className,
-        className,
-        matchBreak
-      )}
-      style={getStyle()}
-    >
-      <DashboardApp
-        col={matchCol}
-        layout={matchLayout}
-        theme={theme}
-        width={width}
-        rowHeight={matchRowHeight}
-        height={matchHeight}
-        headerHeight={matchHeaderHeight}
-        matchBreak={matchBreak}
-        forceFullScreen={matchForceFullScreen}
-        itemProps={itemProps}
-        itemMap={itemMap}
-        minHeight={minHeight}
-        titleNodeChildRenderer={titleNodeChildRenderer}
-        rerenderOnChangeBreakPoint={rerenderOnChangeBreakPoint}
-        {...rest}
+    <QueryClientProvider>
+      <div
+        ref={ref}
+        className={cn(
+          "dashboardAppResponsive",
+          theme?.className,
+          className,
+          matchBreak
+        )}
+        style={getStyle()}
       >
-        {children}
-      </DashboardApp>
-    </div>
+        <DashboardApp
+          col={matchCol}
+          layout={matchLayout}
+          theme={theme}
+          width={width}
+          rowHeight={matchRowHeight}
+          height={matchHeight}
+          headerHeight={matchHeaderHeight}
+          matchBreak={matchBreak}
+          forceFullScreen={matchForceFullScreen}
+          itemProps={itemProps}
+          itemMap={itemMap}
+          minHeight={minHeight}
+          titleNodeChildRenderer={titleNodeChildRenderer}
+          rerenderOnChangeBreakPoint={rerenderOnChangeBreakPoint}
+          {...rest}
+        >
+          {children}
+        </DashboardApp>
+      </div>
+    </QueryClientProvider>
   );
 };
