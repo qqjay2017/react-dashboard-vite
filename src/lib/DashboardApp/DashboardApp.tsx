@@ -1,5 +1,5 @@
 import { IDashboardAppProps } from "./interface";
-import { DashboardItem, QueryClientProvider, cn } from "..";
+import { DashboardItem, cn } from "..";
 import { sizeFormat } from "../utils/sizeFormat";
 
 import "./index.less";
@@ -46,7 +46,6 @@ export const DashboardApp = (props: IDashboardAppProps) => {
     height,
     minHeight = 861,
     titleNodeChildRenderer,
-    queryClient,
     rerenderOnChangeBreakPoint = false,
   } = props;
 
