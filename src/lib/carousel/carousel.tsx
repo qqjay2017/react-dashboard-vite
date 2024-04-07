@@ -139,6 +139,10 @@ const Carousel = React.forwardRef<
           role="region"
           aria-roledescription="carousel"
           {...props}
+          style={{
+            width: `calc( 100% - 6rem )`,
+            ...props.style,
+          }}
         >
           {children}
         </div>
