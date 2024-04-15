@@ -41,3 +41,32 @@ function DeepChild() {
 通过这个过程，`responsiveFontSizes` 函数能够根据窗口宽度自动调整字体大小，以适应不同的屏幕尺寸和设备。
 
 ```
+
+1. 主题
+
+入参
+
+```
+ <DashboardAppResponsive
+      theme={{
+        main: "mediumseagreen",
+      }}
+```
+
+使用方式
+
+```
+
+方式1
+const theme = useTheme();
+方式2
+    const theme1 = useContext(ThemeContext);
+
+方式3
+export const TestChildC5 = withTheme((props: PropsWithTheme) => {
+  console.log(props.theme, "them");
+  return <div>123</div>;
+});
+
+
+```

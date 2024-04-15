@@ -4,6 +4,7 @@
 
 import { FC } from "react";
 import { IDashboardItemChldBaseProps } from "../DashboardItem";
+import { CoreDashboardAppResponsiveProps } from "../DashboardAppResponsive";
 
 export type INodeContentRenderer<CustomeProps = Record<string, any>> = (
   props: IDashboardItemChldBaseProps & CustomeProps
@@ -15,7 +16,7 @@ export type TitleNodeRendererType<T = Record<string, any>> = FC<
     children?: React.ReactNode | undefined;
   } & T
 >;
-export interface DashBoardTheme {
+export interface DashBoardTheme extends CoreDashboardAppResponsiveProps {
   themeName: string;
   /**
    * 节点通用的nodeContentRenderer

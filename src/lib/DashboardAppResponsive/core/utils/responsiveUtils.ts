@@ -1,4 +1,4 @@
-import { Breakpoint, Breakpoints } from "../DashboardApp";
+import { Breakpoint, Breakpoints } from "../../../DashboardApp";
 
 export function sortBreakpoints(breakpoints: Breakpoints): Array<Breakpoint> {
   const keys: Array<string> = Object.keys(breakpoints);

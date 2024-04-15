@@ -1,13 +1,17 @@
-import React, { Fragment, memo, useEffect } from "react";
+import React, { Fragment, memo, useContext, useEffect } from "react";
 import {
   Badge,
   IDashboardItemChldBaseProps,
+  PropsWithTheme,
   SkeletonKit,
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
+  ThemeContext,
   useDashboard,
+  useTheme,
+  withTheme,
 } from "./lib";
 
 export const TestChildA = (props: IDashboardItemChldBaseProps) => {
@@ -97,3 +101,15 @@ export const TestChildC3 = (props: IDashboardItemChldBaseProps) => {
     ></WrapCom>
   );
 };
+
+export const TestChildC4 = () => {
+  const theme = useTheme();
+  const theme1 = useContext(ThemeContext);
+  console.log(theme, theme1, "them");
+  return <div>123</div>;
+};
+
+export const TestChildC5 = withTheme((props: PropsWithTheme) => {
+  console.log(props.theme, "them");
+  return <div>123</div>;
+});
