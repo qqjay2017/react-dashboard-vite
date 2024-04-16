@@ -9,6 +9,7 @@ import {
   TabsList,
   TabsTrigger,
   ThemeContext,
+  useBreakpointContext,
   useDashboard,
   useTheme,
   withTheme,
@@ -104,9 +105,10 @@ export const TestChildC3 = (props: IDashboardItemChldBaseProps) => {
 
 export const TestChildC4 = () => {
   const theme = useTheme();
+  const { breakpoint } = useBreakpointContext();
   const theme1 = useContext(ThemeContext);
   console.log(theme, theme1, "them");
-  return <div>123</div>;
+  return <div>{breakpoint}</div>;
 };
 
 export const TestChildC5 = withTheme((props: PropsWithTheme) => {

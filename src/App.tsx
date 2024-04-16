@@ -14,8 +14,33 @@ import { jfDarkTheme } from "./lib/themes/jfDarkTheme/jfDarkTheme";
 const App = () => {
   return (
     <DashboardAppResponsive
+      cols={12}
       theme={{
         main: "mediumseagreen",
+      }}
+      resource={{
+        A1: TestChildC4,
+        B1: <TestChildC5 />,
+      }}
+      layout={({ breakpoint }) => {
+        console.log(breakpoint, "layout ");
+        return [
+          {
+            i: "A1",
+            w: 3,
+            h: 12,
+            x: 0,
+            y: 0,
+          },
+          {
+            i: "B1",
+            w: 6,
+            h: 12,
+            x: 3,
+            y: 0,
+            padding: "20px",
+          },
+        ];
       }}
       // style={{}}
       // theme={jfDarkTheme}
@@ -196,10 +221,7 @@ const App = () => {
       //   console.log(props, "props");
       //   return <div>124</div>;
       // }}
-    >
-      <TestChildC4 />
-      <TestChildC5 />
-    </DashboardAppResponsive>
+    ></DashboardAppResponsive>
   );
 };
 

@@ -9,6 +9,8 @@ import {
   ThemeContextProviderProps,
 } from "../context/ThemeContextProvider";
 import { ComponentContextProvider } from "../context/ComponentContextProvider";
+import { ResourceDefinitionContextProvider } from "../context/ResourceDefinitionContextProvider";
+import { ResourceOptions, ValueOrFunValue } from "./type";
 
 export interface CoreContextProps
   extends PropsWithChildren,
@@ -21,19 +23,31 @@ export const CoreContext = ({
   theme,
   title,
   containerWrapper,
+  layout = [],
+  resource = {},
+  cols,
+  headerHeight,
 }: CoreContextProps) => {
   return (
     <QueryClientProvider>
-      <BreakpointContextProvider breakpoints={breakpoints}>
-        <ThemeContextProvider theme={theme}>
-          <ComponentContextProvider
-            title={title}
-            containerWrapper={containerWrapper}
-          >
-            {children}
-          </ComponentContextProvider>
-        </ThemeContextProvider>
-      </BreakpointContextProvider>
+      <ResourceDefinitionContextProvider>
+        <BreakpointContextProvider
+          breakpoints={breakpoints}
+          layout={layout}
+          resource={resource}
+          cols={cols}
+          headerHeight={headerHeight}
+        >
+          <ThemeContextProvider theme={theme}>
+            <ComponentContextProvider
+              title={title}
+              containerWrapper={containerWrapper}
+            >
+              {children}
+            </ComponentContextProvider>
+          </ThemeContextProvider>
+        </BreakpointContextProvider>
+      </ResourceDefinitionContextProvider>
     </QueryClientProvider>
   );
 };
