@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import { BreakpointContext } from "./BreakpointContext";
 import { useBreakpoints } from "../core/hooks/useBreakpoints";
 import {
@@ -7,8 +7,9 @@ import {
   ResourceOptions,
   ValueOrFunValue,
 } from "../core/type";
-import { computedMaxRow } from "@/lib/DashboardApp/appUtil";
+import { computedMaxRow } from "@/lib/DashboardAppResponsive/core/utils/appUtil";
 import { sizeFormat } from "@/lib/utils/sizeFormat";
+import { useRegisterResources } from "../core/hooks/useRegisterResources";
 
 export interface BreakpointContextProviderProps extends PropsWithChildren {
   breakpoints?: Breakpoints;
@@ -18,6 +19,8 @@ export interface BreakpointContextProviderProps extends PropsWithChildren {
   headerHeight?: ValueOrFunValue<number>;
   forceFullScreen?: ValueOrFunValue<boolean>;
   rowHeight?: ValueOrFunValue<number>;
+  wrapperStyle?: React.CSSProperties;
+  wrapperProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export const BreakpointContextProvider = ({
@@ -30,6 +33,8 @@ export const BreakpointContextProvider = ({
   headerHeight: headerHeightParam = 0,
   forceFullScreen: forceFullScreenParam = true,
   rowHeight: rowHeightParam = 78,
+  wrapperStyle,
+  wrapperProps,
 }: BreakpointContextProviderProps) => {
   const { ref, breakpoint, width, height } = useBreakpoints(breakpoints);
 
@@ -51,33 +56,39 @@ export const BreakpointContextProvider = ({
     typeof headerHeightParam === "function"
       ? headerHeightParam({ breakpoint })
       : headerHeightParam;
-
+  //
   const rowHeight = forceFullScreen
     ? sizeFormat((height - headerHeight) / cols)
     : typeof rowHeightParam === "function"
       ? rowHeightParam({ breakpoint })
       : rowHeightParam;
 
-  console.log(height, headerHeight, "headerHeight");
+  const colWidth = cols ? sizeFormat(width / cols) : 0;
 
-  console.log(layout, rows, cols, rowHeight, "breakpoint");
+  // useRegisterResources(layout, resource);
   return (
     <div
+      {...wrapperProps}
       ref={ref}
       style={{
         width: "100%",
-        height: "100%",
+        height: forceFullScreen
+          ? "100vh"
+          : `${sizeFormat(rows * rowHeight + headerHeight)}px`,
         position: "relative",
+        ...wrapperStyle,
       }}
     >
       <BreakpointContext.Provider
         value={{
+          layout,
           cols,
           rows,
           breakpoint: breakpoint,
           headerHeight,
           forceFullScreen,
           rowHeight,
+          colWidth,
         }}
       >
         {children}

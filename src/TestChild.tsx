@@ -108,10 +108,10 @@ export const TestChildC4 = () => {
   const { breakpoint } = useBreakpointContext();
   const theme1 = useContext(ThemeContext);
   console.log(theme, theme1, "them");
-  return <div>{breakpoint}</div>;
+  return <div>{breakpoint}TestChildC4</div>;
 };
 
 export const TestChildC5 = withTheme((props: PropsWithTheme) => {
   console.log(props.theme, "them");
-  return <div>123</div>;
+  return <div>12TestChildC53</div>;
 });

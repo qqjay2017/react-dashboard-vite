@@ -1,28 +1,14 @@
 import React, { PropsWithChildren } from "react";
 import { DashBoardTheme } from "../themes/interface";
+import { ResourceOptions } from "../DashboardAppResponsive/core/type";
 
-export interface IDashboardItemProps extends PropsWithChildren {
-  i: string;
-  matchBreak?: string;
-  theme?: DashBoardTheme;
-  w: number;
-  h: number;
-  x: number;
-  y: number;
+export interface IDashboardItemProps extends ResourceOptions {
   minW?: number;
   maxW?: number;
   minH?: number;
   maxH?: number;
-  padding?: number | string;
-  itemProps?: Record<string, any>;
-  forceFullScreen?: boolean;
-  gridSize: {
-    w: number;
-    h: number;
-  };
-  // 预留字段
-  itemType?: any;
-  Content?: React.ElementType;
+  matchBreak?: string;
+
   className?: string;
   style?: React.CSSProperties;
   zIndex?: number;

@@ -19,18 +19,18 @@ export const ResourceDefinitionContextProvider = ({
   // 往definitions 里面加一个
   const register = useCallback((config: ResourceDefinition) => {
     setState((prev) =>
-      isEqual(prev[config.id], config)
+      isEqual(prev[config.i], config)
         ? prev
         : {
             ...prev,
-            [config.id]: config,
+            [config.i]: config,
           }
     );
   }, []);
   // 移除一个
   const unregister = useCallback((config: ResourceDefinition) => {
     setState((prev) => {
-      const { [config.id]: _, ...rest } = prev;
+      const { [config.i]: _, ...rest } = prev;
       return rest;
     });
   }, []);

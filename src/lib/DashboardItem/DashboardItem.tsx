@@ -12,13 +12,13 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
     x = 0,
     y = 0,
     padding = "12px",
-    matchBreak = "",
-    Content,
-    theme,
+    matchBreak,
+
     className,
     style,
-    itemProps,
+
     zIndex,
+    children,
     ...rest
   } = props;
   const getStyle = () => {
@@ -41,7 +41,6 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
     <div
       className={cn(
         "dashboardItem",
-        theme?.className ? `dashboardItem-${theme?.className}` : "",
         className ? `dashboardItem-${className}` : "",
         matchBreak
       )}
@@ -49,16 +48,7 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
         ...getStyle(),
       }}
     >
-      {Content && (
-        <Content
-          {...rest}
-          {...itemProps}
-          theme={theme}
-          matchBreak={matchBreak}
-          gridSize={gridSize}
-          i={i}
-        />
-      )}
+      {children}
     </div>
   );
 };

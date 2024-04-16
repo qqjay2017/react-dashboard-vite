@@ -1,4 +1,9 @@
-import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import {
+  ComponentType,
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+} from "react";
 
 export type Breakpoints = Record<string, number>;
 
@@ -24,10 +29,10 @@ export interface ResourceOptions extends PropsWithChildren {
   data?: any;
 }
 
-export interface ResourceDefinition<OptionsType extends ResourceOptions = any> {
-  readonly id: string;
-  readonly options?: OptionsType;
-}
+export type ResourceDefinition<T = ResourceOptions> = T & {
+  // readonly id: string;
+  // readonly options?: ResourceOptions;
+};
 
 export type ResourceElement = ReactElement<ResourceOptions>;
 export type RenderResourcesFunction = (permissions: any) =>
@@ -35,9 +40,6 @@ export type RenderResourcesFunction = (permissions: any) =>
   | Promise<ReactNode> // (permissions) => fetch().then(() => <><Resource /><Resource /><Resource /></>)
   | ResourceElement[] // // (permissions) => [<Resource />, <Resource />, <Resource />]
   | Promise<ResourceElement[]>; // (permissions) => fetch().then(() => [<Resource />, <Resource />, <Resource />])
-export type ResourceChildren =
-  | RenderResourcesFunction
-  | Iterable<ReactNode | RenderResourcesFunction>
-  | ReactNode;
+export type ResourceChildren = ComponentType<any> | ReactElement;
 
 export type ValueOrFunValue<T> = T | ((params: { breakpoint?: string }) => T);

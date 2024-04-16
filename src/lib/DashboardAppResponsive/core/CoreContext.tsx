@@ -10,7 +10,6 @@ import {
 } from "../context/ThemeContextProvider";
 import { ComponentContextProvider } from "../context/ComponentContextProvider";
 import { ResourceDefinitionContextProvider } from "../context/ResourceDefinitionContextProvider";
-import { ResourceOptions, ValueOrFunValue } from "./type";
 
 export interface CoreContextProps
   extends PropsWithChildren,

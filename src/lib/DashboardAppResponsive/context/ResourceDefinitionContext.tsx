@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { ResourceDefinition, ResourceOptions } from "../core/type";
 
 export type ResourceDefinitions<OptionsType extends ResourceOptions = any> = {
@@ -17,3 +17,6 @@ export const ResourceDefinitionContext =
     register: () => {},
     unregister: () => {},
   });
+
+export const useResourceDefinitionContext = () =>
+  useContext(ResourceDefinitionContext);

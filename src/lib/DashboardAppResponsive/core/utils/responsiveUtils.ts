@@ -1,6 +1,6 @@
-import { Breakpoint, Breakpoints } from "../../../DashboardApp";
+import { Breakpoints } from "../type";
 
-export function sortBreakpoints(breakpoints: Breakpoints): Array<Breakpoint> {
+export function sortBreakpoints(breakpoints: Breakpoints): Array<string> {
   const keys: Array<string> = Object.keys(breakpoints);
   return keys.sort(function (a, b) {
     return breakpoints[a] - breakpoints[b];
@@ -10,7 +10,7 @@ export function sortBreakpoints(breakpoints: Breakpoints): Array<Breakpoint> {
 export function getBreakpointFromWidth(
   breakpoints: Breakpoints,
   width: number
-): Breakpoint {
+): string {
   if (!width) {
     return "";
   }
