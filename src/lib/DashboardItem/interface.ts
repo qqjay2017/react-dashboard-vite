@@ -16,8 +16,9 @@ export interface IDashboardItemProps extends ResourceOptions {
 }
 
 export interface IDashboardItemChldBaseProps extends PropsWithChildren {
-  gridSize: { w: number; h: number };
-  i: string;
-  matchBreak: string;
-  theme?: DashBoardTheme;
+  breakpoint: string;
+  colWidth: number;
+  rowHeight: number;
+  containerWrapper: any;
+  nodeContentRenderer: any;
 }
