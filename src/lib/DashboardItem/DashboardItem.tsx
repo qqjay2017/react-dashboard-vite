@@ -5,6 +5,7 @@ import { cn } from "..";
 import "./index.less";
 export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
   const {
+    headerHeight = 0,
     gridSize = { w: 0, h: 0 },
     h = 0,
     i,
@@ -19,7 +20,6 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
 
     zIndex,
     children,
-    ...rest
   } = props;
   const getStyle = () => {
     const s: React.CSSProperties = {
@@ -29,7 +29,7 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
     s.width = sizeFormat(w * gridSize?.w);
     s.height = sizeFormat(h * gridSize?.h);
     s.transform = ` translate( ${sizeFormat(x * gridSize?.w)}px , ${sizeFormat(
-      y * gridSize?.h
+      y * gridSize?.h + headerHeight
     )}px )`;
     if (padding) {
       s.padding = padding;
@@ -42,6 +42,7 @@ export const DashboardItem = (props: Partial<IDashboardItemProps>) => {
       className={cn(
         "dashboardItem",
         className ? `dashboardItem-${className}` : "",
+        i,
         matchBreak
       )}
       style={{

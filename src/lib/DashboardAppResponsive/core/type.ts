@@ -1,5 +1,6 @@
 import {
   ComponentType,
+  ElementType,
   PropsWithChildren,
   ReactElement,
   ReactNode,
@@ -43,3 +44,10 @@ export type RenderResourcesFunction = (permissions: any) =>
 export type ResourceChildren = ComponentType<any> | ReactElement;
 
 export type ValueOrFunValue<T> = T | ((params: { breakpoint?: string }) => T);
+
+export type ResourceChildrenProps = {
+  breakpoint: string;
+  colWidth: number;
+  containerWrapper: ElementType<any>;
+  rowHeight: number;
+};

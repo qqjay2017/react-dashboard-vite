@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect } from "react";
+import React, { PropsWithChildren } from "react";
 import { BreakpointContext } from "./BreakpointContext";
 import { useBreakpoints } from "../core/hooks/useBreakpoints";
 import {
@@ -9,7 +9,8 @@ import {
 } from "../core/type";
 import { computedMaxRow } from "@/lib/DashboardAppResponsive/core/utils/appUtil";
 import { sizeFormat } from "@/lib/utils/sizeFormat";
-import { useRegisterResources } from "../core/hooks/useRegisterResources";
+
+import { cn } from "@/lib/utils";
 
 export interface BreakpointContextProviderProps extends PropsWithChildren {
   breakpoints?: Breakpoints;
@@ -21,6 +22,7 @@ export interface BreakpointContextProviderProps extends PropsWithChildren {
   rowHeight?: ValueOrFunValue<number>;
   wrapperStyle?: React.CSSProperties;
   wrapperProps?: React.HTMLAttributes<HTMLDivElement>;
+  themeName?: string;
 }
 
 export const BreakpointContextProvider = ({
@@ -28,7 +30,7 @@ export const BreakpointContextProvider = ({
   breakpoints,
   layout: layoutParam,
   resource = {},
-
+  themeName,
   cols: colsParam = 12,
   headerHeight: headerHeightParam = 0,
   forceFullScreen: forceFullScreenParam = true,
@@ -64,11 +66,17 @@ export const BreakpointContextProvider = ({
       : rowHeightParam;
 
   const colWidth = cols ? sizeFormat(width / cols) : 0;
-
+  console.log(wrapperProps, "wrapperProps");
   // useRegisterResources(layout, resource);
   return (
     <div
       {...wrapperProps}
+      className={cn(
+        "dashboardAppResponsive",
+        themeName,
+        wrapperProps?.className,
+        breakpoint
+      )}
       ref={ref}
       style={{
         width: "100%",
@@ -76,6 +84,7 @@ export const BreakpointContextProvider = ({
           ? "100vh"
           : `${sizeFormat(rows * rowHeight + headerHeight)}px`,
         position: "relative",
+        minHeight: "861px",
         ...wrapperStyle,
       }}
     >

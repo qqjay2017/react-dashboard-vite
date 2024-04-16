@@ -4,15 +4,25 @@ import { RenderLayout } from "./RenderLayout";
 
 export interface CoreDashboardAppResponsiveProps
   extends CoreContextProps,
-    PropsWithChildren {}
+    PropsWithChildren {
+  resoucreProps?: Record<string, any>;
+  themeProvider?: CoreDashboardAppResponsiveProps;
+}
 
 export const CoreDashboardAppResponsive = (
-  props: CoreDashboardAppResponsiveProps
+  _props: CoreDashboardAppResponsiveProps
 ) => {
+  const props = {
+    ..._props,
+    ..._props.themeProvider,
+  };
   return (
     <CoreContext {...props}>
       {props.children}
-      <RenderLayout resource={props.resource} />
+      <RenderLayout
+        resource={props.resource}
+        resoucreProps={props.resoucreProps || {}}
+      />
     </CoreContext>
   );
 };

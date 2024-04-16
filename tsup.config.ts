@@ -27,11 +27,8 @@ export default defineConfig([
   },
   {
     ...baseConfig,
-    entry: {
-      jfDarkTheme: "./src/lib/themes/jfDarkTheme/jfDarkTheme.ts",
-      jfLightTheme: "./src/lib/themes/jfLightTheme/jfLightTheme.ts",
-    },
-    outDir: "dist/themes",
+    entry: ["./src/lib/themes/jfDarkTheme/index.ts"],
+    outDir: "dist/themes/jfDarkTheme",
   },
   ...[
     "scroll-area",

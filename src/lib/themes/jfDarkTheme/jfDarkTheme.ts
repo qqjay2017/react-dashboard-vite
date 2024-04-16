@@ -1,13 +1,13 @@
 import { DashBoardTheme } from "../interface";
 import { TitleNodeRenderer } from "./titleNodeRenderer";
 import "./jfDarkThemeGlobal.less";
-import { nodeContentRenderer } from "./nodeContentRenderer";
+import { NodeContentRenderer } from "./nodeContentRenderer";
 export const jfDarkTheme: DashBoardTheme = {
   themeName: "jfDarkTheme",
-  className: "jfDarkTheme",
-  titleNodeRenderer: TitleNodeRenderer,
-  nodeContentRenderer: nodeContentRenderer,
-  style: {
+  titleWrapper: TitleNodeRenderer,
+
+  containerWrapper: NodeContentRenderer,
+  wrapperStyle: {
     backgroundColor: "#052B54",
   },
 };

@@ -1,8 +1,14 @@
-import React, { ElementType, PropsWithChildren, createContext } from "react";
+import {
+  ElementType,
+  PropsWithChildren,
+  createContext,
+  useContext,
+} from "react";
 
 export interface ComponentContextValue {
   containerWrapper: ElementType<PropsWithChildren>;
-  title: ElementType<PropsWithChildren>;
+  titleWrapper: ElementType<PropsWithChildren>;
+  titleChildren: ElementType<PropsWithChildren>;
 }
 
 export const DefaultComponent = ({ children }: PropsWithChildren) => (
@@ -11,5 +17,8 @@ export const DefaultComponent = ({ children }: PropsWithChildren) => (
 
 export const ComponentContext = createContext<ComponentContextValue>({
   containerWrapper: DefaultComponent,
-  title: DefaultComponent,
+  titleWrapper: DefaultComponent,
+  titleChildren: DefaultComponent,
 });
+
+export const useComponentContext = () => useContext(ComponentContext);

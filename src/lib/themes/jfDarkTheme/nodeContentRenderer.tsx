@@ -2,7 +2,7 @@ import React from "react";
 import "./nodeContentRenderer.less";
 import { cn } from "@/lib";
 import { INodeContentRenderer } from "../interface";
-export const nodeContentRenderer: INodeContentRenderer<{
+export const NodeContentRenderer: INodeContentRenderer<{
   title?: string | React.ReactNode;
   subTitle?: string | React.ReactNode;
   exact?: string | React.ReactNode;

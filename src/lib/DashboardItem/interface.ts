@@ -12,6 +12,7 @@ export interface IDashboardItemProps extends ResourceOptions {
   className?: string;
   style?: React.CSSProperties;
   zIndex?: number;
+  headerHeight?: number;
 }
 
 export interface IDashboardItemChldBaseProps extends PropsWithChildren {

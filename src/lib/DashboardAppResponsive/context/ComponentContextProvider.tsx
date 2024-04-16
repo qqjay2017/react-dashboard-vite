@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import {
   ComponentContext,
   ComponentContextValue,
@@ -11,13 +11,15 @@ interface ComponentContextProviderProps
 export const ComponentContextProvider = ({
   children,
   containerWrapper = DefaultComponent,
-  title = DefaultComponent,
+  titleWrapper = DefaultComponent,
+  titleChildren = DefaultComponent,
 }: ComponentContextProviderProps) => {
   return (
     <ComponentContext.Provider
       value={{
         containerWrapper,
-        title,
+        titleWrapper,
+        titleChildren,
       }}
     >
       {children}
