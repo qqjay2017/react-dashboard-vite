@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { DashBoardTheme } from "../themes/interface";
+
 import { ResourceOptions } from "../DashboardAppResponsive/core/type";
 
 export interface IDashboardItemProps extends ResourceOptions {
