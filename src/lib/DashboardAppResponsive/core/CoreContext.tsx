@@ -35,11 +35,13 @@ export const CoreContext = ({
   themeName,
   wrapperProps = {},
   wrapperStyle = {},
+  forceFullScreen,
 }: CoreContextProps) => {
   return (
     <QueryClientProvider>
       <ResourceDefinitionContextProvider>
         <BreakpointContextProvider
+          forceFullScreen={forceFullScreen}
           breakpoints={breakpoints}
           layout={layout}
           resource={resource}
