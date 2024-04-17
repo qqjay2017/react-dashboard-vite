@@ -66,7 +66,7 @@ export const BreakpointContextProvider = ({
       : rowHeightParam;
 
   const colWidth = cols ? sizeFormat(width / cols) : 0;
-  console.log(wrapperProps, "wrapperProps");
+
   // useRegisterResources(layout, resource);
   return (
     <div

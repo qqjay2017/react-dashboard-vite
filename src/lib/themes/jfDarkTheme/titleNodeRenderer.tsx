@@ -1,10 +1,10 @@
 import "./titleNodeRenderer.less";
-import { TitleNodeRendererType } from "../interface";
-import { cn } from "@/lib";
 
-export const TitleNodeRenderer: TitleNodeRendererType = ({
+import { ResourceComponent, cn } from "@/lib";
+
+export const TitleNodeRenderer = ({
   children,
   matchBreak,
-}) => {
+}: ResourceComponent) => {
   return <div className={cn("titleNodeRenderer", matchBreak)}>{children}</div>;
 };

@@ -18,7 +18,7 @@ export interface ResourceOptions extends PropsWithChildren {
   maxW?: number;
   minH?: number;
   maxH?: number;
-  padding?: number | string;
+  padding?: number | [number, number, number, number];
   isDraggable?: boolean;
   isResizable?: boolean;
 
@@ -53,3 +53,8 @@ export type ResourceChildrenProps = {
   containerWrapper: ElementType<any>;
   rowHeight: number;
 };
+
+export type OnLayoutChange = (
+  id: string,
+  newLayout: Partial<ResourceOptions>
+) => void;

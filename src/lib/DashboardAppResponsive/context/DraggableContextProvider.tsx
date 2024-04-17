@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useState } from "react";
 import { DraggableContext } from "./DraggableContext";
 
 export interface DraggableContextProviderProps extends PropsWithChildren {
@@ -11,11 +11,14 @@ export const DraggableContextProvider = ({
   isDraggable = false,
   children,
 }: DraggableContextProviderProps) => {
+  const [handleId, setHandleId] = useState("");
   return (
     <DraggableContext.Provider
       value={{
         isDraggable,
         isResizable,
+        handleId,
+        setHandleId,
       }}
     >
       {children}

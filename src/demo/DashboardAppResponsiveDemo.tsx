@@ -46,7 +46,7 @@ export const DashboardAppResponsiveDemo = () => {
               h: 3,
               x: 0,
               y: 5,
-              padding: "0",
+              padding: 0,
             },
             {
               i: "B1",
@@ -54,7 +54,7 @@ export const DashboardAppResponsiveDemo = () => {
               h: 8,
               x: 0,
               y: 8,
-              padding: "0",
+              padding: 0,
             },
             {
               i: "C1",
@@ -86,7 +86,7 @@ export const DashboardAppResponsiveDemo = () => {
             h: 11,
             x: 3,
             y: 1,
-            padding: "24px 0 24px 0",
+            padding: [24, 0, 24, 0],
           },
           {
             i: "A1",
@@ -102,7 +102,7 @@ export const DashboardAppResponsiveDemo = () => {
             h: 1.2,
             x: 3,
             y: 0,
-            padding: "12px 0 0 0",
+            padding: [12, 0, 0, 0],
           },
 
           {
