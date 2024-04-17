@@ -19,6 +19,8 @@ export interface ResourceOptions extends PropsWithChildren {
   minH?: number;
   maxH?: number;
   padding?: number | string;
+  isDraggable?: boolean;
+  isResizable?: boolean;
 
   gridSize?: {
     w: number;

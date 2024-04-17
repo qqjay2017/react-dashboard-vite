@@ -8,7 +8,8 @@ export interface IDashboardItemProps extends ResourceOptions {
   minH?: number;
   maxH?: number;
   matchBreak?: string;
-
+  colWidth?: number;
+  rowHeight?: number;
   className?: string;
   style?: React.CSSProperties;
   zIndex?: number;

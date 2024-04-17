@@ -1,11 +1,18 @@
 import { DashboardAppResponsive } from "@/lib";
-import { TestChildA1 } from "./TestChild";
+import {
+  TestChildA1,
+  TestChildB1,
+  TestChildB2,
+  TestChildC1,
+} from "./TestChild";
 import { jfDarkTheme } from "@/lib/themes/jfDarkTheme/jfDarkTheme";
 import { TitleNodeChildRenderer } from "./TitleNodeChildRenderer";
 
-export const DashboardAppResponsiveDemo = () => {
+export const DashboardAppResponsiveDragDemo = () => {
   return (
     <DashboardAppResponsive
+      isDraggable={true}
+      isResizable={true}
       resoucreProps={{
         test: 123,
       }}
@@ -21,11 +28,9 @@ export const DashboardAppResponsiveDemo = () => {
       }}
       resource={{
         A1: TestChildA1,
-        A2: TestChildA1,
-        A3: TestChildA1,
-        B1: TestChildA1,
-        B2: TestChildA1,
-        C1: TestChildA1,
+        B1: TestChildB1,
+        B2: TestChildB2,
+        C1: TestChildC1,
         C2: TestChildA1,
         C3: TestChildA1,
       }}

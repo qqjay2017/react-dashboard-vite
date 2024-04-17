@@ -23,6 +23,7 @@ export const RenderLayout = ({
 
   return (
     <>
+      {/* 头部 */}
       <div
         key={"titleWrapper-" + breakpoint}
         style={{
@@ -55,10 +56,8 @@ export const RenderLayout = ({
             {...layout}
             headerHeight={headerHeight}
             matchBreak={breakpoint}
-            gridSize={{
-              w: colWidth,
-              h: rowHeight,
-            }}
+            colWidth={colWidth}
+            rowHeight={rowHeight}
             key={`DashboardItem-${layout.i}`}
           >
             {getElement(resource[layout.i] as any, {

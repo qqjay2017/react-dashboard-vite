@@ -11,11 +11,16 @@ import {
 import { ComponentContextProvider } from "../context/ComponentContextProvider";
 import { ResourceDefinitionContextProvider } from "../context/ResourceDefinitionContextProvider";
 import { ComponentContextValue } from "../context/ComponentContext";
+import {
+  DraggableContextProvider,
+  DraggableContextProviderProps,
+} from "../context/DraggableContextProvider";
 
 export interface CoreContextProps
   extends PropsWithChildren,
     BreakpointContextProviderProps,
     ThemeContextProviderProps,
+    DraggableContextProviderProps,
     Partial<ComponentContextValue> {
   resoucreProps?: Record<string, any>;
 }
@@ -36,6 +41,8 @@ export const CoreContext = ({
   wrapperProps = {},
   wrapperStyle = {},
   forceFullScreen,
+  isDraggable = false,
+  isResizable = false,
 }: CoreContextProps) => {
   return (
     <QueryClientProvider>
@@ -57,7 +64,12 @@ export const CoreContext = ({
               titleChildren={titleChildren}
               containerWrapper={containerWrapper}
             >
-              {children}
+              <DraggableContextProvider
+                isDraggable={isDraggable}
+                isResizable={isResizable}
+              >
+                {children}
+              </DraggableContextProvider>
             </ComponentContextProvider>
           </ThemeContextProvider>
         </BreakpointContextProvider>
