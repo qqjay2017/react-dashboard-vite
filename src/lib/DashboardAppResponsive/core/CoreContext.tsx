@@ -16,7 +16,9 @@ export interface CoreContextProps
   extends PropsWithChildren,
     BreakpointContextProviderProps,
     ThemeContextProviderProps,
-    Partial<ComponentContextValue> {}
+    Partial<ComponentContextValue> {
+  resoucreProps?: Record<string, any>;
+}
 
 export const CoreContext = ({
   children,

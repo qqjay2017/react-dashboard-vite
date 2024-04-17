@@ -1,3 +1,4 @@
+import { ResourceComponent } from "@/lib/DashboardItem/interface";
 import {
   ElementType,
   PropsWithChildren,
@@ -6,9 +7,9 @@ import {
 } from "react";
 
 export interface ComponentContextValue {
-  containerWrapper: ElementType<PropsWithChildren>;
-  titleWrapper: ElementType<PropsWithChildren>;
-  titleChildren: ElementType<PropsWithChildren>;
+  containerWrapper: ElementType<ResourceComponent>;
+  titleWrapper: ElementType<ResourceComponent>;
+  titleChildren: ElementType<ResourceComponent>;
 }
 
 export const DefaultComponent = ({ children }: PropsWithChildren) => (

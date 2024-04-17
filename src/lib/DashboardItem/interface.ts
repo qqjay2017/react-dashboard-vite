@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { ReactNode } from "react";
 
 import { ResourceOptions } from "../DashboardAppResponsive/core/type";
 
@@ -15,10 +15,14 @@ export interface IDashboardItemProps extends ResourceOptions {
   headerHeight?: number;
 }
 
-export interface IDashboardItemChldBaseProps extends PropsWithChildren {
+export type IDashboardItemChldBaseProps<T = any> = T & {
   breakpoint: string;
   colWidth: number;
   rowHeight: number;
   containerWrapper: any;
   nodeContentRenderer: any;
-}
+  children?: ReactNode | undefined;
+  [property: string]: any;
+};
+
+export type ResourceComponent<T = any> = IDashboardItemChldBaseProps<T>;
