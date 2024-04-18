@@ -18,8 +18,6 @@ export const RenderLayout = ({
   const { containerWrapper, titleWrapper, titleChildren } =
     useComponentContext();
   const {
-    cols,
-    rows,
     layout: layouts,
     breakpoint,
     colWidth,
@@ -31,15 +29,7 @@ export const RenderLayout = ({
 
   return (
     <>
-      {isDraggable || isResizable ? (
-        <DraggableBg
-          headerHeight={headerHeight}
-          cols={cols}
-          rows={rows}
-          colWidth={colWidth}
-          rowHeight={rowHeight}
-        />
-      ) : null}
+      {isDraggable || isResizable ? <DraggableBg /> : null}
       {/* 头部 */}
       <div
         key={"titleWrapper-" + breakpoint}

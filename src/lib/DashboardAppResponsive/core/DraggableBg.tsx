@@ -1,17 +1,8 @@
+import { useBreakpointContext } from "../context";
 import "./draggableBg.less";
-export const DraggableBg = ({
-  headerHeight = 0,
-  cols = 12,
-  rows = 12,
-  rowHeight = 12,
-  colWidth = 12,
-}: {
-  headerHeight: number;
-  cols: number;
-  rows: number;
-  colWidth: number;
-  rowHeight: number;
-}) => {
+export const DraggableBg = () => {
+  const { headerHeight, cols, rows, colWidth, rowHeight } =
+    useBreakpointContext();
   return (
     <div className="draggableBg">
       <div
@@ -41,8 +32,8 @@ export const DraggableBg = ({
                 key={index}
                 x={x}
                 y={y}
-                width={colWidth + "px"}
-                height={rowHeight + "px"}
+                width={colWidth >= 0 ? colWidth + "px" : 0}
+                height={rowHeight >= 0 ? rowHeight + "px" : 0}
                 fill={color}
               />
             );
