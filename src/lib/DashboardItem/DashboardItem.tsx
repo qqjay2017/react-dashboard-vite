@@ -21,7 +21,7 @@ export const DashboardItem = (
     matchBreak,
     colWidth = 0,
     rowHeight = 0,
-    className,
+    // className,
     style,
     isDraggable: itemIsDraggable = true,
     isResizable: itemIsResizable = true,
@@ -136,13 +136,15 @@ export const DashboardItem = (
             : false
         }
         onDragStop={(e, { x, y }) => {
+          console.log(e, "e");
           onLayoutChange &&
             onLayoutChange(i || "", {
               x: sizeFormat(x / colWidth),
               y: sizeFormat((y - headerHeight) / rowHeight),
             });
         }}
-        onResizeStop={(e, direction, ref: any, delta, position) => {
+        onResizeStop={(e, direction, ref: any) => {
+          console.log(e, direction, "e, direction");
           onLayoutChange &&
             onLayoutChange(i || "", {
               w: sizeFormat(parseInt(ref.style.width || 0, 10) / colWidth),
