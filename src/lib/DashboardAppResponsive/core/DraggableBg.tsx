@@ -29,26 +29,28 @@ export const DraggableBg = () => {
         }}
       >
         <svg width={"100%"} height={"100%"} xmlns="http://www.w3.org/2000/svg">
-          {create2DArray(rows, cols).map((row, rowIndex) => {
-            return row.map((col, colIndex) => {
-              const color =
-                (rowIndex + colIndex) % 2 === 0
-                  ? "rgba(34, 60, 113, 1)"
-                  : "rgba(36, 64, 122, 1)"; // 交错颜色
-              const x = colIndex * colWidth;
-              const y = rowIndex * rowHeight;
-              return (
-                <rect
-                  key={`${rowIndex}-${colIndex}`}
-                  x={x}
-                  y={y}
-                  width={colWidth >= 0 ? colWidth + "px" : 0}
-                  height={rowHeight >= 0 ? rowHeight + "px" : 0}
-                  fill={color}
-                />
-              );
-            });
-          })}
+          {create2DArray(Math.floor(rows || 0), Math.floor(cols || 0)).map(
+            (row, rowIndex) => {
+              return row.map((col, colIndex) => {
+                const color =
+                  (rowIndex + colIndex) % 2 === 0
+                    ? "rgba(34, 60, 113, 1)"
+                    : "rgba(36, 64, 122, 1)"; // 交错颜色
+                const x = colIndex * colWidth;
+                const y = rowIndex * rowHeight;
+                return (
+                  <rect
+                    key={`${rowIndex}-${colIndex}`}
+                    x={x}
+                    y={y}
+                    width={colWidth >= 0 ? colWidth + "px" : 0}
+                    height={rowHeight >= 0 ? rowHeight + "px" : 0}
+                    fill={color}
+                  />
+                );
+              });
+            }
+          )}
         </svg>
       </div>
     </div>

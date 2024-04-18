@@ -57,8 +57,8 @@ export const DashboardItem = (
   if (needRnd) {
     return (
       <Rnd
+        bounds="parent"
         className={cn("item-Rnd", resizeActive ? "resizeActive" : "")}
-        enableUserSelectHack={false}
         dragGrid={[colWidth / 4, rowHeight / 4]}
         resizeGrid={[colWidth / 4, rowHeight / 4]}
         onMouseDown={() => {
