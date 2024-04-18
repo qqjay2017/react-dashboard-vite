@@ -57,6 +57,7 @@ export const DashboardItem = (
   if (needRnd) {
     return (
       <Rnd
+        enableUserSelectHack
         dragGrid={[colWidth / 4, rowHeight / 4]}
         resizeGrid={[colWidth / 4, rowHeight / 4]}
         onMouseDown={() => {
