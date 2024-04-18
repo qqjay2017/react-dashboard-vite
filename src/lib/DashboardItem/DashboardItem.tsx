@@ -57,7 +57,7 @@ export const DashboardItem = (
   if (needRnd) {
     return (
       <Rnd
-        className="item-Rnd"
+        className={cn("item-Rnd", resizeActive ? "resizeActive" : "")}
         enableUserSelectHack={false}
         dragGrid={[colWidth / 4, rowHeight / 4]}
         resizeGrid={[colWidth / 4, rowHeight / 4]}
@@ -78,8 +78,7 @@ export const DashboardItem = (
           padding: getStyle.padding,
           borderWidth: "2px",
           borderStyle: "solid",
-          borderColor:
-            i && handleId && handleId === i ? "#2f54eb" : "transparent",
+          borderColor: resizeActive ? "#2f54eb" : "transparent",
         }}
         resizeHandleStyles={{
           topRight: {
