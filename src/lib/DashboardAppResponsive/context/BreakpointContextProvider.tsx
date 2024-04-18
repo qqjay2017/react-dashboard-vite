@@ -14,8 +14,76 @@ import { cn } from "@/lib/utils";
 
 export interface BreakpointContextProviderProps extends PropsWithChildren {
   breakpoints?: Breakpoints;
+  /**
+   * 布局配置数组,单位为1栅格
+   * 支持函数写法
+   * w : 容器宽度
+   * h : 容器高位
+   * x : x轴位置,0为左上角
+   * y : y轴位置,0为左上角
+   * @example 
+   * 
+   *  <DashboardAppResponsive
+        layout={[
+          {
+            i:"A1",
+            w: 12,
+            h: 5,
+            x: 0,
+            y: 0,
+            zIndex:99,
+            padding:[12,12,12,12],
+
+
+          }
+        ]}
+        resource={{
+          A1: TestChildA1,
+         
+        }}
+        />
+   * 
+   */
   layout?: ValueOrFunValue<ResourceOptions[]>;
+  /**
+   * 列数量
+   * 支持函数或者数字
+   * 
+   * @example
+   * 
+   *   <DashboardAppResponsive
+        
+        cols={12}
+        />
+
+        <DashboardAppResponsive
+        
+        cols={(params)=>{
+            return 12
+        }}
+        />
+
+
+   */
   cols?: ValueOrFunValue<number>;
+  /**
+   * 格子组件资源
+   *  key是对应layout的i
+   *
+   * @example 
+   * 
+   * <DashboardAppResponsive
+        layout={[
+          {
+            i:"A1"
+          }
+        ]}
+        resource={{
+          A1: TestChildA1,
+         
+        }}
+        />
+   */
   resource?: Record<string, ResourceChildren>;
   headerHeight?: ValueOrFunValue<number>;
   forceFullScreen?: ValueOrFunValue<boolean>;

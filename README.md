@@ -70,3 +70,20 @@ export const TestChildC5 = withTheme((props: PropsWithTheme) => {
 
 
 ```
+
+## 组件文档
+
+```
+<DashboardAppResponsive />
+```
+
+onLayoutChange
+isDraggable
+isResizable
+resoucreProps
+cols
+resource
+layout
+
+themeProvider
+titleChildren
