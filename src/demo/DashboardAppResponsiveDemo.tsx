@@ -86,6 +86,7 @@ export const DashboardAppResponsiveDemo = () => {
             h: 11,
             x: 3,
             y: 1,
+            isResizable: false,
             padding: [24, 0, 24, 0],
           },
           {

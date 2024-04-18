@@ -39,8 +39,10 @@ export const DashboardItem = (
 
     if (padding) {
       s.padding = Array.isArray(padding)
-        ? padding.map((p) => p || 0 + "px").join(" ")
+        ? padding.map((p) => (p || 0) + "px").join(" ")
         : padding;
+
+      console.log(s.padding, " s.padding");
     }
     if (zIndex) {
       s.zIndex = zIndex;

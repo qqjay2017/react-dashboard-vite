@@ -17,7 +17,7 @@ export const DashboardAppResponsiveDragDemo = () => {
       h: 11,
       x: 3,
       y: 1,
-      padding: [24, 0, 24, 0],
+      padding: [50, 50, 50, 50],
     },
     {
       i: "A1",
@@ -25,6 +25,7 @@ export const DashboardAppResponsiveDragDemo = () => {
       h: 12,
       x: 0,
       y: 0,
+      padding: [50, 50, 50, 50],
     },
 
     {
@@ -33,7 +34,7 @@ export const DashboardAppResponsiveDragDemo = () => {
       h: 1.2,
       x: 3,
       y: 0,
-      padding: [12, 0, 0, 0],
+      padding: [50, 50, 50, 50],
     },
 
     {
@@ -42,6 +43,7 @@ export const DashboardAppResponsiveDragDemo = () => {
       h: 4,
       x: 9,
       y: 0,
+      padding: [50, 50, 50, 50],
     },
     {
       i: "C2",
@@ -49,6 +51,7 @@ export const DashboardAppResponsiveDragDemo = () => {
       h: 4,
       x: 9,
       y: 4,
+      padding: [50, 50, 50, 50],
     },
     {
       i: "C3",
@@ -56,6 +59,8 @@ export const DashboardAppResponsiveDragDemo = () => {
       h: 4,
       x: 9,
       y: 8,
+      zIndex: 99,
+      padding: [50, 50, 50, 50],
     },
   ]);
   return (
