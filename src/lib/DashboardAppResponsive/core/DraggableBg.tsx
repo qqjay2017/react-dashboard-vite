@@ -1,5 +1,16 @@
 import { useBreakpointContext } from "../context";
 import "./draggableBg.less";
+function create2DArray(rows: number = 0, cols: number = 0): null[][] {
+  const array = new Array(rows); // 创建外层数组，长度为rows
+  for (let i = 0; i < rows; i++) {
+    array[i] = new Array(cols); // 创建内层数组，长度为cols
+    for (let j = 0; j < cols; j++) {
+      array[i][j] = null; // 初始化所有元素为null
+    }
+  }
+  return array;
+}
+
 export const DraggableBg = () => {
   const { headerHeight, cols, rows, colWidth, rowHeight } =
     useBreakpointContext();
@@ -18,25 +29,25 @@ export const DraggableBg = () => {
         }}
       >
         <svg width={"100%"} height={"100%"} xmlns="http://www.w3.org/2000/svg">
-          {Array.from({ length: cols * rows }).map((_, index) => {
-            const row = Math.floor(index / rows);
-            const col = index % cols;
-            const color =
-              (row + col) % 2 === 0
-                ? "rgba(34, 60, 113, 1)"
-                : "rgba(36, 64, 122, 1)"; // 交错颜色
-            const x = col * colWidth;
-            const y = row * rowHeight;
-            return (
-              <rect
-                key={index}
-                x={x}
-                y={y}
-                width={colWidth >= 0 ? colWidth + "px" : 0}
-                height={rowHeight >= 0 ? rowHeight + "px" : 0}
-                fill={color}
-              />
-            );
+          {create2DArray(rows, cols).map((row, rowIndex) => {
+            return row.map((col, colIndex) => {
+              const color =
+                (rowIndex + colIndex) % 2 === 0
+                  ? "rgba(34, 60, 113, 1)"
+                  : "rgba(36, 64, 122, 1)"; // 交错颜色
+              const x = colIndex * colWidth;
+              const y = rowIndex * rowHeight;
+              return (
+                <rect
+                  key={`${rowIndex}-${colIndex}`}
+                  x={x}
+                  y={y}
+                  width={colWidth >= 0 ? colWidth + "px" : 0}
+                  height={rowHeight >= 0 ? rowHeight + "px" : 0}
+                  fill={color}
+                />
+              );
+            });
           })}
         </svg>
       </div>
