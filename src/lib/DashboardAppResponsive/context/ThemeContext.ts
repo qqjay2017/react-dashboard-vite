@@ -14,9 +14,11 @@ export type PropsWithTheme<T = unknown> = T & { theme: DefaultTheme };
 export const ThemeNameContext = createContext<{
   themeName: string;
   setThemeName: (name?: string) => void;
+  isDarkTheme: boolean;
 }>({
   themeName: localStorage.getItem("themeName") || "",
   setThemeName: () => {},
+  isDarkTheme: false,
 });
 
 export const useThemeName = () => useContext(ThemeNameContext);

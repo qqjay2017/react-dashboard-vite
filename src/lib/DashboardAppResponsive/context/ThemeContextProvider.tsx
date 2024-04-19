@@ -18,6 +18,7 @@ export const ThemeContextProvider = ({
   const setThemeName = (name = "") => {
     _setThemeName(name);
     localStorage.setItem("themeName", name);
+    ".".indexOf("dark");
   };
 
   useEffect(() => {
@@ -31,6 +32,11 @@ export const ThemeContextProvider = ({
       value={{
         themeName: _themeName,
         setThemeName: setThemeName,
+        isDarkTheme: !!(
+          _themeName &&
+          _themeName.indexOf &&
+          _themeName.toLowerCase().indexOf("dark") > -1
+        ),
       }}
     >
       <ThemeProvider theme={theme || {}}>{children}</ThemeProvider>
