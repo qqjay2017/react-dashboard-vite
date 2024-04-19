@@ -27,6 +27,10 @@ export const ThemeContextProvider = ({
     }
   }, [themeName, _themeName]);
 
+  useEffect(() => {
+    localStorage.setItem("themeName", themeName || "");
+  }, [themeName]);
+
   return (
     <ThemeNameContext.Provider
       value={{

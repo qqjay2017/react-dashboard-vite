@@ -18,7 +18,9 @@ export const ThemeNameContext = createContext<{
 }>({
   themeName: localStorage.getItem("themeName") || "",
   setThemeName: () => {},
-  isDarkTheme: false,
+  isDarkTheme:
+    (localStorage.getItem("themeName") || "").toLowerCase().indexOf("dark") >
+    -1,
 });
 
 export const useThemeName = () => useContext(ThemeNameContext);
