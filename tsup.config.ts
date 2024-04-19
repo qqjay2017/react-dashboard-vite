@@ -30,6 +30,11 @@ export default defineConfig([
     entry: ["./src/lib/themes/jfDarkTheme/index.ts"],
     outDir: "dist/themes/jfDarkTheme",
   },
+  {
+    ...baseConfig,
+    entry: ["./src/lib/themes/jfLightTheme/index.ts"],
+    outDir: "dist/themes/jfLightTheme",
+  },
   ...[
     "scroll-area",
     "select",

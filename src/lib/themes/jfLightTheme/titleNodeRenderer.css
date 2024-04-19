@@ -1,0 +1,12 @@
+.titleNodeRenderer {
+  position: relative;
+  height: calc(100% - 12px);
+  background-image: url("@/assets/jfDarkTheme/pc-header.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+.titleNodeRenderer.mobile {
+  background-image: url("@/assets/jfDarkTheme/m-header.png");
+  background-size: 100%;
+}

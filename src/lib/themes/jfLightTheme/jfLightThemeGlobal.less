@@ -1,7 +1,7 @@
-@text-common: #c3d4e5;
+@text-common: #000000;
 @text-primary: #3b78ef;
-@text-num-light: #f4a52e;
-@text-num: #ffdc2f;
+@text-num-light: #ff8126;
+@text-num: #ff8126;
 @text-light: #34daff;
 
 .jfDarkTheme {
@@ -11,13 +11,14 @@
   background-repeat: no-repeat;
   font-size: 14px;
   color: #c3d4e5;
-  --big-title-start-color: rgb(118, 189, 255);
-  --big-title-end-color: rgb(255, 255, 255);
-  --titleColor: #c3d4e5;
+  --titleColor: #333;
+
+  --big-title-start-color: #356ad2;
+  --big-title-end-color: #356ad2;
   --active-border-color: #306fca;
   --tab-background: #001a3a;
-  --tab-active-background: #4778c5;
-  --nodeContentBgColor: rgba(0, 26, 58, 0.8);
+  --tab-active-background: #306fca;
+  --nodeContentBgColor: rgba(234, 243, 255, 0.6);
   --text-sm: 12px;
   --text-base: 14px;
   --text-lg: 16px;
@@ -25,9 +26,8 @@
   --text-common: @text-common;
   --text-light: @text-light;
   --text-primary: @text-primary;
-
-  --text-noselect: fade(@text-common, 50);
-  --text-select: @text-common;
+  --text-noselect: #666666;
+  --text-select: #3b78ef;
   --text-tag: fade(@text-common, 80);
   --text-num: @text-num;
   --text-num-light: @text-num-light;
@@ -40,10 +40,10 @@
   --select-content-text-highlight: #c3d4e5;
   --skeleton-primary-bg: 0 0% 98%;
   --radius: 0.5rem;
-  --carousel-btn-bg: #033360;
-  --carousel-btn-text: #6889aa;
-  --carousel-item-bg: #306fca;
-  --carousel-item-text: #c3d4e5;
+  --carousel-btn-bg: #4778c5;
+  --carousel-btn-text: #fff;
+  --carousel-item-bg: #4778c5;
+  --carousel-item-text: #fff;
   &.mobile {
     background-repeat: repeat;
     background-size: contain;
