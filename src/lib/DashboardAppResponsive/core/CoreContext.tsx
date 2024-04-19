@@ -58,7 +58,7 @@ export const CoreContext = ({
           wrapperProps={wrapperProps}
           wrapperStyle={wrapperStyle}
         >
-          <ThemeContextProvider theme={theme}>
+          <ThemeContextProvider theme={theme} themeName={themeName}>
             <ComponentContextProvider
               titleWrapper={titleWrapper}
               titleChildren={titleChildren}
