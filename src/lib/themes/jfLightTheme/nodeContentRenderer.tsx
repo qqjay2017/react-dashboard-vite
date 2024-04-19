@@ -1,12 +1,7 @@
-import React from "react";
 import "./nodeContentRenderer.less";
 import { cn } from "@/lib";
-import { INodeContentRenderer } from "../interface";
-export const NodeContentRenderer: INodeContentRenderer<{
-  title?: string | React.ReactNode;
-  subTitle?: string | React.ReactNode;
-  exact?: string | React.ReactNode;
-}> = (props) => {
+
+export const NodeContentRenderer = (props: any) => {
   const { title, subTitle, exact, children } = props;
 
   return (
