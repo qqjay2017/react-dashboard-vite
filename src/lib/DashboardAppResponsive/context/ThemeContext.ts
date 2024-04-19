@@ -5,7 +5,7 @@
 // export const ThemeContext = createContext<ThemeContextValue>({});
 
 // export const useThemeContext = () => useContext(ThemeContext);
-import { Dispatch, createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 import { DefaultTheme } from "styled-components";
 export { useTheme, ThemeContext, withTheme } from "styled-components";
 
