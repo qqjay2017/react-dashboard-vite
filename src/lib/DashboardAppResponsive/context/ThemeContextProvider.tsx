@@ -8,16 +8,10 @@ export interface ThemeContextProviderProps extends PropsWithChildren {
   themeName?: string;
 }
 export const ThemeContextProvider = ({
-  themeName = "",
   theme,
   children,
 }: ThemeContextProviderProps) => {
-  const { themeName: _themeName, setThemeName } = useThemeName();
+  const { themeName: _themeName } = useThemeName();
 
-  useEffect(() => {
-    if (themeName != _themeName) {
-      setThemeName(themeName);
-    }
-  }, [themeName, _themeName, setThemeName]);
   return <ThemeProvider theme={theme || {}}>{children}</ThemeProvider>;
 };
