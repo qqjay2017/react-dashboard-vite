@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 import { CoreContext, CoreContextProps } from "./CoreContext";
 import { RenderLayout } from "./RenderLayout";
 import { OnLayoutChange } from "./type";
+import { useThemeName } from "../context";
 
 export interface CoreDashboardAppResponsiveProps
   extends CoreContextProps,
@@ -83,12 +84,14 @@ export interface CoreDashboardAppResponsiveProps
 export const CoreDashboardAppResponsive = (
   _props: CoreDashboardAppResponsiveProps
 ) => {
+  const { themeName, themeMode } = useThemeName();
   const props = {
     ..._props.themeProvider,
     ..._props,
   };
+
   return (
-    <CoreContext {...props}>
+    <CoreContext {...props} key={`theme-${themeName}-${themeMode}`}>
       {props.children}
       <RenderLayout
         resource={props.resource}
