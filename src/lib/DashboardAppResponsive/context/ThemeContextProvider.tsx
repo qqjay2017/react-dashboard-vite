@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect } from "react";
+import { PropsWithChildren } from "react";
 
 import { ThemeProvider, DefaultTheme } from "styled-components";
 import { useThemeName } from "./ThemeContext";
