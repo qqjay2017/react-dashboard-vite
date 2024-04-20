@@ -1,26 +1,49 @@
-// import React, { createContext, useContext } from "react";
+import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
-// export interface ThemeContextValue {}
-
-// export const ThemeContext = createContext<ThemeContextValue>({});
-
-// export const useThemeContext = () => useContext(ThemeContext);
-import { createContext, useContext } from "react";
 import { DefaultTheme } from "styled-components";
 export { useTheme, ThemeContext, withTheme } from "styled-components";
 
 export type PropsWithTheme<T = unknown> = T & { theme: DefaultTheme };
 
-export const ThemeNameContext = createContext<{
+type ThemeNameContextValue = {
   themeName: string;
+  themeMode: "dark" | "light" | "system";
   setThemeName: (name?: string) => void;
-  isDarkTheme: boolean;
-}>({
-  themeName: localStorage.getItem("themeName") || "",
-  setThemeName: () => {},
-  isDarkTheme:
-    (localStorage.getItem("themeName") || "").toLowerCase().indexOf("dark") >
-    -1,
-});
+  setThemeMode: (mode: "dark" | "light" | "system") => void;
+  isDarkTheme: () => boolean;
+};
 
-export const useThemeName = () => useContext(ThemeNameContext);
+export const useThemeName = create<ThemeNameContextValue>()(
+  persist(
+    (set, get) => ({
+      themeName: "",
+      themeMode: "dark",
+      isDarkTheme: () => {
+        return (
+          get().themeMode === "dark" ||
+          (get().themeName || "").toLowerCase().indexOf("dark") > -1
+        );
+      },
+      setThemeMode: (mode: "dark" | "light" | "system") => {
+        return set((state) => ({
+          ...state,
+          mode,
+        }));
+      },
+      setThemeName: (name = "") =>
+        set((state) => {
+          return {
+            ...state,
+            themeName: name,
+            themeMode:
+              name.toLowerCase().indexOf("dark") > -1 ? "dark" : "light",
+          };
+        }),
+    }),
+    {
+      name: "theme-storage",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);
