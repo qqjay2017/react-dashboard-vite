@@ -26,6 +26,7 @@ export const useThemeName = create<ThemeNameContextValue>()(
         );
       },
       setThemeMode: (mode: "dark" | "light" | "system") => {
+        document.documentElement.setAttribute("data-theme", mode);
         return set((state) => ({
           ...state,
           mode,
@@ -33,11 +34,13 @@ export const useThemeName = create<ThemeNameContextValue>()(
       },
       setThemeName: (name = "") =>
         set((state) => {
+          const themeMode =
+            name.toLowerCase().indexOf("dark") > -1 ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", themeMode);
           return {
             ...state,
             themeName: name,
-            themeMode:
-              name.toLowerCase().indexOf("dark") > -1 ? "dark" : "light",
+            themeMode,
           };
         }),
     }),
