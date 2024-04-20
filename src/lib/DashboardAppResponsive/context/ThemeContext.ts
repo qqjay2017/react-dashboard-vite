@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 import { DefaultTheme } from "styled-components";
+import { setHtmlThemeMode } from "@/lib/utils/setHtmlThemeMode";
 export { useTheme, ThemeContext, withTheme } from "styled-components";
 
 export type PropsWithTheme<T = unknown> = T & { theme: DefaultTheme };
@@ -26,7 +27,7 @@ export const useThemeName = create<ThemeNameContextValue>()(
         );
       },
       setThemeMode: (mode: "dark" | "light" | "system") => {
-        document.documentElement.setAttribute("data-theme", mode);
+        setHtmlThemeMode(mode);
         return set((state) => ({
           ...state,
           mode,
@@ -36,7 +37,8 @@ export const useThemeName = create<ThemeNameContextValue>()(
         set((state) => {
           const themeMode =
             name.toLowerCase().indexOf("dark") > -1 ? "dark" : "light";
-          document.documentElement.setAttribute("data-theme", themeMode);
+
+          setHtmlThemeMode(themeMode);
           return {
             ...state,
             themeName: name,

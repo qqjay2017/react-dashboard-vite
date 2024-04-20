@@ -2,7 +2,9 @@ import { DashBoardTheme } from "../interface";
 import { TitleNodeRenderer } from "./titleNodeRenderer";
 import "./jfDarkThemeGlobal.less";
 import { NodeContentRenderer } from "./nodeContentRenderer";
-document.documentElement.setAttribute("data-theme", "dark");
+import { setHtmlThemeMode } from "@/lib/utils/setHtmlThemeMode";
+
+setHtmlThemeMode("dark");
 export const jfDarkTheme: DashBoardTheme = {
   themeName: "jfDarkTheme",
   titleWrapper: TitleNodeRenderer,
