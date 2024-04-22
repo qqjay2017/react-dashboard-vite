@@ -15,7 +15,7 @@ export default {
     join(__dirname, "./stories/**/*.{js,ts,jsx,tsx}"),
   ],
   corePlugins: {
-    preflight: false,
+    // preflight: false,
   },
   theme: {
     extend: {

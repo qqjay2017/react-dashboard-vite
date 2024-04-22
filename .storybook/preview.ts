@@ -6,15 +6,18 @@ import { themes } from "@storybook/theming";
 
 const preview: Preview = {
   parameters: {
+    backgrounds: {
+      disabled: true,
+    },
     darkMode: {
       stylePreview: true,
       darkClass: ["lights-out", "dark"],
       lightClass: ["lights-on"],
       classTarget: "html",
       current: "light",
-      dark: { ...themes.dark },
+      dark: { ...themes.dark, appBg: "#111" },
 
-      light: { ...themes.normal },
+      light: { ...themes.normal, appBg: "#fff" },
     },
     viewport: {
       viewports: {
