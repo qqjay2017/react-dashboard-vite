@@ -5,14 +5,4 @@ export * from "./DashboardItem";
 
 export * from "./utils";
 
-export * from "./scroll-area";
-export * from "./select";
 export * from "./context/QueryClientProvider";
-
-export * from "./skeleton";
-export * from "./badge";
-export * from "./tabs";
-
-export * from "./button";
-export * from "./carousel";
-export * from "./switch";

@@ -15,42 +15,27 @@ const baseConfig: Options = {
   esbuildPlugins: [lessLoader()],
 };
 
-const themes = ["jfDarkTheme", "jfLightTheme"];
-/**
- * themes.map((fn) => `./src/lib/themes/${fn}/${fn}.ts`)
- */
 export default defineConfig([
   {
     ...baseConfig,
     entry: ["./src/lib/index.ts"],
     outDir: "dist",
   },
+  // 主题包,每个主题单独拆包
   {
     ...baseConfig,
-    entry: ["./src/lib/themes/jfDarkTheme/index.ts"],
+    entry: ["./src/themes/jfDarkTheme/index.ts"],
     outDir: "dist/themes/jfDarkTheme",
   },
   {
     ...baseConfig,
-    entry: ["./src/lib/themes/jfLightTheme/index.ts"],
+    entry: ["./src/themes/jfLightTheme/index.ts"],
     outDir: "dist/themes/jfLightTheme",
   },
-  ...[
-    "scroll-area",
-    "select",
-    "skeleton",
-    "badge",
-    "tabs",
-    "carousel",
-    "button",
-    "switch",
-  ].map((component) => {
-    return {
-      ...baseConfig,
-      entry: {
-        index: `./src/lib/${component}/index.ts`,
-      },
-      outDir: `dist/${component}`,
-    };
-  }),
+  // ui包
+  {
+    ...baseConfig,
+    entry: ["./src/ui/index.ts"],
+    outDir: "dist/ui/",
+  },
 ]);

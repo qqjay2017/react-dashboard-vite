@@ -1,4 +1,4 @@
-import { CoreDashboardAppResponsiveProps } from "../DashboardAppResponsive";
+import { CoreDashboardAppResponsiveProps } from "@/lib";
 
 export interface DashBoardTheme
   extends Partial<CoreDashboardAppResponsiveProps> {
