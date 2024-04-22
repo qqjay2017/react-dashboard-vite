@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Tabs, TabsList, TabsTrigger } from "../lib";
-
+import { Tabs, TabsList, TabsTrigger } from "../src/lib";
+import React from "react";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Components/Tabs",

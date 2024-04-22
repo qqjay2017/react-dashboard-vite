@@ -43,6 +43,7 @@ export default defineConfig([
     "tabs",
     "carousel",
     "button",
+    "switch",
   ].map((component) => {
     return {
       ...baseConfig,

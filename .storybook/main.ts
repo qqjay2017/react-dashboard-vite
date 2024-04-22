@@ -2,15 +2,17 @@ import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   stories: [
-    "../src/stories/**/*.mdx",
-    "../src/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../stories/**/*.mdx",
+    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
+    "storybook-dark-mode",
     "@storybook/addon-onboarding",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    "@storybook/addon-mdx-gfm",
   ],
   framework: {
     name: "@storybook/react-vite",

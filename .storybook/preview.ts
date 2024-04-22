@@ -2,9 +2,19 @@ import type { Preview } from "@storybook/react";
 import "../src/lib/globals.css";
 import "./preview.css";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { themes } from "@storybook/theming";
 
 const preview: Preview = {
   parameters: {
+    darkMode: {
+      stylePreview: true,
+
+      classTarget: "html",
+      current: "light",
+      dark: { ...themes.dark },
+      // Override the default light theme
+      light: { ...themes.normal, appBg: "#fff" },
+    },
     viewport: {
       viewports: {
         ...INITIAL_VIEWPORTS,
