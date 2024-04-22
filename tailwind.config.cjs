@@ -20,7 +20,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        test: "red",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

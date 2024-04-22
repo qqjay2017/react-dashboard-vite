@@ -8,12 +8,13 @@ const preview: Preview = {
   parameters: {
     darkMode: {
       stylePreview: true,
-
+      darkClass: ["lights-out", "dark"],
+      lightClass: ["lights-on"],
       classTarget: "html",
       current: "light",
       dark: { ...themes.dark },
-      // Override the default light theme
-      light: { ...themes.normal, appBg: "#fff" },
+
+      light: { ...themes.normal },
     },
     viewport: {
       viewports: {

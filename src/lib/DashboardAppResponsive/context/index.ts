@@ -1,2 +1,2 @@
-export * from "./ThemeContext";
 export * from "./BreakpointContext";
+export * from "./ThemeModeContextProvider";
