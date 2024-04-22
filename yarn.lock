@@ -2091,7 +2091,7 @@
     polished "^4.2.2"
     uuid "^9.0.0"
 
-"@storybook/addon-backgrounds@8.0.8":
+"@storybook/addon-backgrounds@8.0.8", "@storybook/addon-backgrounds@^8.0.8":
   version "8.0.8"
   resolved "https://registry.npmmirror.com/@storybook/addon-backgrounds/-/addon-backgrounds-8.0.8.tgz#da119e0fa0f0c6d44c2c44c34b9861953fedd653"
   integrity sha512-lrAJjVxDeXSK116rDajb56TureZiT76ygraP22/IvU3IcWCEcRiKYwlay8WgCTbJHtFmdBpelLBapoT46+IR9Q==

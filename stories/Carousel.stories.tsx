@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+
+import React from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../src/lib";
+} from "../src/ui";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -14,12 +15,6 @@ const meta = {
   component: Carousel,
   tags: ["autodocs"],
   parameters: {},
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    color: { control: "color" },
-  },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
@@ -36,31 +31,21 @@ const Template: Story = {
       >
         <Carousel {...args}>
           <CarouselContent>
-            <CarouselItem sizes={6}>1月</CarouselItem>
-            <CarouselItem sizes={6}>2月</CarouselItem>
-            <CarouselItem sizes={6}>3月</CarouselItem>
-            <CarouselItem sizes={6}>4月</CarouselItem>
-            <CarouselItem sizes={6}>5月</CarouselItem>
-            <CarouselItem sizes={6}>6月</CarouselItem>
-            <CarouselItem sizes={6}>7月</CarouselItem>
-            <CarouselItem sizes={6}>8月</CarouselItem>
-            <CarouselItem sizes={6}>9月</CarouselItem>
-            <CarouselItem sizes={6}>10月</CarouselItem>
-            <CarouselItem sizes={6}>11月</CarouselItem>
-            <CarouselItem sizes={6}>12月</CarouselItem>
+            <CarouselItem>1月</CarouselItem>
+            <CarouselItem>2月</CarouselItem>
+            <CarouselItem>3月</CarouselItem>
+            <CarouselItem>4月</CarouselItem>
+            <CarouselItem>5月</CarouselItem>
+            <CarouselItem>6月</CarouselItem>
+            <CarouselItem>7月</CarouselItem>
+            <CarouselItem>8月</CarouselItem>
+            <CarouselItem>9月</CarouselItem>
+            <CarouselItem>10月</CarouselItem>
+            <CarouselItem>11月</CarouselItem>
+            <CarouselItem>12月</CarouselItem>
           </CarouselContent>
-          <CarouselPrevious
-            style={{
-              backgroundColor: "#033360",
-              color: "#6889AA",
-            }}
-          />
-          <CarouselNext
-            style={{
-              backgroundColor: "#033360",
-              color: "#6889AA",
-            }}
-          />
+          <CarouselPrevious />
+          <CarouselNext />
         </Carousel>
       </div>
     );
@@ -68,16 +53,66 @@ const Template: Story = {
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const Basic: Story = {
   ...Template,
   args: {
     opts: {},
   },
 };
 
+export const Sizes: Story = {
+  render: (args) => {
+    return (
+      <div
+        style={{
+          width: "400px",
+          padding: 30,
+          position: "relative",
+        }}
+      >
+        <Carousel {...args}>
+          <CarouselContent>
+            <CarouselItem className=" basis-1/6">1月</CarouselItem>
+            <CarouselItem className=" basis-1/6">2月</CarouselItem>
+            <CarouselItem className=" basis-1/6">3月</CarouselItem>
+            <CarouselItem className=" basis-1/6">4月</CarouselItem>
+            <CarouselItem className=" basis-1/6">5月</CarouselItem>
+            <CarouselItem className=" basis-1/6">6月</CarouselItem>
+            <CarouselItem className=" basis-1/6">7月</CarouselItem>
+            <CarouselItem className=" basis-1/6">8月</CarouselItem>
+            <CarouselItem className=" basis-1/6">9月</CarouselItem>
+            <CarouselItem className=" basis-1/6">10月</CarouselItem>
+            <CarouselItem className=" basis-1/6">11月</CarouselItem>
+            <CarouselItem className=" basis-1/6">12月</CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+    );
+  },
+  args: {
+    opts: {
+      align: "start",
+    },
+  },
+};
+
 export const SlidesToScroll: Story = {
   ...Template,
   args: {
+    opts: {
+      loop: true,
+      slidesToScroll: 6,
+    },
+  },
+};
+
+export const Orientation: Story = {
+  ...Template,
+
+  args: {
+    orientation: "vertical",
     opts: {
       loop: true,
       slidesToScroll: 6,

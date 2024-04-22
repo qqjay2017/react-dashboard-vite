@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
+    "@storybook/addon-backgrounds",
     "storybook-dark-mode",
     "@storybook/addon-onboarding",
     "@storybook/addon-links",

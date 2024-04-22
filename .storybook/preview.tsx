@@ -3,21 +3,20 @@ import "../src/lib/globals.css";
 import "./preview.css";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { themes } from "@storybook/theming";
+import { withBackground } from "./decorator/withBackground";
 
 const preview: Preview = {
+  decorators: [withBackground],
   parameters: {
-    backgrounds: {
-      disabled: true,
-    },
     darkMode: {
       stylePreview: true,
-      darkClass: ["lights-out", "dark"],
-      lightClass: ["lights-on"],
+      darkClass: ["dark"],
+      lightClass: [],
       classTarget: "html",
       current: "light",
-      dark: { ...themes.dark, appBg: "#111" },
+      dark: themes.dark,
 
-      light: { ...themes.normal, appBg: "#fff" },
+      light: themes.light,
     },
     viewport: {
       viewports: {

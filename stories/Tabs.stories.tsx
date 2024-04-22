@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { Tabs, TabsList, TabsTrigger } from "../src/lib";
+
+import { Tabs, TabsList, TabsTrigger } from "../src/ui";
 import React from "react";
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -13,7 +13,6 @@ const meta = {
     color: { control: "color" },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
@@ -28,7 +27,7 @@ const Template: Story = {
           position: "relative",
         }}
       >
-        <Tabs {...args} value="bim">
+        <Tabs {...args} defaultValue="bim">
           <TabsList>
             <TabsTrigger value="bim">模型</TabsTrigger>
             <TabsTrigger value="video">视频</TabsTrigger>
