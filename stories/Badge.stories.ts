@@ -30,7 +30,7 @@ export const Destructive: Story = {
   },
 };
 
-export const Custom: Story = {
+export const CustomStyle: Story = {
   args: {
     style: {
       backgroundColor: "rgb(173, 250, 29)",

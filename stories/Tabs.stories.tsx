@@ -39,7 +39,49 @@ const Template: Story = {
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const Usage: Story = {
   ...Template,
+  args: {},
+};
+
+export const Style: Story = {
+  render: (args) => {
+    return (
+      <div
+        style={{
+          width: "400px",
+          position: "relative",
+        }}
+      >
+        <Tabs {...args} defaultValue="bim">
+          <TabsList
+            style={{
+              height: "30px",
+              borderRadius: "30px",
+            }}
+          >
+            <TabsTrigger
+              value="bim"
+              style={{
+                height: "30px",
+                borderRadius: "30px",
+              }}
+            >
+              模型
+            </TabsTrigger>
+            <TabsTrigger
+              value="video"
+              style={{
+                height: "30px",
+                borderRadius: "30px",
+              }}
+            >
+              视频
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
+    );
+  },
   args: {},
 };
