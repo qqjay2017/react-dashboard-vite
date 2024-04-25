@@ -5,6 +5,7 @@ import {
   ReactElement,
   ReactNode,
 } from "react";
+import { ThemeMode } from "../context";
 
 export type Breakpoints = Record<string, number>;
 
@@ -45,7 +46,9 @@ export type RenderResourcesFunction = (permissions: any) =>
   | Promise<ResourceElement[]>; // (permissions) => fetch().then(() => [<Resource />, <Resource />, <Resource />])
 export type ResourceChildren = ComponentType<any> | ReactElement;
 
-export type ValueOrFunValue<T> = T | ((params: { breakpoint?: string }) => T);
+export type ValueOrFunValue<T> =
+  | T
+  | ((params: { breakpoint?: string; themeMode?: ThemeMode }) => T);
 
 export type ResourceChildrenProps = {
   breakpoint: string;

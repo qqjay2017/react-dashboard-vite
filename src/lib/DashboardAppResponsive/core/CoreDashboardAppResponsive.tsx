@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 import { CoreContext, CoreContextProps } from "./CoreContext";
 import { RenderLayout } from "./RenderLayout";
 import { OnLayoutChange } from "./type";
-import { useThemeMode } from "../context";
+import { ThemeMode, ThemeModeProvider, useThemeMode } from "../context";
 
 export interface CoreDashboardAppResponsiveProps
   extends CoreContextProps,
@@ -57,7 +57,9 @@ export interface CoreDashboardAppResponsiveProps
 
         />
    */
-  themeProvider?: CoreDashboardAppResponsiveProps;
+  themeProvider?:
+    | CoreDashboardAppResponsiveProps
+    | ((params: { themeMode: ThemeMode }) => CoreDashboardAppResponsiveProps);
   /**
    * 
    * 布局变化后的回调
@@ -81,12 +83,16 @@ export interface CoreDashboardAppResponsiveProps
   onLayoutChange?: OnLayoutChange;
 }
 
-export const CoreDashboardAppResponsive = (
+export const CoreDashboardAppResponsiveInner = (
   _props: CoreDashboardAppResponsiveProps
 ) => {
   const { themeMode } = useThemeMode();
+  const themeProvider =
+    typeof _props.themeProvider === "function"
+      ? _props.themeProvider({ themeMode })
+      : _props.themeProvider;
   const props = {
-    ..._props.themeProvider,
+    ...themeProvider,
     ..._props,
   };
 
@@ -101,3 +107,9 @@ export const CoreDashboardAppResponsive = (
     </CoreContext>
   );
 };
+
+export const CoreDashboardAppResponsive = (
+  <ThemeModeProvider>
+    <CoreDashboardAppResponsiveInner />
+  </ThemeModeProvider>
+);

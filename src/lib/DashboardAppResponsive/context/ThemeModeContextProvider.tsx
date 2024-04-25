@@ -1,18 +1,18 @@
 import { setHtmlThemeMode } from "@/lib/utils/setHtmlThemeMode";
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light" | "system";
+export type ThemeMode = "dark" | "light" | "system";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
-  defaultTheme?: Theme;
+  defaultTheme?: ThemeMode;
   storageKey?: string;
 };
 
 type ThemeProviderState = {
   isDarkTheme: () => boolean;
-  themeMode: Theme;
-  setThemeMode: (theme: Theme) => void;
+  themeMode: ThemeMode;
+  setThemeMode: (theme: ThemeMode) => void;
 };
 
 const initialState: ThemeProviderState = {
@@ -29,8 +29,8 @@ export function ThemeModeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+  const [theme, setTheme] = useState<ThemeMode>(
+    () => (localStorage.getItem(storageKey) as ThemeMode) || defaultTheme
   );
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export function ThemeModeProvider({
   const value = {
     isDarkTheme: () => Boolean(theme !== "light"),
     themeMode: theme,
-    setThemeMode: (mode: Theme) => {
+    setThemeMode: (mode: ThemeMode) => {
       localStorage.setItem(storageKey, mode);
       setTheme(mode);
     },

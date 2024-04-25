@@ -11,6 +11,7 @@ import { computedMaxRow } from "@/lib/DashboardAppResponsive/core/utils/appUtil"
 import { sizeFormat } from "@/lib/utils/sizeFormat";
 
 import { cn } from "@/lib/utils";
+import { useThemeMode } from "./ThemeModeContextProvider";
 
 export interface BreakpointContextProviderProps extends PropsWithChildren {
   breakpoints?: Breakpoints;
@@ -107,10 +108,10 @@ export const BreakpointContextProvider = ({
   wrapperProps,
 }: BreakpointContextProviderProps) => {
   const { ref, breakpoint, width, height } = useBreakpoints(breakpoints);
-
+  const { themeMode } = useThemeMode();
   const layout = (
     typeof layoutParam === "function"
-      ? layoutParam({ breakpoint })
+      ? layoutParam({ breakpoint, themeMode })
       : layoutParam || []
   ).filter((l) => resource[l.i]);
 
@@ -119,18 +120,18 @@ export const BreakpointContextProvider = ({
   const rows = computedMaxRow(layout);
   const forceFullScreen =
     typeof forceFullScreenParam === "function"
-      ? forceFullScreenParam({ breakpoint })
+      ? forceFullScreenParam({ breakpoint, themeMode })
       : forceFullScreenParam;
 
   const headerHeight =
     typeof headerHeightParam === "function"
-      ? headerHeightParam({ breakpoint })
+      ? headerHeightParam({ breakpoint, themeMode })
       : headerHeightParam;
   //
   const rowHeight = forceFullScreen
     ? sizeFormat((height - headerHeight) / cols)
     : typeof rowHeightParam === "function"
-      ? rowHeightParam({ breakpoint })
+      ? rowHeightParam({ breakpoint, themeMode })
       : rowHeightParam;
 
   const colWidth = cols ? sizeFormat(width / cols) : 0;
