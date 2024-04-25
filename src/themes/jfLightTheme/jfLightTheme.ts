@@ -11,5 +11,12 @@ export const jfLightTheme: DashBoardTheme = {
   wrapperStyle: {
     backgroundColor: "#E2EEFA",
   },
+  theme: {
+    chart: {
+      textPrimary: "#000000",
+      textSecondary: "#333333",
+      stageColors: ["#F4A52E", "#3B78EF", "#34DAFF", "#63D82C"],
+    },
+  },
 };
 export * from "../interface";
