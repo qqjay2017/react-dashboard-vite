@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { FC, PropsWithChildren } from "react";
 import { CoreContext, CoreContextProps } from "./CoreContext";
 import { RenderLayout } from "./RenderLayout";
 import { OnLayoutChange } from "./type";
@@ -108,8 +108,10 @@ export const CoreDashboardAppResponsiveInner = (
   );
 };
 
-export const CoreDashboardAppResponsive = (
+export const CoreDashboardAppResponsive: FC<CoreDashboardAppResponsiveProps> = (
+  props: CoreDashboardAppResponsiveProps
+) => (
   <ThemeModeProvider>
-    <CoreDashboardAppResponsiveInner />
+    <CoreDashboardAppResponsiveInner {...props} />
   </ThemeModeProvider>
 );
