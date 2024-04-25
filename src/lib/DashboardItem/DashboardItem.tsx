@@ -41,8 +41,6 @@ export const DashboardItem = (
       s.padding = Array.isArray(padding)
         ? padding.map((p) => (p || 0) + "px").join(" ")
         : padding;
-
-      console.log(s.padding, " s.padding");
     }
     if (zIndex) {
       s.zIndex = zIndex;
@@ -139,7 +137,6 @@ export const DashboardItem = (
             : false
         }
         onDragStop={(e, { x, y }) => {
-          console.log(e, "e");
           onLayoutChange &&
             onLayoutChange(i || "", {
               x: sizeFormat(x / colWidth),
@@ -147,7 +144,6 @@ export const DashboardItem = (
             });
         }}
         onResizeStop={(e, direction, ref: any) => {
-          console.log(e, direction, "e, direction");
           onLayoutChange &&
             onLayoutChange(i || "", {
               w: sizeFormat(parseInt(ref.style.width || 0, 10) / colWidth),

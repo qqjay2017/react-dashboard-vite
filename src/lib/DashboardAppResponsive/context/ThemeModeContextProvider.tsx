@@ -43,16 +43,17 @@ export function ThemeModeProvider({
         : "light";
 
       root.classList.add(systemTheme);
-      console.log(systemTheme, "systemTheme");
+
       setHtmlThemeMode(systemTheme);
       return;
     }
-    console.log(theme, "theme");
+
     root.classList.add(theme);
     setHtmlThemeMode(theme);
   }, [theme]);
 
   const value = {
+    isDarkTheme: () => !theme || theme == "system" || theme == "light",
     themeMode: theme,
     setThemeMode: (mode: Theme) => {
       localStorage.setItem(storageKey, mode);
