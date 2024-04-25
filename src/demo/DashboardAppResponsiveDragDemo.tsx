@@ -1,13 +1,14 @@
-import { Button, DashboardAppResponsive, ResourceOptions } from "@/lib";
+import { DashboardAppResponsive, ResourceOptions } from "@/lib";
 import {
   TestChildA1,
   TestChildB1,
   TestChildB2,
   TestChildC1,
 } from "./TestChild";
-import { jfDarkTheme } from "@/lib/themes/jfDarkTheme/jfDarkTheme";
+
 import { TitleNodeChildRenderer } from "./TitleNodeChildRenderer";
 import { useState } from "react";
+import { jfDarkTheme } from "@/themes/jfDarkTheme";
 
 export const DashboardAppResponsiveDragDemo = () => {
   const [pcLayout, setPcLayout] = useState<ResourceOptions[]>([
@@ -69,7 +70,7 @@ export const DashboardAppResponsiveDragDemo = () => {
         paddingTop: "26px",
       }}
     >
-      <Button>保存</Button>
+      <button>保存</button>
       <DashboardAppResponsive
         onLayoutChange={(id, newLayout) => {
           setPcLayout((layouts) => {
