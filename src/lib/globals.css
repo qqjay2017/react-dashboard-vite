@@ -2,118 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --radius: 0.5rem;
 
+    /*  交发浅色 */
 
-@layer base {
-    :root {
-        --background: 0 0% 100%;
-        --foreground: 224 71.4% 4.1%;
-        --card: 0 0% 100%;
-        --card-foreground: 224 71.4% 4.1%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 224 71.4% 4.1%;
-        --primary: 220.9 39.3% 11%;
-        --primary-foreground: 210 20% 98%;
-        --secondary: 220 14.3% 95.9%;
-        --secondary-foreground: 220.9 39.3% 11%;
-        --muted: 220 14.3% 95.9%;
-        --muted-foreground: 220 8.9% 46.1%;
-        --accent: 220 14.3% 95.9%;
-        --accent-foreground: 220.9 39.3% 11%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 20% 98%;
-        --border: 220 13% 91%;
-        --input: 220 13% 91%;
-        --ring: 224 71.4% 4.1%;
-        --radius: 0.5rem;
-
-        /* // 交发浅色 */
-
-        /* 下拉框的背景颜色 */
-        --popover: 209 64% 88%;
-        /* 下拉框的前台文字颜色 */
-        --popover-foreground: 220 64% 52%, ;
-        /* 下拉框的边框颜色 */
-        --border: 210 53% 53%;
-        /* 鼠标经过的高亮背景色,适用于下拉框 */
-        --accent: 209 55% 76%;
-        /* 鼠标经过的高亮,前面的文字,适用于下拉框 */
-        --accent-foreground: 214 61% 48%;
-        /*  选中主颜色? */
-        --primary: 220 85% 58%;
-        --radius: 0;
-        /* tab总体色背景色 */
-        --muted: 216 100% 84%;
-        /* tab总体色背景,前台文字颜色 */
-        --muted-foreground: 217 52% 53%;
-        /* tab选择背景色 */
-        --background: 217 52% 53%;
-        /* tab选择背景,前台文字色 */
-        --foreground: 0 0% 100%;
-
-    }
-
-    .dark,
-    html[data-theme="dark"] {
-        --background: 224 71.4% 4.1%;
-        --foreground: 210 20% 98%;
-        --card: 224 71.4% 4.1%;
-        --card-foreground: 210 20% 98%;
-        --popover: 224 71.4% 4.1%;
-        --popover-foreground: 210 20% 98%;
-        --primary: 210 20% 98%;
-        --primary-foreground: 220.9 39.3% 11%;
-        --secondary: 215 27.9% 16.9%;
-        --secondary-foreground: 210 20% 98%;
-        --muted: 215 27.9% 16.9%;
-        --muted-foreground: 217.9 10.6% 64.9%;
-        --accent: 215 27.9% 16.9%;
-        --accent-foreground: 210 20% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 20% 98%;
-        --border: 215 27.9% 16.9%;
-        --input: 215 27.9% 16.9%;
-        --ring: 216 12.2% 83.9%;
-        /* // 交发黑暗色 */
-
-        /* 下拉框的背景颜色 */
-        --popover: 209 96% 18%;
-        /* 下拉框的前台文字颜色 */
-        --popover-foreground: 210 38% 49%;
-        /* 下拉框的边框颜色 */
-        --border: 207 60% 31%;
-        /* 鼠标经过的高亮背景色,适用于下拉框 */
-        --accent: 207 100% 21%;
-        /* 鼠标经过的高亮,前面的文字,适用于下拉框 */
-        --accent-foreground: 207 52% 78%;
-
-        /*  选中主颜色? */
-        --primary: 220 85% 58%;
-        --radius: 0;
-        /* tab总体色背景色 */
-        --muted: 213 82% 26%;
-        /* tab总体色背景,前台文字颜色 */
-        --muted-foreground: 210 40% 83%;
-        /* tab选择背景色 */
-        --background: 217 52% 53%;
-        /* tab选择背景,前台文字色 */
-        --foreground: 210 40% 83%;
-        --border: 211 60% 31%;
-
-
-
-
-
-    }
+    /* 下拉框的背景颜色 */
+    --popover: 209 64% 88%;
+    /* 下拉框的前台文字颜色 */
+    --popover-foreground: 220 64% 52%, ;
+    /* 下拉框的边框颜色 */
+    --border: 210 53% 53%;
+    /* 鼠标经过的高亮背景色,适用于下拉框 */
+    --accent: 209 55% 76%;
+    /* 鼠标经过的高亮,前面的文字,适用于下拉框 */
+    --accent-foreground: 214 61% 48%;
+    /*  选中主颜色? */
+    --primary: 220 85% 58%;
+    --radius: 0;
+    /* tab总体色背景色 */
+    --muted: 216 100% 84%;
+    /* tab总体色背景,前台文字颜色 */
+    --muted-foreground: 217 52% 53%;
+    /* tab选择背景色 */
+    --background: 217 52% 53%;
+    /* tab选择背景,前台文字色 */
+    --foreground: 0 0% 100%;
 
 }
 
-@layer base {
-    * {
-        @apply border-border;
-    }
+.dark,
+html[data-theme="dark"] {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    /* // 交发黑暗色 */
 
-    body {
-        @apply bg-background text-foreground;
-    }
+    /* 下拉框的背景颜色 */
+    --popover: 209 96% 18%;
+    /* 下拉框的前台文字颜色 */
+    --popover-foreground: 210 38% 49%;
+    /* 下拉框的边框颜色 */
+    --border: 207 60% 31%;
+    /* 鼠标经过的高亮背景色,适用于下拉框 */
+    --accent: 207 100% 21%;
+    /* 鼠标经过的高亮,前面的文字,适用于下拉框 */
+    --accent-foreground: 207 52% 78%;
+
+    /*  选中主颜色? */
+    --primary: 220 85% 58%;
+    --radius: 0;
+    /* tab总体色背景色 */
+    --muted: 213 82% 26%;
+    /* tab总体色背景,前台文字颜色 */
+    --muted-foreground: 210 40% 83%;
+    /* tab选择背景色 */
+    --background: 217 52% 53%;
+    /* tab选择背景,前台文字色 */
+    --foreground: 210 40% 83%;
+    --border: 211 60% 31%;
 }
