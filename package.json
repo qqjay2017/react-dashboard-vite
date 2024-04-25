@@ -113,33 +113,5 @@
     "access": "public",
     "registry": "http://bscs.d3ata.com:8081/repository/npm-l/"
   },
-  "clean-package": "./clean-package.config.json",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/react/index.d.ts",
-        "default": "./dist/react/index.js"
-      }
-    },
-    "./index.css": {
-      "import": "./dist/index.css"
-    },
-    "./ui": {
-      "types": "./dist/ui/index.d.ts",
-      "import": "./dist/ui/index.js"
-    },
-    "./ui/index.css": {
-      "import": "./dist/ui/index.css"
-    },
-    "./ui/*": "./dist/ui/*",
-    "./themes/*": "./dist/themes/*",
-    "./dist/ui/*": "./dist/ui/*",
-    "./dist/themes/*": "./dist/themes/*",
-    "./package.json": "./package.json",
-    "./dist/*": "./dist/*"
-  }
+  "clean-package": "./clean-package.config.json"
 }
