@@ -55,7 +55,7 @@ export function ThemeModeProvider({
   }, [theme]);
 
   const value = {
-    isDarkTheme: () => Boolean(!theme || theme == "system" || theme == "light"),
+    isDarkTheme: () => Boolean(theme !== "light"),
     themeMode: theme,
     setThemeMode: (mode: Theme) => {
       localStorage.setItem(storageKey, mode);
