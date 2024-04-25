@@ -136,14 +136,14 @@ export const DashboardItem = (
               }
             : false
         }
-        onDragStop={(e, { x, y }) => {
+        onDragStop={(_, { x, y }) => {
           onLayoutChange &&
             onLayoutChange(i || "", {
               x: sizeFormat(x / colWidth),
               y: sizeFormat((y - headerHeight) / rowHeight),
             });
         }}
-        onResizeStop={(e, direction, ref: any) => {
+        onResizeStop={(_, _d, ref: any) => {
           onLayoutChange &&
             onLayoutChange(i || "", {
               w: sizeFormat(parseInt(ref.style.width || 0, 10) / colWidth),
