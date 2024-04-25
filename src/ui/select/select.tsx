@@ -108,6 +108,7 @@ const SelectContent = React.forwardRef<
         " border-border border-[1px]",
         position === "popper" &&
           "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+        " z-50",
         className
       )}
       position={position}
