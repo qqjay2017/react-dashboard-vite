@@ -39,7 +39,7 @@ export const RenderLayout = ({
           right: 0,
           top: 0,
           width: "100%",
-          zIndex: 100,
+          zIndex: 49,
           height: headerHeight,
         }}
       >
