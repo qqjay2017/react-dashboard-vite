@@ -115,6 +115,7 @@
   },
   "clean-package": "./clean-package.config.json",
   "exports": {
+    "./dist/*": "./dist/*",
     ".": {
       "import": {
         "types": "./dist/index.d.ts",
