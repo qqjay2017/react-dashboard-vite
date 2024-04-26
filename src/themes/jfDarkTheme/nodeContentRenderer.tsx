@@ -7,12 +7,13 @@ export const NodeContentRenderer = (
     title?: string | React.ReactNode;
     subTitle?: string | React.ReactNode;
     exact?: string | React.ReactNode;
+    style?: React.CSSProperties;
   }>
 ) => {
-  const { title, subTitle, exact, children } = props;
+  const { title, subTitle, exact, children, style } = props;
 
   return (
-    <div className={cn("nodeContentRenderer")}>
+    <div className={cn("nodeContentRenderer")} style={style}>
       <div className={cn("nodeContentRendererTitle")}>
         <div className={cn("nodeContentRendererTitleBg")}></div>
         {title ? (

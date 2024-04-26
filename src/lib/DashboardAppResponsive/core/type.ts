@@ -22,6 +22,7 @@ export interface ResourceOptions extends PropsWithChildren {
   padding?: number | [number, number, number, number];
   isDraggable?: boolean;
   isResizable?: boolean;
+  overflowHidden?: boolean;
 
   gridSize?: {
     w: number;
