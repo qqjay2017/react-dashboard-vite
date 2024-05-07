@@ -9,3 +9,4 @@ export * from "./badge";
 export * from "./carousel";
 export * from "./select";
 export * from "./skeleton";
+export * from './navigation-menu'
