@@ -2,10 +2,11 @@ import * as React from "react";
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
 
 import { cn } from "@/lib/utils";
+import { ScrollAreaViewportProps } from "@radix-ui/react-scroll-area";
 
 const ScrollArea = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> & {viewportProps?: React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Viewport>}
+  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> & {viewportProps?: ScrollAreaViewportProps & React.RefAttributes<HTMLDivElement>}
 >(({ className, children, viewportProps,...props }, ref) => (
   <ScrollAreaPrimitive.Root
     ref={ref}
