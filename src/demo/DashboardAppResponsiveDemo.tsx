@@ -1,7 +1,8 @@
 import { DashboardAppResponsive } from "@/lib";
 import { TestChildA1 } from "./TestChild";
-import { jfDarkTheme } from "@/lib/themes/jfDarkTheme/jfDarkTheme";
+
 import { TitleNodeChildRenderer } from "./TitleNodeChildRenderer";
+import { jfDarkTheme } from "@/themes/jfDarkTheme";
 
 export const DashboardAppResponsiveDemo = () => {
   return (

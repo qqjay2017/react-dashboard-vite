@@ -92,9 +92,11 @@ export interface BreakpointContextProviderProps extends PropsWithChildren {
   wrapperStyle?: React.CSSProperties;
   wrapperProps?: React.HTMLAttributes<HTMLDivElement>;
   themeName?: string;
+  minHeight?:number;
 }
 
 export const BreakpointContextProvider = ({
+  minHeight=861,
   children,
   breakpoints,
   layout: layoutParam,
@@ -153,7 +155,7 @@ export const BreakpointContextProvider = ({
           ? "100vh"
           : `${sizeFormat(rows * rowHeight + headerHeight)}px`,
         position: "relative",
-        minHeight: "861px",
+        minHeight: minHeight+'px',
         ...wrapperStyle,
       }}
     >

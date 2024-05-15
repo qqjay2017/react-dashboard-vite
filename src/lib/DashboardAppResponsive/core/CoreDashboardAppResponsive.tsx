@@ -81,6 +81,8 @@ export interface CoreDashboardAppResponsiveProps
         }}
    */
   onLayoutChange?: OnLayoutChange;
+
+  minHeight?:number;
 }
 
 export const CoreDashboardAppResponsiveInner = (
@@ -100,6 +102,7 @@ export const CoreDashboardAppResponsiveInner = (
     <CoreContext {...props} key={`themeMode-${themeMode}`}>
       {props.children}
       <RenderLayout
+
         resource={props.resource}
         resoucreProps={props.resoucreProps || {}}
         onLayoutChange={props.onLayoutChange}

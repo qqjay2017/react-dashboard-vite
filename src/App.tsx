@@ -1,4 +1,5 @@
 import "./base.css";
+import { DashboardAppResponsiveDemo } from "./demo/DashboardAppResponsiveDemo";
 
 import { DashboardAppResponsiveDragDemo } from "./demo/DashboardAppResponsiveDragDemo";
 import { NavDemo } from "./demo/NavDemo";
@@ -7,7 +8,9 @@ import { NavDemo } from "./demo/NavDemo";
 const App = () => {
   // return <DashboardAppResponsiveDemo />;
   // return <DashboardAppResponsiveDragDemo />;
-  return <NavDemo />
+  // return <NavDemo />
+  // return <DashboardAppResponsiveDragDemo />;
+  return <DashboardAppResponsiveDemo />;
 };
 
 export default App;

@@ -23,6 +23,7 @@ export interface CoreContextProps
     DraggableContextProviderProps,
     Partial<ComponentContextValue> {
   resoucreProps?: Record<string, any>;
+  minHeight?:number;
 }
 
 export const CoreContext = ({
@@ -30,7 +31,7 @@ export const CoreContext = ({
   breakpoints,
   theme,
   titleWrapper,
-
+  minHeight,
   containerWrapper,
   titleChildren,
   layout = [],
@@ -48,6 +49,7 @@ export const CoreContext = ({
     <QueryClientProvider>
       <ResourceDefinitionContextProvider>
         <BreakpointContextProvider
+        minHeight={minHeight}
           forceFullScreen={forceFullScreen}
           breakpoints={breakpoints}
           layout={layout}
