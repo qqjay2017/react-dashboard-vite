@@ -160,6 +160,9 @@ export const DashboardItem = (
       className={cn("dashboardItem", matchBreak)}
       style={{
         ...getStyle,
+        position:'absolute',
+        left:0,
+        top:0,
         width,
         height,
         transform: `translate( ${sizeFormat(x * colWidth)}px ,${sizeFormat(y * rowHeight + headerHeight)}px )`,
