@@ -2,13 +2,13 @@ import { useCallback, useMemo, useState } from "react";
 import useResizeObserver from "use-resize-observer";
 import { defaultBreakpoints } from "../utils/defaultBreakpoints";
 import { getBreakpointFromWidth } from "../utils/responsiveUtils";
-import { Breakpoints } from "../type";
+import { BreakpointKey, Breakpoints } from "../type";
 import { debounce } from "lodash-es";
 export const useBreakpoints = (
   breakpoints: Breakpoints = defaultBreakpoints,
   wait = 800
 ) => {
-  const [breakpoint, setBreakpoint] = useState<string>("");
+  const [breakpoint, setBreakpoint] = useState<BreakpointKey>('desktop');
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   // 防抖
@@ -25,9 +25,10 @@ export const useBreakpoints = (
     () => debounce(setSize, wait, { leading: true }),
     [wait, setSize]
   );
-  const { ref } = useResizeObserver({
+  useResizeObserver({
+    ref: document.body,
     onResize: onResize,
   });
 
-  return { ref, breakpoint, width, height };
+  return { breakpoint, width, height };
 };

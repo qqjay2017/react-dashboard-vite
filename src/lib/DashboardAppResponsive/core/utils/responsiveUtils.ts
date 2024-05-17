@@ -1,7 +1,7 @@
-import { Breakpoints } from "../type";
+import { BreakpointKey, Breakpoints } from "../type";
 
 export function sortBreakpoints(breakpoints: Breakpoints): Array<string> {
-  const keys: Array<string> = Object.keys(breakpoints);
+  const keys: Array<BreakpointKey> = Object.keys(breakpoints) as Array<BreakpointKey>;
   return keys.sort(function (a, b) {
     return breakpoints[a] - breakpoints[b];
   });
@@ -10,17 +10,17 @@ export function sortBreakpoints(breakpoints: Breakpoints): Array<string> {
 export function getBreakpointFromWidth(
   breakpoints: Breakpoints,
   width: number
-): string {
+): BreakpointKey {
   if (!width) {
-    return "";
+    return 'desktop';
   }
   const sorted = sortBreakpoints(breakpoints);
-  let matching = sorted[0];
+  let matching = sorted[0] as BreakpointKey;
   if (!matching) {
-    return "";
+    return 'desktop';
   }
   for (let i = 1, len = sorted.length; i < len; i++) {
-    const breakpointName = sorted[i];
+    const breakpointName = sorted[i] as BreakpointKey;
     if (width > breakpoints[breakpointName]) matching = breakpointName;
   }
   return matching;

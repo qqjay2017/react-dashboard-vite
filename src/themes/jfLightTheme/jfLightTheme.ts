@@ -2,12 +2,10 @@ import { DashBoardTheme } from "../interface";
 import { TitleNodeRenderer } from "./titleNodeRenderer";
 import "./jfLightThemeGlobal.less";
 import { NodeContentRenderer } from "./nodeContentRenderer";
+import { JfDarkThemeContent } from "../jfDarkTheme/JfDarkThemeContent";
 
 export const jfLightTheme: DashBoardTheme = {
   themeName: "jfLightTheme",
-  titleWrapper: TitleNodeRenderer,
-
-  containerWrapper: NodeContentRenderer,
   wrapperStyle: {
     backgroundColor: "#E2EEFA",
   },
@@ -18,5 +16,10 @@ export const jfLightTheme: DashBoardTheme = {
       stageColors: ["#F4A52E", "#3B78EF", "#34DAFF", "#63D82C"],
     },
   },
+  components: {
+    headerWrapper: TitleNodeRenderer,
+    content: JfDarkThemeContent,
+    containerWrapper: NodeContentRenderer,
+  }
 };
 export * from "../interface";

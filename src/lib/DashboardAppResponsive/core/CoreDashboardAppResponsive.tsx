@@ -3,10 +3,12 @@ import { CoreContext, CoreContextProps } from "./CoreContext";
 import { RenderLayout } from "./RenderLayout";
 import { OnLayoutChange } from "./type";
 import { ThemeMode, ThemeModeProvider, useThemeMode } from "../context";
+import { QueryClientProvider } from "@/lib/context/QueryClientProvider";
+
 
 export interface CoreDashboardAppResponsiveProps
   extends CoreContextProps,
-    PropsWithChildren {
+  PropsWithChildren {
   /**
    * 容器属性注入,所有属性将会变成组件的props
    * 
@@ -58,8 +60,8 @@ export interface CoreDashboardAppResponsiveProps
         />
    */
   themeProvider?:
-    | CoreDashboardAppResponsiveProps
-    | ((params: { themeMode: ThemeMode }) => CoreDashboardAppResponsiveProps);
+  | CoreDashboardAppResponsiveProps
+  | ((params: { themeMode: ThemeMode }) => CoreDashboardAppResponsiveProps);
   /**
    * 
    * 布局变化后的回调
@@ -82,7 +84,9 @@ export interface CoreDashboardAppResponsiveProps
    */
   onLayoutChange?: OnLayoutChange;
 
-  minHeight?:number;
+  minHeight?: number;
+
+
 }
 
 export const CoreDashboardAppResponsiveInner = (
@@ -96,13 +100,18 @@ export const CoreDashboardAppResponsiveInner = (
   const props = {
     ...themeProvider,
     ..._props,
+    components: {
+      ..._props.components,
+      ...themeProvider?.components
+    }
   };
+  console.log(props, 'props')
 
   return (
     <CoreContext {...props} key={`themeMode-${themeMode}`}>
       {props.children}
       <RenderLayout
-
+        components={props.components}
         resource={props.resource}
         resoucreProps={props.resoucreProps || {}}
         onLayoutChange={props.onLayoutChange}
@@ -114,7 +123,9 @@ export const CoreDashboardAppResponsiveInner = (
 export const CoreDashboardAppResponsive: FC<CoreDashboardAppResponsiveProps> = (
   props: CoreDashboardAppResponsiveProps
 ) => (
-  <ThemeModeProvider>
-    <CoreDashboardAppResponsiveInner {...props} />
-  </ThemeModeProvider>
+  <QueryClientProvider>
+    <ThemeModeProvider>
+      <CoreDashboardAppResponsiveInner {...props} />
+    </ThemeModeProvider>
+  </QueryClientProvider>
 );

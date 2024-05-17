@@ -7,7 +7,9 @@ import {
 } from "react";
 import { ThemeMode } from "../context";
 
-export type Breakpoints = Record<string, number>;
+export type BreakpointKey = "showroom"|"desktop"|"tablet"|"mobile"
+    
+export type Breakpoints = Record<BreakpointKey, number>;
 
 export interface ResourceOptions extends PropsWithChildren {
   i: string;

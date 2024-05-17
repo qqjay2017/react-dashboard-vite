@@ -4,7 +4,7 @@ import { ResourceComponent, cn } from "@/lib";
 
 export const TitleNodeRenderer = ({
   children,
-  matchBreak,
+  breakpoint,
 }: ResourceComponent) => {
-  return <div className={cn("titleNodeRenderer", matchBreak)}>{children}</div>;
+  return <div className={cn("titleNodeRenderer", breakpoint)}>{children}</div>;
 };

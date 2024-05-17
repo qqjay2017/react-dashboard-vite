@@ -1,4 +1,4 @@
-import { QueryClientProvider } from "@/lib/context/QueryClientProvider";
+
 import { PropsWithChildren } from "react";
 import {
   BreakpointContextProvider,
@@ -8,74 +8,54 @@ import {
   ThemeContextProvider,
   ThemeContextProviderProps,
 } from "../context/ThemeContextProvider";
-import { ComponentContextProvider } from "../context/ComponentContextProvider";
+
 import { ResourceDefinitionContextProvider } from "../context/ResourceDefinitionContextProvider";
-import { ComponentContextValue } from "../context/ComponentContext";
+
 import {
   DraggableContextProvider,
   DraggableContextProviderProps,
 } from "../context/DraggableContextProvider";
 
+import { LayoutContextProvider, LayoutContextProviderProps } from "../context/LayoutContextProvider";
+
+
+
 export interface CoreContextProps
   extends PropsWithChildren,
-    BreakpointContextProviderProps,
-    ThemeContextProviderProps,
-    DraggableContextProviderProps,
-    Partial<ComponentContextValue> {
+  LayoutContextProviderProps,
+  BreakpointContextProviderProps,
+  ThemeContextProviderProps,
+  DraggableContextProviderProps {
   resoucreProps?: Record<string, any>;
-  minHeight?:number;
+  minHeight?: number;
 }
 
-export const CoreContext = ({
-  children,
-  breakpoints,
-  theme,
-  titleWrapper,
-  minHeight,
-  containerWrapper,
-  titleChildren,
-  layout = [],
-  resource = {},
-  cols,
-  headerHeight,
-  themeName,
-  wrapperProps = {},
-  wrapperStyle = {},
-  forceFullScreen,
-  isDraggable = false,
-  isResizable = false,
-}: CoreContextProps) => {
+export const CoreContext = (props: CoreContextProps) => {
+  const {
+    children,
+    breakpoints,
+
+    isDraggable = false,
+    isResizable = false,
+  } = props;
   return (
-    <QueryClientProvider>
-      <ResourceDefinitionContextProvider>
-        <BreakpointContextProvider
-        minHeight={minHeight}
-          forceFullScreen={forceFullScreen}
-          breakpoints={breakpoints}
-          layout={layout}
-          resource={resource}
-          cols={cols}
-          headerHeight={headerHeight}
-          themeName={themeName || ""}
-          wrapperProps={wrapperProps}
-          wrapperStyle={wrapperStyle}
-        >
-          <ThemeContextProvider theme={theme} themeName={themeName}>
-            <ComponentContextProvider
-              titleWrapper={titleWrapper}
-              titleChildren={titleChildren}
-              containerWrapper={containerWrapper}
+
+    <BreakpointContextProvider
+      breakpoints={breakpoints}
+    >
+      <LayoutContextProvider {...props}>
+        <ThemeContextProvider {...props}>
+          <ResourceDefinitionContextProvider>
+            <DraggableContextProvider
+              isDraggable={isDraggable}
+              isResizable={isResizable}
             >
-              <DraggableContextProvider
-                isDraggable={isDraggable}
-                isResizable={isResizable}
-              >
-                {children}
-              </DraggableContextProvider>
-            </ComponentContextProvider>
-          </ThemeContextProvider>
-        </BreakpointContextProvider>
-      </ResourceDefinitionContextProvider>
-    </QueryClientProvider>
+              {children}
+            </DraggableContextProvider>
+          </ResourceDefinitionContextProvider>
+        </ThemeContextProvider>
+      </LayoutContextProvider>
+    </BreakpointContextProvider>
+
   );
 };

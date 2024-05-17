@@ -1,5 +1,5 @@
 import { setHtmlThemeMode } from "@/lib/utils/setHtmlThemeMode";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export type ThemeMode = "dark" | "light" | "system";
 
@@ -21,7 +21,7 @@ const initialState: ThemeProviderState = {
   setThemeMode: () => null,
 };
 
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+export const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 export function ThemeModeProvider({
   children,
@@ -70,11 +70,4 @@ export function ThemeModeProvider({
   );
 }
 
-export const useThemeMode = () => {
-  const context = useContext(ThemeProviderContext);
-
-  if (context === undefined)
-    throw new Error("useTheme must be used within a ThemeProvider");
-
-  return context;
-};
+export * from './useThemeMode'

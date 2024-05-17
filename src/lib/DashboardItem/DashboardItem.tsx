@@ -10,7 +10,7 @@ export const DashboardItem = (
   props: { onLayoutChange?: OnLayoutChange } & Partial<IDashboardItemProps>
 ) => {
   const {
-    headerHeight = 0,
+
 
     h = 0,
     i = "",
@@ -66,7 +66,7 @@ export const DashboardItem = (
         }}
         position={{
           x: sizeFormat(x * colWidth),
-          y: sizeFormat(y * rowHeight + headerHeight),
+          y: sizeFormat(y * rowHeight),
         }}
         size={{
           width,
@@ -130,17 +130,17 @@ export const DashboardItem = (
         enableResizing={
           enableResizing && resizeActive
             ? {
-                bottomRight: true,
-                right: true,
-                bottom: true,
-              }
+              bottomRight: true,
+              right: true,
+              bottom: true,
+            }
             : false
         }
         onDragStop={(_, { x, y }) => {
           onLayoutChange &&
             onLayoutChange(i || "", {
               x: sizeFormat(x / colWidth),
-              y: sizeFormat((y - headerHeight) / rowHeight),
+              y: sizeFormat((y) / rowHeight),
             });
         }}
         onResizeStop={(_, _d, ref: any) => {
@@ -160,12 +160,12 @@ export const DashboardItem = (
       className={cn("dashboardItem", matchBreak)}
       style={{
         ...getStyle,
-        position:'absolute',
-        left:0,
-        top:0,
+        position: 'absolute',
+        left: 0,
+        top: 0,
         width,
         height,
-        transform: `translate( ${sizeFormat(x * colWidth)}px ,${sizeFormat(y * rowHeight + headerHeight)}px )`,
+        transform: `translate( ${sizeFormat(x * colWidth)}px ,${sizeFormat(y * rowHeight)}px )`,
       }}
     >
       {children}

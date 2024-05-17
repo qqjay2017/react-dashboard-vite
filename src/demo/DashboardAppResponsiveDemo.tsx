@@ -1,27 +1,19 @@
 import { DashboardAppResponsive } from "@/lib";
 import { TestChildA1 } from "./TestChild";
-
-import { TitleNodeChildRenderer } from "./TitleNodeChildRenderer";
 import { jfDarkTheme } from "@/themes/jfDarkTheme";
 import { jfLightTheme } from "@/themes/jfLightTheme";
+import { TitleNodeChildRenderer } from "./TitleNodeChildRenderer";
 
 export const DashboardAppResponsiveDemo = () => {
   return (
     <DashboardAppResponsive
-  
       resoucreProps={{
         test: 123,
       }}
+      minHeight={555}
       cols={12}
       theme={{
         main: "mediumseagreen",
-      }}
-      
-      headerHeight={({ breakpoint }) => {
-        if (breakpoint === "mobile" || breakpoint === "tablet") {
-          return 120;
-        }
-        return 132;
       }}
       resource={{
         A1: TestChildA1,
@@ -38,7 +30,7 @@ export const DashboardAppResponsiveDemo = () => {
         desktop: 1300,
         tablet: 500,
         mobile: 0,
-    }}
+      }}
       layout={({ breakpoint }) => {
         if (breakpoint === "tablet" || breakpoint == "mobile") {
           return [
@@ -139,20 +131,24 @@ export const DashboardAppResponsiveDemo = () => {
           },
         ];
       }}
-      themeProvider={({themeMode})=>{
-        if(themeMode==='dark'){
+      themeProvider={({ themeMode }) => {
+        console.log(themeMode, 'themeMode')
+        if (themeMode === 'dark') {
           return jfDarkTheme
-        
+
         }
-        
-        if(themeMode==='light') {
+
+        if (themeMode === 'light') {
           return jfLightTheme
         }
         return jfDarkTheme
 
-       
+
       }}
-      titleChildren={TitleNodeChildRenderer}
+      components={{
+        headerInner: TitleNodeChildRenderer
+
+      }}
     ></DashboardAppResponsive>
   );
 };

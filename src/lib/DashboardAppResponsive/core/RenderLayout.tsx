@@ -2,68 +2,47 @@ import { OnLayoutChange, ResourceChildren } from "./type";
 import { useBreakpointContext } from "../context";
 import { getElement } from "./utils/getElement";
 import { DashboardItem } from "@/lib/DashboardItem";
-import { useComponentContext } from "../context/ComponentContext";
-import { useDraggableContext } from "../context/DraggableContext";
-import { DraggableBg } from "./DraggableBg";
 
+import { useLayoutContext } from "../context/useLayoutContext";
+import { LayoutContextComponents } from "../context/LayoutContextProvider";
+import { PropsWithChildren } from "react";
+const DefaultContainerWrapper = ({ children }: PropsWithChildren) => <>{children}</>
 export const RenderLayout = ({
   resource = {},
   resoucreProps,
   onLayoutChange,
+  components
 }: {
   resource?: Record<string, ResourceChildren>;
   resoucreProps?: Record<string, any>;
   onLayoutChange?: OnLayoutChange;
+  components: LayoutContextComponents
 }) => {
-  const { containerWrapper, titleWrapper, titleChildren } =
-    useComponentContext();
+  const containerWrapper = components?.containerWrapper || DefaultContainerWrapper
   const {
-    layout: layouts,
+
     breakpoint,
-    colWidth,
-    rowHeight,
-    headerHeight = 0,
+
   } = useBreakpointContext();
 
-  const { isDraggable, isResizable } = useDraggableContext();
+  const {
+
+    layout: layouts,
+    colWidth,
+    rowHeight,
+
+  } = useLayoutContext()
+
+  // const { isDraggable, isResizable } = useDraggableContext();
 
   return (
     <>
-      {isDraggable || isResizable ? <DraggableBg /> : null}
-      {/* 头部 */}
-      <div
-        key={"titleWrapper-" + breakpoint}
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 0,
-          width: "100%",
-          zIndex: 49,
-          height: headerHeight,
-        }}
-      >
-        {getElement(titleWrapper as any, {
-          ...resoucreProps,
-          breakpoint,
-          colWidth,
-          rowHeight,
-          children: getElement(titleChildren as any, {
-            ...resoucreProps,
-            breakpoint,
-            colWidth,
-            rowHeight,
-          }),
-        })}
-      </div>
-
       {layouts.map((layout, index) => {
         return (
           <DashboardItem
             zIndex={index + 3}
             onLayoutChange={onLayoutChange}
             {...layout}
-            headerHeight={headerHeight}
             matchBreak={breakpoint}
             colWidth={colWidth}
             rowHeight={rowHeight}
