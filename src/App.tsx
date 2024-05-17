@@ -7,10 +7,10 @@ import { NavDemo } from "./demo/NavDemo";
 // import { jfDarkTheme } from "./lib/themes/jfDarkTheme/jfDarkTheme";
 const App = () => {
   // return <DashboardAppResponsiveDemo />;
-  // return <DashboardAppResponsiveDragDemo />;
+   return <DashboardAppResponsiveDragDemo />;
   // return <NavDemo />
   // return <DashboardAppResponsiveDragDemo />;
-  return <DashboardAppResponsiveDemo />;
+  // return <DashboardAppResponsiveDemo />;
 };
 
 export default App;

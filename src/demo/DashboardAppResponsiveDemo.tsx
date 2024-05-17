@@ -3,10 +3,12 @@ import { TestChildA1 } from "./TestChild";
 
 import { TitleNodeChildRenderer } from "./TitleNodeChildRenderer";
 import { jfDarkTheme } from "@/themes/jfDarkTheme";
+import { jfLightTheme } from "@/themes/jfLightTheme";
 
 export const DashboardAppResponsiveDemo = () => {
   return (
     <DashboardAppResponsive
+  
       resoucreProps={{
         test: 123,
       }}
@@ -14,6 +16,7 @@ export const DashboardAppResponsiveDemo = () => {
       theme={{
         main: "mediumseagreen",
       }}
+      
       headerHeight={({ breakpoint }) => {
         if (breakpoint === "mobile" || breakpoint === "tablet") {
           return 120;
@@ -30,6 +33,12 @@ export const DashboardAppResponsiveDemo = () => {
         C2: TestChildA1,
         C3: TestChildA1,
       }}
+      breakpoints={{
+        showroom: 2600,
+        desktop: 1300,
+        tablet: 500,
+        mobile: 0,
+    }}
       layout={({ breakpoint }) => {
         if (breakpoint === "tablet" || breakpoint == "mobile") {
           return [
@@ -130,7 +139,19 @@ export const DashboardAppResponsiveDemo = () => {
           },
         ];
       }}
-      themeProvider={jfDarkTheme}
+      themeProvider={({themeMode})=>{
+        if(themeMode==='dark'){
+          return jfDarkTheme
+        
+        }
+        
+        if(themeMode==='light') {
+          return jfLightTheme
+        }
+        return jfDarkTheme
+
+       
+      }}
       titleChildren={TitleNodeChildRenderer}
     ></DashboardAppResponsive>
   );
