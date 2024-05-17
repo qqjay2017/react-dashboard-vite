@@ -9,6 +9,7 @@ import { QueryClientProvider } from "@/lib/context/QueryClientProvider";
 export interface CoreDashboardAppResponsiveProps
   extends CoreContextProps,
   PropsWithChildren {
+  themeName?: string;
   /**
    * 容器属性注入,所有属性将会变成组件的props
    * 
@@ -87,6 +88,7 @@ export interface CoreDashboardAppResponsiveProps
   minHeight?: number;
 
 
+
 }
 
 export const CoreDashboardAppResponsiveInner = (
@@ -122,10 +124,13 @@ export const CoreDashboardAppResponsiveInner = (
 
 export const CoreDashboardAppResponsive: FC<CoreDashboardAppResponsiveProps> = (
   props: CoreDashboardAppResponsiveProps
-) => (
-  <QueryClientProvider>
-    <ThemeModeProvider>
-      <CoreDashboardAppResponsiveInner {...props} />
-    </ThemeModeProvider>
-  </QueryClientProvider>
-);
+) => {
+
+  return (
+    <QueryClientProvider>
+      <ThemeModeProvider themeProvider={props.themeProvider} >
+        <CoreDashboardAppResponsiveInner {...props} />
+      </ThemeModeProvider>
+    </QueryClientProvider>
+  );
+}

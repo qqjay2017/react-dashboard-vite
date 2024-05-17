@@ -6,3 +6,13 @@ export const setHtmlThemeMode = (mode: "dark" | "light" | "system") => {
     console.log(error);
   }
 };
+
+
+export const setHtmlThemeName = (name = '') => {
+  console.log(name, 'name')
+  try {
+    document.documentElement.setAttribute("data-theme-name", name);
+  } catch (error) {
+    console.log(error);
+  }
+};

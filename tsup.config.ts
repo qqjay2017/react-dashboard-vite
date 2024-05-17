@@ -24,13 +24,8 @@ export default defineConfig([
   // 主题包,每个主题单独拆包
   {
     ...baseConfig,
-    entry: ["./src/themes/jfDarkTheme/index.ts"],
-    outDir: "dist/themes/jfDarkTheme",
-  },
-  {
-    ...baseConfig,
-    entry: ["./src/themes/jfLightTheme/index.ts"],
-    outDir: "dist/themes/jfLightTheme",
+    entry: ["./src/themes/index.ts"],
+    outDir: "dist/themes/",
   },
   // ui包
   {
