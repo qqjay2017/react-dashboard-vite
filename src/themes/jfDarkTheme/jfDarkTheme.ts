@@ -6,8 +6,6 @@ import { JfDarkThemeContent } from "./JfDarkThemeContent";
 
 export const jfDarkTheme: DashBoardTheme = {
   themeName: "jfDarkTheme",
-
-
   wrapperStyle: {
     backgroundColor: "#052B54",
   },

@@ -11,6 +11,7 @@ type ThemeProviderProps = {
 };
 
 type ThemeProviderState = {
+  themeName: string;
   isDarkTheme: () => boolean;
   themeMode: ThemeMode;
   setThemeMode: (theme: ThemeMode) => void;
@@ -20,6 +21,7 @@ const initialState: ThemeProviderState = {
   isDarkTheme: () => true,
   themeMode: "system",
   setThemeMode: () => null,
+  themeName: '',
 };
 
 export const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
@@ -72,6 +74,7 @@ export function ThemeModeProvider({
   }, [realThemeProvider?.themeName])
 
   const value = {
+    themeName: realThemeProvider?.themeName || '',
     isDarkTheme: () => Boolean(theme !== "light"),
     themeMode: theme,
     setThemeMode: (mode: ThemeMode) => {

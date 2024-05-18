@@ -10,7 +10,7 @@ const App = () => {
   //  return <DashboardAppResponsiveDragDemo />;
   // return <NavDemo />
   // return <DashboardAppResponsiveDragDemo />;
-   return <DashboardAppResponsiveDemo />;
+  return <DashboardAppResponsiveDemo />;
 };
 
 export default App;

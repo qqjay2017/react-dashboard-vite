@@ -102,7 +102,7 @@ export const LayoutContextProvider = ({ children, components, themeName, minHeig
 
     const layout = (
         typeof layoutParam === "function"
-            ? layoutParam({ breakpoint, themeMode })
+            ? layoutParam({ breakpoint, themeMode, themeName })
             : layoutParam || []
     ).filter((l) => resource[l.i]);
 
@@ -115,7 +115,7 @@ export const LayoutContextProvider = ({ children, components, themeName, minHeig
     const rowHeight = breakpoint === 'desktop' || breakpoint === 'showroom'
         ? sizeFormat((contentHeight) / rows)
         : typeof rowHeightParam === "function"
-            ? rowHeightParam({ breakpoint, themeMode })
+            ? rowHeightParam({ breakpoint, themeMode, themeName })
             : rowHeightParam;
     const colWidth = cols ? sizeFormat(contentWidth / cols) : 0;
 
