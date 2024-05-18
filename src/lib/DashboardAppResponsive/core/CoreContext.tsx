@@ -39,7 +39,6 @@ export const CoreContext = (props: CoreContextProps) => {
     isResizable = false,
   } = props;
   return (
-
     <BreakpointContextProvider
       breakpoints={breakpoints}
     >

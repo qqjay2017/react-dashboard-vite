@@ -78,6 +78,16 @@ export interface LayoutContextProviderProps extends PropsWithChildren {
 
 const DefaultComponent = ({ children }: { children?: any }) => <>{children}</>
 
+const DefaultContentComponent = ({ children, contentRef }: { children?: any, contentRef: any; }) => <div
+    ref={contentRef}
+    style={{
+        width: '100%',
+        height: '100%'
+
+    }}>{children}</div>
+
+
+
 export const LayoutContextProvider = ({ children, components, themeName, minHeight = 861,
     layout: layoutParam,
 
@@ -94,7 +104,7 @@ export const LayoutContextProvider = ({ children, components, themeName, minHeig
     const { themeMode } = useThemeMode();
     const HeaderWrapper = components?.headerWrapper || DefaultComponent;
     const HeaderInner = components?.headerInner || DefaultComponent;
-    const Content = components?.content || DefaultComponent;
+    const Content = components?.content || DefaultContentComponent;
     const componentProps = {
         breakpoint,
         themeName

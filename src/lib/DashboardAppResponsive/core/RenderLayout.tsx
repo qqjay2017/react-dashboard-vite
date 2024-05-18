@@ -38,6 +38,9 @@ export const RenderLayout = ({
   return (
     <>
       {layouts.map((layout, index) => {
+        if (!layout.w || !layout.i) {
+          return null
+        }
         return (
           <DashboardItem
             zIndex={index + 3}
