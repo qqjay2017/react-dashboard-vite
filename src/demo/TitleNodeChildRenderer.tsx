@@ -3,13 +3,12 @@ import { Button } from "@/ui";
 import React from "react";
 
 export const TitleNodeChildRenderer = (props: any) => {
-  const { themeMode, setThemeMode, themeName } = useThemeMode()
+  const { themeMode, setThemeMode } = useThemeMode()
   return <div style={{
     display: 'flex',
 
   }}>
-    <p>当前颜色{themeMode}</p>
-    <p>当前主题{themeName}</p>
+    <p>当前模式{themeMode}</p>
     <div>
       <Button onClick={() => {
         setThemeMode('light')

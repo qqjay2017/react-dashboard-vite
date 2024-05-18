@@ -2,12 +2,15 @@ import { FC, PropsWithChildren } from "react";
 import { CoreContext, CoreContextProps } from "./CoreContext";
 import { RenderLayout } from "./RenderLayout";
 import { OnLayoutChange } from "./type";
-import { ThemeMode, ThemeModeProvider, useThemeMode } from "../context";
+import { ThemeMode, ThemeModeProvider, ThemeProviderProps, useThemeMode } from "../context";
 import { QueryClientProvider } from "@/lib/context/QueryClientProvider";
+import { ThemeContextProviderProps } from "../context/ThemeContextProvider";
 
 
 export interface CoreDashboardAppResponsiveProps
   extends CoreContextProps,
+
+  ThemeProviderProps,
   PropsWithChildren {
   themeName?: string;
   /**
@@ -128,7 +131,7 @@ export const CoreDashboardAppResponsive: FC<CoreDashboardAppResponsiveProps> = (
 
   return (
     <QueryClientProvider>
-      <ThemeModeProvider themeProvider={props.themeProvider} >
+      <ThemeModeProvider themeProvider={props.themeProvider} onThemeNameChange={props.onThemeNameChange} >
         <CoreDashboardAppResponsiveInner {...props} />
       </ThemeModeProvider>
     </QueryClientProvider>
