@@ -4,7 +4,7 @@ import { RenderLayout } from "./RenderLayout";
 import { OnLayoutChange } from "./type";
 import { ThemeMode, ThemeModeProvider, ThemeProviderProps, useThemeMode } from "../context";
 import { QueryClientProvider } from "@/lib/context/QueryClientProvider";
-import { ThemeContextProviderProps } from "../context/ThemeContextProvider";
+
 
 
 export interface CoreDashboardAppResponsiveProps
