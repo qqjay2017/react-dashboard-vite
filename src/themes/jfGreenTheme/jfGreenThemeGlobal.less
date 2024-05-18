@@ -1,0 +1,90 @@
+@text-common: #c3d4e5;
+@text-primary: #26FFBD;
+@text-num-light: #f4a52e;
+@text-num: #ffdc2f;
+@text-light: #26FFBD;
+
+html[data-theme="dark"] body ,
+html[data-theme-name="jfGreenTheme"] body 
+{
+
+  /* 下拉框的背景颜色 */
+  --popover: 209 96% 18%;
+  /* 下拉框的前台文字颜色 */
+  --popover-foreground: 210 38% 49%;
+  /* 下拉框的边框颜色 */
+  --border: 207 60% 31%;
+  /* 鼠标经过的高亮背景色,适用于下拉框 */
+  --accent: 207 100% 21%;
+  /* 鼠标经过的高亮,前面的文字,适用于下拉框 */
+  --accent-foreground: 207 52% 78%;
+  /*  选中主颜色? */
+  --primary: 220 85% 58%;
+  --radius: 0;
+  /* tab总体色背景色 */
+  --muted: 162 94% 14%;
+  /* tab总体色背景,前台文字颜色 */
+  --muted-foreground: 173 40% 83%;
+  /* tab选择背景色 */
+  --background: 162 100% 20%;
+  /* tab选择背景,前台文字色 */
+  --foreground: 173 40% 83%;
+}
+
+.jfGreenTheme {
+  background-image: url("@/assets/jfGreenTheme/main-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 14px;
+  color: #c3d4e5;
+  // 有用的
+  --nodeContentBgColor:  rgba(255,255,255,0.8)vite-ui-theme;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-lg: 16px;
+  --text-white: #fff;
+  --text-common: @text-common;
+  --text-light: @text-light;
+  --text-primary: @text-primary;
+
+  --text-noselect: fade(@text-common, 50);
+  --text-select: @text-common;
+  --text-tag: fade(@text-common, 80);
+  --text-num: @text-num;
+  --text-num-light: @text-num-light;
+
+  --thumb-color: rgba(59, 120, 239, 0.5);
+  /* // 交发黑暗色 */
+  /* 下拉框的背景颜色 */
+  --popover: 209 96% 18%;
+  /* 下拉框的前台文字颜色 */
+  --popover-foreground: 210 38% 49%;
+  /* 下拉框的边框颜色 */
+  --border: 207 60% 31%;
+  /* 鼠标经过的高亮背景色,适用于下拉框 */
+  --accent: 207 100% 21%;
+  /* 鼠标经过的高亮,前面的文字,适用于下拉框 */
+  --accent-foreground: 207 52% 78%;
+
+  /*  选中主颜色? */
+  --primary: 220 85% 58%;
+  --radius: 0;
+  /* tab总体色背景色 */
+  --muted: 213 82% 26%;
+  /* tab总体色背景,前台文字颜色 */
+  --muted-foreground: 210 40% 83%;
+  /* tab选择背景色 */
+  --background: 217 52% 53%;
+  /* tab选择背景,前台文字色 */
+  --foreground: 210 40% 83%;
+  --border: 211 60% 31%;
+  // 亮色突出背景色
+  --background-light: 215 62% 49%;
+  &.mobile {
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: unset;
+    background-image: url("@/assets/jfGreenTheme/main-bg-m.png");
+  }
+}

@@ -18,6 +18,11 @@ export const TitleNodeChangeTheme = (props: any) => {
           setThemeName('jfLightTheme')
         }}
       >蓝亮色</Button>
+      <Button
+        onClick={() => {
+          setThemeName('jfGreenTheme')
+        }}
+      >绿色</Button>
     </div>
   </div>;
 };

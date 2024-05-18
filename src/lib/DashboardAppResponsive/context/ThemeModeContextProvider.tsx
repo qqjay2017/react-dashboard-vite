@@ -82,14 +82,18 @@ export function ThemeModeProvider({
       if (!name) {
         return
       }
-      localStorage.setItem(storageKey, name);
+      localStorage.setItem('vite-ui-theme-name', name);
       onThemeNameChange && onThemeNameChange(name)
 
     },
     isDarkTheme: () => Boolean(theme !== "light"),
     themeMode: theme,
     setThemeMode: (mode: ThemeMode) => {
-      localStorage.setItem('vite-ui-theme-name', mode);
+      if (!mode) {
+        return
+      }
+
+      localStorage.setItem(storageKey, mode);
       setTheme(mode);
     },
   };
