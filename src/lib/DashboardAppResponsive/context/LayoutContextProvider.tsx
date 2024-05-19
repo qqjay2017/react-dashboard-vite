@@ -67,8 +67,17 @@ export interface LayoutContextProviderProps extends PropsWithChildren {
           />
      */
     resource?: Record<string, ResourceChildren>;
+    /**
+     * @deprecated
+     */
     headerHeight?: ValueOrFunValue<number>;
+    /**
+     * @deprecated
+     */
     forceFullScreen?: ValueOrFunValue<boolean>;
+    /**
+     * @deprecated
+     */
     rowHeight?: ValueOrFunValue<number>;
     wrapperStyle?: React.CSSProperties;
     wrapperProps?: React.HTMLAttributes<HTMLDivElement>;

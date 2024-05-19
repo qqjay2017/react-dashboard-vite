@@ -107,5 +107,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "clean-package": "./clean-package.config.json"
+  "clean-package": "./clean-package.config.json",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qqjay2017/react-dashboard-vite.git"
+  }
 }

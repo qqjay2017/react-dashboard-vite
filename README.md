@@ -1,145 +1,153 @@
-1. 主题
+## REACT大屏布局组件
 
-```tsx
-const theme = createTheme({
-  status: {
-    danger: orange[500],
-  },
-});
-```
 
-```tsx
-<ThemeProvider theme={theme}>
-  <CustomCheckbox defaultChecked />
-</ThemeProvider>
-```
+### 快速开始
 
-```tsx
-function DeepChild() {
-  const theme = useDashboardTheme();
-  return <span>{`spacing ${theme.spacing}`}</span>;
+
+App.css
+
+```css
+#root,
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 ```
 
-2. 响应式字体
+App.tsx
 
-```
-在 Material-UI 中，`responsiveFontSizes` 是一个函数，用于实现自适应字体大小。它的内部实现基于 `createMuiTheme` 函数。
-
-`createMuiTheme` 函数创建一个自定义的 Material-UI 主题对象，其中包含了样式和配置。`responsiveFontSizes` 函数则基于这个主题对象，通过计算和应用响应式的字体大小来修改主题。
-
-`responsiveFontSizes` 函数的内部实现步骤如下：
-
-1. 首先，它会检查主题对象中是否已经存在 `typography` 属性，如果不存在，则会创建一个默认的 `typography` 对象，并将其添加到主题中。
-
-2. 接下来，函数会检查 `typography` 对象中是否存在 `fontSize` 属性，如果不存在，则会创建一个默认的 `fontSize` 属性，并将其添加到 `typography` 对象中。
-
-3. 然后，函数会根据当前的窗口宽度，计算出一个倍数因子 `factor`，用于调整字体大小。通常情况下，窗口宽度越大，倍数因子越大。
-
-4. 最后，函数会使用 `createMuiTheme` 函数提供的 `responsiveFontSizes` 方法，根据倍数因子 `factor` 来计算并应用新的字体大小。
-
-通过这个过程，`responsiveFontSizes` 函数能够根据窗口宽度自动调整字体大小，以适应不同的屏幕尺寸和设备。
-
-```
-
-1. 主题
-
-入参
-
-```
- <DashboardAppResponsive
-      theme={{
-        main: "mediumseagreen",
+```tsx
+function App() {
+  return (
+    <DashboardAppResponsive
+      minHeight={555}
+      resource={{
+        A1: TestChildBase,
+        A2: TestChildBase,
+        A3: TestChildBase,
+        B1: TestChildBase,
+        B2: TestChildBase,
+        C1: TestChildBase,
+        C2: TestChildBase,
+        C3: TestChildBase,
       }}
-```
-
-使用方式
-
-```
-
-方式1
-const theme = useTheme();
-方式2
-    const theme1 = useContext(ThemeContext);
-
-方式3
-export const TestChildC5 = withTheme((props: PropsWithTheme) => {
-  console.log(props.theme, "them");
-  return <div>123</div>;
-});
-
-
-```
-
-## 组件文档
-
-```
-<DashboardAppResponsive />
-```
-
-onLayoutChange
-isDraggable
-isResizable
-resoucreProps
-cols
-resource
-layout
-
-themeProvider
-titleChildren
-
-浅色暗色切换
-useThemeMode()
-
-系统主题色
-
-```
-@layer base {
-    :root {
-        --background: 0 0% 100%;
-        --foreground: 224 71.4% 4.1%;
-        --card: 0 0% 100%;
-        --card-foreground: 224 71.4% 4.1%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 224 71.4% 4.1%;
-        --primary: 220.9 39.3% 11%;
-        --primary-foreground: 210 20% 98%;
-        --secondary: 220 14.3% 95.9%;
-        --secondary-foreground: 220.9 39.3% 11%;
-        --muted: 220 14.3% 95.9%;
-        --muted-foreground: 220 8.9% 46.1%;
-        --accent: 220 14.3% 95.9%;
-        --accent-foreground: 220.9 39.3% 11%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 20% 98%;
-        --border: 220 13% 91%;
-        --input: 220 13% 91%;
-        --ring: 224 71.4% 4.1%;
-        --radius: 0.5rem;
-    }
-
-    .dark,
-    html[data-theme="dark"] {
-        --background: 224 71.4% 4.1%;
-        --foreground: 210 20% 98%;
-        --card: 224 71.4% 4.1%;
-        --card-foreground: 210 20% 98%;
-        --popover: 224 71.4% 4.1%;
-        --popover-foreground: 210 20% 98%;
-        --primary: 210 20% 98%;
-        --primary-foreground: 220.9 39.3% 11%;
-        --secondary: 215 27.9% 16.9%;
-        --secondary-foreground: 210 20% 98%;
-        --muted: 215 27.9% 16.9%;
-        --muted-foreground: 217.9 10.6% 64.9%;
-        --accent: 215 27.9% 16.9%;
-        --accent-foreground: 210 20% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 20% 98%;
-        --border: 215 27.9% 16.9%;
-        --input: 215 27.9% 16.9%;
-        --ring: 216 12.2% 83.9%;
-    }
-
+      layout={({ breakpoint }) => {
+        if (breakpoint === "tablet" || breakpoint == "mobile") {
+          return tabletLayout
+        }
+        return pcLayout;
+      }}
+    />
+  )
 }
+
+export default App
+```
+
+
+### 使用主题预设
+
+```tsx
+import './App.css'
+import { DashboardAppResponsive } from 'rc-dashboard'
+import { TestChildBase } from './components/TestChildBase'
+import { tabletLayout } from './utils/tabletLayout'
+import { pcLayout } from './utils/pcLayout'
+
+import { jfDarkTheme } from 'rc-dashboard/dist/themes'
+import 'rc-dashboard/dist/themes/index.css'
+
+function App() {
+  return (
+    <DashboardAppResponsive
+      minHeight={555}
+      resource={{
+        A1: TestChildBase,
+        A2: TestChildBase,
+        A3: TestChildBase,
+        B1: TestChildBase,
+        B2: TestChildBase,
+        C1: TestChildBase,
+        C2: TestChildBase,
+        C3: TestChildBase,
+      }}
+      layout={({ breakpoint }) => {
+        if (breakpoint === "tablet" || breakpoint == "mobile") {
+          return tabletLayout
+        }
+        return pcLayout;
+      }}
+      themeProvider={jfDarkTheme}
+
+    />
+  )
+}
+
+export default App
+```
+
+
+### 组件属性
+
+`resoucreProps` object
+透传给resource组件的属性
+
+
+`minHeight`  number
+组件的最小高度
+
+`cols`  number
+栅格列数,默认12,
+
+`theme` object
+组件内部使用`useTheme`获取到这个值,一般是主题预设提供
+
+`breakpoints` object
+断点,默认 `{ showroom: 2600, desktop: 1300, tablet: 500, mobile: 0,}` 
+
+`layout`  object
+布局配置  i: id , w h : 宽高 , x y: 坐标 , padding: 外边距 ,zIndex :层级
+
+`themeProvider` object
+主题预设, 内部支持组件的所有属性,和用户属性合并
+
+
+`wrapperStyle` object
+最外层div容器的样式
+
+`wrapperProps` object
+最外层div容器的属性
+
+`components` object
+覆盖默认组件 , 一般主题内部会提供大部分 
+
+```
+layout?: 外层容器;
+content?: 内容容器;
+headerWrapper?: 头部外层容器;
+headerInner?: 头部内部容器;
+containerWrapper?: 卡片格子容器;
+```
+
+
+### resource组件使用主题提供的containerWrapper
+
+```tsx
+import { ResourceChildrenProps } from "rc-dashboard"
+
+
+export const TestChildBase = (props: ResourceChildrenProps) => {
+    const ContainerWrapper = props.containerWrapper;
+    return (
+        <ContainerWrapper title="测试++">TestChildBase</ContainerWrapper>
+    )
+}
+
 ```
