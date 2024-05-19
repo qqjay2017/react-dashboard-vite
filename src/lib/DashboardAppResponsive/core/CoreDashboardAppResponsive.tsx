@@ -110,7 +110,7 @@ export const CoreDashboardAppResponsiveInner = (
       ...themeProvider?.components
     }
   };
-  console.log(props, 'props')
+
 
   return (
     <CoreContext {...props} key={`themeMode-${themeMode}-${props.themeName}`}>

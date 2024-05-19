@@ -9,7 +9,7 @@ export const setHtmlThemeMode = (mode: "dark" | "light" | "system") => {
 
 
 export const setHtmlThemeName = (name = '') => {
-  console.log(name, 'name')
+
   try {
     document.documentElement.setAttribute("data-theme-name", name);
   } catch (error) {
