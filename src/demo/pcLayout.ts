@@ -7,6 +7,9 @@ export const pcLayout = [
         h: 4,
         x: 0,
         y: 0,
+
+        isDraggable: false,
+        isResizable: false
     },
     {
         i: "A2",
@@ -59,6 +62,13 @@ export const pcLayout = [
         h: 4,
         x: 9,
         y: 8,
+    },
+    {
+        i: "C4",
+        w: 4,
+        h: 5,
+        x: 2,
+        y: 5,
     },
 
 ]

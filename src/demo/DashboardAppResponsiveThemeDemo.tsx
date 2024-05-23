@@ -1,5 +1,5 @@
 import { DashboardAppResponsive } from "@/lib";
-import { TestChildA1 } from "./TestChild";
+import { TestChildA1, TestChildC4 } from "./TestChild";
 import { jfDarkTheme } from "@/themes/jfDarkTheme";
 import { jfLightTheme } from "@/themes/jfLightTheme";
 import { TitleNodeChildRenderer } from "./TitleNodeChildRenderer";
@@ -35,6 +35,7 @@ export const DashboardAppResponsiveThemeDemo = () => {
         C1: TestChildA1,
         C2: TestChildA1,
         C3: TestChildA1,
+        C4: TestChildC4,
       }}
       breakpoints={{
         showroom: 2600,

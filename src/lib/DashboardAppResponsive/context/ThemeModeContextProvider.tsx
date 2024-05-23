@@ -71,7 +71,7 @@ export function ThemeModeProvider({
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove("jfDarkTheme", "jfLightTheme");
+    root.classList.remove("jfDarkTheme", "jfLightTheme", "jfGreenTheme");
     setHtmlThemeName(realThemeProvider?.themeName);
 
   }, [realThemeProvider?.themeName])
