@@ -1,0 +1,1333 @@
+{
+    "data": {
+        "type": "void",
+        "properties": {
+            "page": {
+                "x-uid": "5ve30131jqw",
+                "_isJSONSchemaObject": true,
+                "version": "2.0",
+                "type": "void",
+                "x-component": "Page",
+                "x-component-props": {
+                    "disablePageHeader": true
+                },
+                "title": "Dashboard",
+                "properties": {
+                    "t9qizsaya7l": {
+                        "_isJSONSchemaObject": true,
+                        "version": "2.0",
+                        "type": "void",
+                        "x-component": "Grid",
+                        "x-initializer": "BlockInitializers",
+                        "properties": {
+                            "row_8nkjai372xq": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-index": 1,
+                                "properties": {
+                                    "8y5415b6cld": {
+                                        "_isJSONSchemaObject": true,
+                                        "version": "2.0",
+                                        "type": "void",
+                                        "x-component": "Grid.Col",
+                                        "properties": {
+                                            "7fq7qmamvf8": {
+                                                "x-uid": "8mmztfyzs29",
+                                                "_isJSONSchemaObject": true,
+                                                "version": "2.0",
+                                                "type": "void",
+                                                "x-settings": "blockSettings:markdown",
+                                                "x-decorator": "CardItem",
+                                                "x-decorator-props": {
+                                                    "name": "markdown"
+                                                },
+                                                "x-component": "Markdown.Void",
+                                                "x-editable": false,
+                                                "x-component-props": {
+                                                    "content": "***Note:***\n\n- This application is for your exclusive use, and you can perform any operation.\n- The application includes all commercial plugins for testing.\n- The validity period of the application is 48 hours, please do not store production data.\n\nThere are 3 users to test:\n- Root: admin@nocobase.com  admin123\n- Sales manager: sales-manager@nocobase.com  admin123\n- Sales: sales@nocobase.com admin123"
+                                                },
+                                                "x-async": false,
+                                                "x-index": 1
+                                            }
+                                        },
+                                        "x-uid": "fhvvlpn7s5d",
+                                        "x-async": false,
+                                        "x-index": 1
+                                    }
+                                },
+                                "x-uid": "4ynhaqbxhaq",
+                                "x-async": false
+                            },
+                            "row_lw0dfweg8av": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-index": 2,
+                                "properties": {
+                                    "col_nisc3k4tq5k": {
+                                        "x-uid": "hagpwfind9u",
+                                        "_isJSONSchemaObject": true,
+                                        "version": "2.0",
+                                        "type": "void",
+                                        "x-component": "Grid.Col",
+                                        "x-index": 2,
+                                        "x-component-props": {
+                                            "width": 100
+                                        },
+                                        "properties": {
+                                            "moyp71xtqii": {
+                                                "_isJSONSchemaObject": true,
+                                                "version": "2.0",
+                                                "type": "void",
+                                                "x-component": "CardItem",
+                                                "x-component-props": {
+                                                    "name": "charts"
+                                                },
+                                                "x-designer": "ChartV2BlockDesigner",
+                                                "properties": {
+                                                    "qvdzegedryx": {
+                                                        "_isJSONSchemaObject": true,
+                                                        "version": "2.0",
+                                                        "type": "void",
+                                                        "x-component": "Grid",
+                                                        "x-decorator": "ChartV2Block",
+                                                        "x-initializer": "charts:addBlock",
+                                                        "properties": {
+                                                            "row_zwwsz82xg1i": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "x-index": 1,
+                                                                "properties": {
+                                                                    "bahkiv7dadq": {
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "properties": {
+                                                                            "lo7phh44vvw": {
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "id"
+                                                                                                ],
+                                                                                                "aggregation": "count"
+                                                                                            }
+                                                                                        ],
+                                                                                        "dimensions": [],
+                                                                                        "filter": {
+                                                                                            "$and": []
+                                                                                        },
+                                                                                        "orders": [],
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.statistic",
+                                                                                        "general": {
+                                                                                            "field": "id",
+                                                                                            "title": "Contacts"
+                                                                                        },
+                                                                                        "advanced": {}
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "contact",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "contact:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small"
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "properties": {
+                                                                                    "j0eugsgx4eq": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-uid": "wpx2xssb4td",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                },
+                                                                                "x-uid": "kics65x95dz",
+                                                                                "x-async": false,
+                                                                                "x-index": 1
+                                                                            }
+                                                                        },
+                                                                        "x-uid": "pachc62sw5a",
+                                                                        "x-async": false,
+                                                                        "x-index": 1
+                                                                    }
+                                                                },
+                                                                "x-uid": "cb0rqp941da",
+                                                                "x-async": false
+                                                            },
+                                                            "zuh5bvxjh67": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "properties": {
+                                                                    "col_0ympb0om2ox": {
+                                                                        "x-uid": "8if4mz2wod0",
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "x-index": 1,
+                                                                        "x-component-props": {
+                                                                            "width": 25
+                                                                        },
+                                                                        "properties": {
+                                                                            "s7aj4typ2jd": {
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [],
+                                                                                        "dimensions": [],
+                                                                                        "filter": {
+                                                                                            "$and": []
+                                                                                        },
+                                                                                        "orders": [],
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.bar",
+                                                                                        "title": "123",
+                                                                                        "bordered": false,
+                                                                                        "general": {
+                                                                                            "isGroup": false,
+                                                                                            "isStack": false,
+                                                                                            "isPercent": false
+                                                                                        },
+                                                                                        "advanced": {}
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "product",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "product:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small",
+                                                                                    "title": "123",
+                                                                                    "bordered": false
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "x-app-version": "1.0.0-alpha.14",
+                                                                                "properties": {
+                                                                                    "4doxvjilk1l": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-app-version": "1.0.0-alpha.14",
+                                                                                        "x-uid": "kwrmqk19vs4",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                },
+                                                                                "x-uid": "i8aue7pb207",
+                                                                                "x-async": false,
+                                                                                "x-index": 1
+                                                                            }
+                                                                        },
+                                                                        "x-async": false
+                                                                    },
+                                                                    "col_sn9trwkuoaj": {
+                                                                        "x-uid": "xdemayk12ui",
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "x-index": 4,
+                                                                        "x-component-props": {
+                                                                            "width": 25
+                                                                        },
+                                                                        "properties": {
+                                                                            "zacnesyh494": {
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "id"
+                                                                                                ],
+                                                                                                "aggregation": "count"
+                                                                                            }
+                                                                                        ],
+                                                                                        "dimensions": [],
+                                                                                        "filter": {
+                                                                                            "$and": []
+                                                                                        },
+                                                                                        "orders": [],
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.statistic",
+                                                                                        "general": {
+                                                                                            "field": "id",
+                                                                                            "title": "Companies"
+                                                                                        },
+                                                                                        "advanced": {}
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "company",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "company:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small"
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "properties": {
+                                                                                    "qppt6du7yul": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-uid": "jp0nw1n8fpy",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                },
+                                                                                "x-uid": "no1qc8kmtlf",
+                                                                                "x-async": false,
+                                                                                "x-index": 1
+                                                                            },
+                                                                            "pmpq2edjt9f": {
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [],
+                                                                                        "dimensions": [],
+                                                                                        "filter": {
+                                                                                            "$and": []
+                                                                                        },
+                                                                                        "orders": [],
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.statistic",
+                                                                                        "bordered": false,
+                                                                                        "general": {},
+                                                                                        "advanced": {}
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "departments",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "departments:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small",
+                                                                                    "bordered": false
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "x-app-version": "1.0.0-alpha.14",
+                                                                                "properties": {
+                                                                                    "bzm9hlv05dg": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-app-version": "1.0.0-alpha.14",
+                                                                                        "x-uid": "2txvstkagrr",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                },
+                                                                                "x-uid": "op9npzep29b",
+                                                                                "x-async": false,
+                                                                                "x-index": 2
+                                                                            }
+                                                                        },
+                                                                        "x-async": false
+                                                                    },
+                                                                    "col_04jtgk3lsxk": {
+                                                                        "x-uid": "zytca1ywd1b",
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "x-index": 5,
+                                                                        "x-component-props": {
+                                                                            "width": 25
+                                                                        },
+                                                                        "properties": {
+                                                                            "f3x3xpmmhfp": {
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "id"
+                                                                                                ],
+                                                                                                "aggregation": "count"
+                                                                                            }
+                                                                                        ],
+                                                                                        "dimensions": [],
+                                                                                        "filter": {
+                                                                                            "$and": []
+                                                                                        },
+                                                                                        "orders": [],
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.statistic",
+                                                                                        "general": {
+                                                                                            "field": "id",
+                                                                                            "title": "Orders"
+                                                                                        },
+                                                                                        "advanced": {}
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "order",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "order:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small"
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "properties": {
+                                                                                    "kx9weqecdeu": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-uid": "da1nvbp29bp",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                },
+                                                                                "x-uid": "is5x2ufl24r",
+                                                                                "x-async": false,
+                                                                                "x-index": 1
+                                                                            }
+                                                                        },
+                                                                        "x-async": false
+                                                                    },
+                                                                    "col_ps66tvvrc9l": {
+                                                                        "x-uid": "jegpbeop0wp",
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "x-index": 6,
+                                                                        "x-component-props": {
+                                                                            "width": 25
+                                                                        },
+                                                                        "properties": {
+                                                                            "bg3mw9idzq4": {
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "id"
+                                                                                                ],
+                                                                                                "aggregation": "count"
+                                                                                            }
+                                                                                        ],
+                                                                                        "dimensions": [],
+                                                                                        "filter": {
+                                                                                            "$and": []
+                                                                                        },
+                                                                                        "orders": [],
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.statistic",
+                                                                                        "general": {
+                                                                                            "field": "id",
+                                                                                            "title": "Products"
+                                                                                        },
+                                                                                        "advanced": {}
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "product",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "product:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small"
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "properties": {
+                                                                                    "efmfb0kb8r9": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-uid": "2iqquqeesfo",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                },
+                                                                                "x-uid": "2fm5yfqzkan",
+                                                                                "x-async": false,
+                                                                                "x-index": 1
+                                                                            }
+                                                                        },
+                                                                        "x-async": false
+                                                                    }
+                                                                },
+                                                                "x-uid": "iwnm8scj7gh",
+                                                                "x-async": false,
+                                                                "x-index": 2
+                                                            },
+                                                            "row_777rfr0y7w3": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "x-index": 4,
+                                                                "x-uid": "unpls2qrjna",
+                                                                "x-async": false
+                                                            },
+                                                            "xyycteefdo0": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "x-uid": "j84tbt5pq5i",
+                                                                "x-async": false,
+                                                                "x-index": 5
+                                                            },
+                                                            "50jx3ymq9fi": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "x-uid": "zu3ibm5yu1f",
+                                                                "x-async": false,
+                                                                "x-index": 6
+                                                            },
+                                                            "paxv3zpsuv6": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "x-uid": "rpseyhmup3d",
+                                                                "x-async": false,
+                                                                "x-index": 7
+                                                            },
+                                                            "lguj8m3w9q1": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "x-app-version": "1.0.0-alpha.14",
+                                                                "x-uid": "f46hw5gkiz2",
+                                                                "x-async": false,
+                                                                "x-index": 8
+                                                            }
+                                                        },
+                                                        "x-uid": "hfblxaj9ed8",
+                                                        "x-async": false,
+                                                        "x-index": 1
+                                                    }
+                                                },
+                                                "x-uid": "ibhfvn7aup5",
+                                                "x-async": false,
+                                                "x-index": 1
+                                            }
+                                        },
+                                        "x-async": false
+                                    }
+                                },
+                                "x-uid": "p48226lw9p7",
+                                "x-async": false
+                            },
+                            "row_wh0o002psb0": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-index": 5,
+                                "x-uid": "tl9r1hkmodi",
+                                "x-async": false
+                            },
+                            "fy28ck4nfwa": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "sykzornopkv",
+                                "x-async": false,
+                                "x-index": 7
+                            },
+                            "2fycvqqv2nl": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "wgbf3ykdmjm",
+                                "x-async": false,
+                                "x-index": 9
+                            },
+                            "huxnyg4arr3": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "lit03ewqdv4",
+                                "x-async": false,
+                                "x-index": 11
+                            },
+                            "ea6vscdmb4b": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "vz1my6radnm",
+                                "x-async": false,
+                                "x-index": 13
+                            },
+                            "nireqz1nept": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "kxfooqdzhrn",
+                                "x-async": false,
+                                "x-index": 15
+                            },
+                            "h0dc3pkxj9y": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "9gb08wiolps",
+                                "x-async": false,
+                                "x-index": 18
+                            },
+                            "row_zzum37o0wko": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-index": 20,
+                                "x-uid": "dczryt1ubq5",
+                                "x-async": false
+                            },
+                            "row_ciwax16g91m": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-index": 21,
+                                "x-uid": "n03xkuvegks",
+                                "x-async": false
+                            },
+                            "oc73lgh89r5": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "g8j8yrg4cm8",
+                                "x-async": false,
+                                "x-index": 24
+                            },
+                            "xxvw7tjef2s": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "wbs7leq3fm0",
+                                "x-async": false,
+                                "x-index": 26
+                            },
+                            "9ng8ui3w0pi": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "f815zx1pij0",
+                                "x-async": false,
+                                "x-index": 27
+                            },
+                            "41p1xpjzvpg": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "bl27o5o66ua",
+                                "x-async": false,
+                                "x-index": 28
+                            },
+                            "vatw3svtvz6": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "properties": {
+                                    "29gqo70gcju": {
+                                        "x-uid": "jkm4rrdp3af",
+                                        "_isJSONSchemaObject": true,
+                                        "version": "2.0",
+                                        "type": "void",
+                                        "x-component": "Grid.Col",
+                                        "x-component-props": {
+                                            "width": 50
+                                        },
+                                        "properties": {
+                                            "keu1q9os2h7": {
+                                                "x-uid": "2hloux9ic26",
+                                                "_isJSONSchemaObject": true,
+                                                "version": "2.0",
+                                                "type": "void",
+                                                "x-component": "CardItem",
+                                                "x-component-props": {
+                                                    "name": "charts",
+                                                    "title": ""
+                                                },
+                                                "x-designer": "ChartV2BlockDesigner",
+                                                "properties": {
+                                                    "ra659u4d847": {
+                                                        "_isJSONSchemaObject": true,
+                                                        "version": "2.0",
+                                                        "type": "void",
+                                                        "x-component": "Grid",
+                                                        "x-decorator": "ChartV2Block",
+                                                        "x-initializer": "charts:addBlock",
+                                                        "properties": {
+                                                            "16d4cuz6pit": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "properties": {
+                                                                    "hqdsxl2ge2m": {
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "properties": {
+                                                                            "9ty7j37l9x8": {
+                                                                                "x-uid": "iy3nul411uq",
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "id"
+                                                                                                ],
+                                                                                                "aggregation": "count"
+                                                                                            }
+                                                                                        ],
+                                                                                        "dimensions": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "industry"
+                                                                                                ]
+                                                                                            }
+                                                                                        ],
+                                                                                        "filter": {
+                                                                                            "$and": []
+                                                                                        },
+                                                                                        "orders": [],
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.column",
+                                                                                        "general": {
+                                                                                            "xField": "industry",
+                                                                                            "yField": "id",
+                                                                                            "seriesField": "industry",
+                                                                                            "isGroup": false,
+                                                                                            "isStack": false,
+                                                                                            "isPercent": false
+                                                                                        },
+                                                                                        "advanced": {}
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "company",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "company:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small",
+                                                                                    "title": "Companies Industry"
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "properties": {
+                                                                                    "dh97gruoagv": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-uid": "urx7re0ueu2",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                },
+                                                                                "x-async": false,
+                                                                                "x-index": 1
+                                                                            }
+                                                                        },
+                                                                        "x-uid": "5iphgpzexqx",
+                                                                        "x-async": false,
+                                                                        "x-index": 1
+                                                                    }
+                                                                },
+                                                                "x-uid": "8k1htkf6jlv",
+                                                                "x-async": false,
+                                                                "x-index": 1
+                                                            }
+                                                        },
+                                                        "x-uid": "y4xgtxrc68v",
+                                                        "x-async": false,
+                                                        "x-index": 1
+                                                    }
+                                                },
+                                                "x-async": false,
+                                                "x-index": 1
+                                            }
+                                        },
+                                        "x-async": false,
+                                        "x-index": 1
+                                    },
+                                    "col_h92v47ymvce": {
+                                        "x-uid": "znoyqfryv04",
+                                        "_isJSONSchemaObject": true,
+                                        "version": "2.0",
+                                        "type": "void",
+                                        "x-component": "Grid.Col",
+                                        "x-index": 2,
+                                        "x-component-props": {
+                                            "width": 50
+                                        },
+                                        "properties": {
+                                            "8ve2kf6wkrg": {
+                                                "x-uid": "xhzynmm1wfj",
+                                                "_isJSONSchemaObject": true,
+                                                "version": "2.0",
+                                                "type": "void",
+                                                "x-component": "CardItem",
+                                                "x-component-props": {
+                                                    "name": "charts",
+                                                    "title": ""
+                                                },
+                                                "x-designer": "ChartV2BlockDesigner",
+                                                "properties": {
+                                                    "fww14l3g2bp": {
+                                                        "_isJSONSchemaObject": true,
+                                                        "version": "2.0",
+                                                        "type": "void",
+                                                        "x-component": "Grid",
+                                                        "x-decorator": "ChartV2Block",
+                                                        "x-initializer": "charts:addBlock",
+                                                        "properties": {
+                                                            "kj9avm43hxt": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "properties": {
+                                                                    "en87ksywn4v": {
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "properties": {
+                                                                            "mrwnciv9z7p": {
+                                                                                "x-uid": "7zu5zu9dacd",
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "id"
+                                                                                                ],
+                                                                                                "aggregation": "count",
+                                                                                                "alias": "Count"
+                                                                                            }
+                                                                                        ],
+                                                                                        "dimensions": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "employees"
+                                                                                                ]
+                                                                                            }
+                                                                                        ],
+                                                                                        "filter": {
+                                                                                            "$and": [
+                                                                                                {
+                                                                                                    "employees": {
+                                                                                                        "$notEmpty": true
+                                                                                                    }
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "orders": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "employees"
+                                                                                                ],
+                                                                                                "order": "DESC"
+                                                                                            }
+                                                                                        ],
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.bar",
+                                                                                        "general": {
+                                                                                            "xField": "employees",
+                                                                                            "yField": "Count",
+                                                                                            "seriesField": "employees",
+                                                                                            "isGroup": false,
+                                                                                            "isStack": false,
+                                                                                            "isPercent": false
+                                                                                        }
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "company",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "company:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small",
+                                                                                    "title": "Companies Employees"
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "x-async": false,
+                                                                                "x-index": 1,
+                                                                                "properties": {
+                                                                                    "0gqt8eleoxh": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-uid": "x76ip5n41od",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "x-uid": "kfhp5shz6xx",
+                                                                        "x-async": false,
+                                                                        "x-index": 1
+                                                                    }
+                                                                },
+                                                                "x-uid": "q4axtn4f71c",
+                                                                "x-async": false,
+                                                                "x-index": 1
+                                                            }
+                                                        },
+                                                        "x-uid": "nnrkwc56fup",
+                                                        "x-async": false,
+                                                        "x-index": 1
+                                                    }
+                                                },
+                                                "x-async": false,
+                                                "x-index": 1
+                                            }
+                                        },
+                                        "x-async": false
+                                    }
+                                },
+                                "x-uid": "cqu3w7sx7bi",
+                                "x-async": false,
+                                "x-index": 29
+                            },
+                            "row_xjrjwxwwr4p": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-index": 30,
+                                "x-uid": "hxvqvkd16z2",
+                                "x-async": false
+                            },
+                            "3nvy5nqjowm": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "oiceawu77f1",
+                                "x-async": false,
+                                "x-index": 31
+                            },
+                            "9rimwxdx4u3": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "properties": {
+                                    "3xcl2svi3gb": {
+                                        "x-uid": "n8gmlegqqb8",
+                                        "_isJSONSchemaObject": true,
+                                        "version": "2.0",
+                                        "type": "void",
+                                        "x-component": "Grid.Col",
+                                        "x-component-props": {
+                                            "width": 50
+                                        },
+                                        "properties": {
+                                            "1z22bp563ds": {
+                                                "_isJSONSchemaObject": true,
+                                                "version": "2.0",
+                                                "type": "void",
+                                                "x-component": "CardItem",
+                                                "x-component-props": {
+                                                    "name": "charts"
+                                                },
+                                                "x-designer": "ChartV2BlockDesigner",
+                                                "properties": {
+                                                    "9nku8f09sbv": {
+                                                        "_isJSONSchemaObject": true,
+                                                        "version": "2.0",
+                                                        "type": "void",
+                                                        "x-component": "Grid",
+                                                        "x-decorator": "ChartV2Block",
+                                                        "x-initializer": "charts:addBlock",
+                                                        "properties": {
+                                                            "011euwgbkpb": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "properties": {
+                                                                    "7mh7ka5vmjz": {
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "properties": {
+                                                                            "nfuf5hzhixw": {
+                                                                                "x-uid": "t72geqqo8lc",
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "quantity"
+                                                                                                ],
+                                                                                                "aggregation": "sum",
+                                                                                                "alias": "Selling"
+                                                                                            }
+                                                                                        ],
+                                                                                        "dimensions": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "product",
+                                                                                                    "name"
+                                                                                                ],
+                                                                                                "alias": "Product"
+                                                                                            }
+                                                                                        ],
+                                                                                        "filter": {
+                                                                                            "$and": [
+                                                                                                {
+                                                                                                    "order_ID": {
+                                                                                                        "$notEmpty": true
+                                                                                                    }
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "orders": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "Selling"
+                                                                                                ],
+                                                                                                "order": "DESC"
+                                                                                            }
+                                                                                        ],
+                                                                                        "limit": 10,
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.table",
+                                                                                        "general": {
+                                                                                            "smooth": false,
+                                                                                            "isStack": false
+                                                                                        }
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "order_details",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "order_details:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small",
+                                                                                    "title": "Top selling products"
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "x-async": false,
+                                                                                "x-index": 1,
+                                                                                "properties": {
+                                                                                    "285mc3lu8yp": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-uid": "5tq3dat03vf",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "x-uid": "qunbqsr3w56",
+                                                                        "x-async": false,
+                                                                        "x-index": 1
+                                                                    }
+                                                                },
+                                                                "x-uid": "el4ycsd0xaq",
+                                                                "x-async": false,
+                                                                "x-index": 1
+                                                            }
+                                                        },
+                                                        "x-uid": "ys7kequowx2",
+                                                        "x-async": false,
+                                                        "x-index": 1
+                                                    }
+                                                },
+                                                "x-uid": "exmsum9emul",
+                                                "x-async": false,
+                                                "x-index": 1
+                                            }
+                                        },
+                                        "x-async": false,
+                                        "x-index": 1
+                                    },
+                                    "col_qmwojxpo2tz": {
+                                        "x-uid": "cip9rv9bx74",
+                                        "_isJSONSchemaObject": true,
+                                        "version": "2.0",
+                                        "type": "void",
+                                        "x-component": "Grid.Col",
+                                        "x-index": 2,
+                                        "x-component-props": {
+                                            "width": 50
+                                        },
+                                        "properties": {
+                                            "r2qtqmblzlw": {
+                                                "_isJSONSchemaObject": true,
+                                                "version": "2.0",
+                                                "type": "void",
+                                                "x-component": "CardItem",
+                                                "x-component-props": {
+                                                    "name": "charts"
+                                                },
+                                                "x-designer": "ChartV2BlockDesigner",
+                                                "properties": {
+                                                    "qjk2oxhyur5": {
+                                                        "_isJSONSchemaObject": true,
+                                                        "version": "2.0",
+                                                        "type": "void",
+                                                        "x-component": "Grid",
+                                                        "x-decorator": "ChartV2Block",
+                                                        "x-initializer": "charts:addBlock",
+                                                        "properties": {
+                                                            "1a3achw9awb": {
+                                                                "_isJSONSchemaObject": true,
+                                                                "version": "2.0",
+                                                                "type": "void",
+                                                                "x-component": "Grid.Row",
+                                                                "properties": {
+                                                                    "v237jrnvo0l": {
+                                                                        "_isJSONSchemaObject": true,
+                                                                        "version": "2.0",
+                                                                        "type": "void",
+                                                                        "x-component": "Grid.Col",
+                                                                        "properties": {
+                                                                            "8ysxa0kcbyg": {
+                                                                                "x-uid": "ool59e47udv",
+                                                                                "_isJSONSchemaObject": true,
+                                                                                "version": "2.0",
+                                                                                "type": "void",
+                                                                                "x-decorator": "ChartRendererProvider",
+                                                                                "x-decorator-props": {
+                                                                                    "query": {
+                                                                                        "measures": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "orders",
+                                                                                                    "total"
+                                                                                                ],
+                                                                                                "aggregation": "sum",
+                                                                                                "alias": "Sum of consumption"
+                                                                                            }
+                                                                                        ],
+                                                                                        "dimensions": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "name"
+                                                                                                ],
+                                                                                                "alias": "Customer"
+                                                                                            }
+                                                                                        ],
+                                                                                        "filter": {
+                                                                                            "$and": [
+                                                                                                {
+                                                                                                    "orders": {
+                                                                                                        "id": {
+                                                                                                            "$exists": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "orders": [
+                                                                                            {
+                                                                                                "field": [
+                                                                                                    "Sum of consumption"
+                                                                                                ],
+                                                                                                "order": "DESC"
+                                                                                            }
+                                                                                        ],
+                                                                                        "limit": 8,
+                                                                                        "cache": {}
+                                                                                    },
+                                                                                    "config": {
+                                                                                        "chartType": "Built-in.table",
+                                                                                        "general": {
+                                                                                            "smooth": false,
+                                                                                            "isStack": false
+                                                                                        }
+                                                                                    },
+                                                                                    "dataSource": "main",
+                                                                                    "collection": "company",
+                                                                                    "mode": "builder"
+                                                                                },
+                                                                                "x-acl-action": "company:list",
+                                                                                "x-designer": "ChartRenderer.Designer",
+                                                                                "x-component": "CardItem",
+                                                                                "x-component-props": {
+                                                                                    "size": "small",
+                                                                                    "title": "Top customers"
+                                                                                },
+                                                                                "x-initializer": "charts:addBlock",
+                                                                                "x-async": false,
+                                                                                "x-index": 1,
+                                                                                "properties": {
+                                                                                    "kanbp136luw": {
+                                                                                        "_isJSONSchemaObject": true,
+                                                                                        "version": "2.0",
+                                                                                        "type": "void",
+                                                                                        "x-component": "ChartRenderer",
+                                                                                        "x-component-props": {},
+                                                                                        "x-uid": "k7olnbm3ele",
+                                                                                        "x-async": false,
+                                                                                        "x-index": 1
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "x-uid": "x7164j9six9",
+                                                                        "x-async": false,
+                                                                        "x-index": 1
+                                                                    }
+                                                                },
+                                                                "x-uid": "zwi1gx67sbj",
+                                                                "x-async": false,
+                                                                "x-index": 1
+                                                            }
+                                                        },
+                                                        "x-uid": "sjuj9sy18zz",
+                                                        "x-async": false,
+                                                        "x-index": 1
+                                                    }
+                                                },
+                                                "x-uid": "6gutbe7j68v",
+                                                "x-async": false,
+                                                "x-index": 1
+                                            }
+                                        },
+                                        "x-async": false
+                                    }
+                                },
+                                "x-uid": "jfpww08ti7o",
+                                "x-async": false,
+                                "x-index": 32
+                            },
+                            "qy1y4kud20r": {
+                                "_isJSONSchemaObject": true,
+                                "version": "2.0",
+                                "type": "void",
+                                "x-component": "Grid.Row",
+                                "x-uid": "o8lko7gu4qe",
+                                "x-async": false,
+                                "x-index": 33
+                            }
+                        },
+                        "x-uid": "grw5jl911jd",
+                        "x-async": false,
+                        "x-index": 1
+                    }
+                },
+                "x-async": true,
+                "x-index": 1
+            }
+        }
+    }
+}

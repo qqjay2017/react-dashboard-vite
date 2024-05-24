@@ -12,7 +12,8 @@ export const DashboardAppResponsiveDemo = () => {
       resoucreProps={{
         test: 123,
       }}
-      minHeight={555}
+
+
       cols={12}
       theme={{
         main: "mediumseagreen",

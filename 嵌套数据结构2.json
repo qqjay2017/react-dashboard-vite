@@ -1,0 +1,50 @@
+{
+    "schema": {
+        "_isJSONSchemaObject": true,
+        "version": "2.0",
+        "type": "void",
+        "x-decorator": "ChartRendererProvider",
+        "x-decorator-props": {
+            "query": {
+                "measures": [],
+                "dimensions": [],
+                "filter": {
+                    "$and": []
+                },
+                "orders": [],
+                "cache": {}
+            },
+            "config": {
+                "chartType": "Built-in.statistic",
+                "bordered": false,
+                "general": {},
+                "advanced": {}
+            },
+            "dataSource": "main",
+            "collection": "departments",
+            "mode": "builder"
+        },
+        "x-acl-action": "departments:list",
+        "x-designer": "ChartRenderer.Designer",
+        "x-component": "CardItem",
+        "x-component-props": {
+            "size": "small",
+            "bordered": false
+        },
+        "x-initializer": "charts:addBlock",
+        "properties": {
+            "bzm9hlv05dg": {
+                "_isJSONSchemaObject": true,
+                "version": "2.0",
+                "type": "void",
+                "x-component": "ChartRenderer",
+                "x-component-props": {},
+                "x-uid": "2txvstkagrr",
+                "name": "bzm9hlv05dg"
+            }
+        },
+        "x-uid": "op9npzep29b",
+        "name": "pmpq2edjt9f"
+    },
+    "wrap": null
+}

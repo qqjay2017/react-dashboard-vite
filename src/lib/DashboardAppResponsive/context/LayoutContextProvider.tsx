@@ -48,6 +48,7 @@ export interface LayoutContextProviderProps extends PropsWithChildren {
   
      */
     cols?: ValueOrFunValue<number>;
+    rows?: ValueOrFunValue<number>;
     /**
      * 格子组件资源
      *  key是对应layout的i
@@ -101,6 +102,7 @@ export const LayoutContextProvider = ({ children, components, themeName, minHeig
     layout: layoutParam,
 
     cols: colsParam = 12,
+    rows: rowsParam = 12,
 
     rowHeight: rowHeightParam = 78,
     resource = {},
@@ -110,6 +112,7 @@ export const LayoutContextProvider = ({ children, components, themeName, minHeig
 
 }: LayoutContextProviderProps) => {
     const { breakpoint } = useBreakpointContext();
+    const isPc = breakpoint === 'desktop' || breakpoint === 'showroom';
     const { themeMode } = useThemeMode();
     const HeaderWrapper = components?.headerWrapper || DefaultComponent;
     const HeaderInner = components?.headerInner || DefaultComponent;
@@ -128,10 +131,11 @@ export const LayoutContextProvider = ({ children, components, themeName, minHeig
 
     const cols =
         typeof colsParam === "function" ? colsParam({ breakpoint }) : colsParam;
-    const rows = computedMaxRow(layout);
+    const pcRows = typeof rowsParam === "function" ? rowsParam({ breakpoint }) : rowsParam;
+    const rows = isPc ? pcRows : computedMaxRow(layout);
 
     const { ref: contentRef, height: contentHeight = 0, width: contentWidth = 0 } = useResizeObserver()
-    const rowHeight = breakpoint === 'desktop' || breakpoint === 'showroom'
+    const rowHeight = isPc
         ? sizeFormat((contentHeight) / rows)
         : typeof rowHeightParam === "function"
             ? rowHeightParam({ breakpoint, themeMode, themeName })
