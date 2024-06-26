@@ -2,16 +2,18 @@ import { FC, PropsWithChildren } from "react";
 import { CoreContext, CoreContextProps } from "./CoreContext";
 import { RenderLayout } from "./RenderLayout";
 import { OnLayoutChange } from "./type";
-import { ThemeMode, ThemeModeProvider, ThemeProviderProps, useThemeMode } from "../context";
+import {
+  ThemeMode,
+  ThemeModeProvider,
+  ThemeProviderProps,
+  useThemeMode,
+} from "../context";
 import { QueryClientProvider } from "@/lib/context/QueryClientProvider";
-
-
 
 export interface CoreDashboardAppResponsiveProps
   extends CoreContextProps,
-
-  ThemeProviderProps,
-  PropsWithChildren {
+    ThemeProviderProps,
+    PropsWithChildren {
   themeName?: string;
   /**
    * 容器属性注入,所有属性将会变成组件的props
@@ -64,8 +66,8 @@ export interface CoreDashboardAppResponsiveProps
         />
    */
   themeProvider?:
-  | CoreDashboardAppResponsiveProps
-  | ((params: { themeMode: ThemeMode }) => CoreDashboardAppResponsiveProps);
+    | CoreDashboardAppResponsiveProps
+    | ((params: { themeMode: ThemeMode }) => CoreDashboardAppResponsiveProps);
   /**
    * 
    * 布局变化后的回调
@@ -89,9 +91,6 @@ export interface CoreDashboardAppResponsiveProps
   onLayoutChange?: OnLayoutChange;
 
   minHeight?: number;
-
-
-
 }
 
 export const CoreDashboardAppResponsiveInner = (
@@ -106,11 +105,10 @@ export const CoreDashboardAppResponsiveInner = (
     ...themeProvider,
     ..._props,
     components: {
+      ...themeProvider?.components,
       ..._props.components,
-      ...themeProvider?.components
-    }
+    },
   };
-
 
   return (
     <CoreContext {...props} key={`themeMode-${themeMode}-${props.themeName}`}>
@@ -128,12 +126,14 @@ export const CoreDashboardAppResponsiveInner = (
 export const CoreDashboardAppResponsive: FC<CoreDashboardAppResponsiveProps> = (
   props: CoreDashboardAppResponsiveProps
 ) => {
-
   return (
     <QueryClientProvider>
-      <ThemeModeProvider themeProvider={props.themeProvider} onThemeNameChange={props.onThemeNameChange} >
+      <ThemeModeProvider
+        themeProvider={props.themeProvider}
+        onThemeNameChange={props.onThemeNameChange}
+      >
         <CoreDashboardAppResponsiveInner {...props} />
       </ThemeModeProvider>
     </QueryClientProvider>
   );
-}
+};
