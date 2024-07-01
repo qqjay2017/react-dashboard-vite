@@ -3,6 +3,17 @@
 export const pcLayout = [
     {
         i: "A1",
+        w: 1,
+        h: 1,
+        x: 1,
+        y: 1,
+        zIndex: 99,
+
+        isDraggable: false,
+        isResizable: false
+    },
+    {
+        i: "A1",
         w: 3,
         h: 4,
         x: 0,

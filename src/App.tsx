@@ -10,7 +10,7 @@ const App = () => {
   // return <DashboardAppResponsiveDemo />;
   //  return <DashboardAppResponsiveDragDemo />;
   // return <NavDemo />
-  return <DashboardAppResponsiveDragDemo />;
+  return <DashboardAppResponsiveDemo />;
   // return <DashboardAppResponsiveDemo />;
   // return <DashboardAppResponsiveThemeDemo />
 };

@@ -6,32 +6,30 @@ import { DashboardItem } from "@/lib/DashboardItem";
 import { useLayoutContext } from "../context/useLayoutContext";
 import { LayoutContextComponents } from "../context/LayoutContextProvider";
 import { PropsWithChildren } from "react";
-const DefaultContainerWrapper = ({ children }: PropsWithChildren) => <>{children}</>
+const DefaultContainerWrapper = ({ children }: PropsWithChildren) => (
+  <>{children}</>
+);
 export const RenderLayout = ({
   resource = {},
   resoucreProps,
   onLayoutChange,
-  components
+  components,
 }: {
   resource?: Record<string, ResourceChildren>;
   resoucreProps?: Record<string, any>;
   onLayoutChange?: OnLayoutChange;
-  components: LayoutContextComponents
+  components: LayoutContextComponents;
 }) => {
-  const containerWrapper = components?.containerWrapper || DefaultContainerWrapper
-  const {
+  const containerWrapper =
+    components?.containerWrapper || DefaultContainerWrapper;
+  const { breakpoint } = useBreakpointContext();
 
-    breakpoint,
+  const { layout: layouts, colWidth, rowHeight } = useLayoutContext();
 
-  } = useBreakpointContext();
-
-  const {
-
-    layout: layouts,
-    colWidth,
+  console.log({
     rowHeight,
-
-  } = useLayoutContext()
+    colWidth,
+  });
 
   // const { isDraggable, isResizable } = useDraggableContext();
 
@@ -39,7 +37,7 @@ export const RenderLayout = ({
     <>
       {layouts.map((layout, index) => {
         if (!layout.w || !layout.i) {
-          return null
+          return null;
         }
         return (
           <DashboardItem
