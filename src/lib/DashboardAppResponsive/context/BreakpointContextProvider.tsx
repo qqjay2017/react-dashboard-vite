@@ -1,11 +1,7 @@
 import { PropsWithChildren } from "react";
 import { BreakpointContext } from "./BreakpointContext";
 import { useBreakpoints } from "../core/hooks/useBreakpoints";
-import {
-  Breakpoints,
-
-} from "../core/type";
-
+import { Breakpoints } from "../core/type";
 
 export interface BreakpointContextProviderProps extends PropsWithChildren {
   breakpoints?: Breakpoints;
@@ -39,7 +35,6 @@ export interface BreakpointContextProviderProps extends PropsWithChildren {
         />
    * 
    */
-
 }
 
 export const BreakpointContextProvider = ({
@@ -47,15 +42,14 @@ export const BreakpointContextProvider = ({
   breakpoints,
 }: BreakpointContextProviderProps) => {
   const { breakpoint, width } = useBreakpoints(breakpoints);
-  if (width <= 0) {
-    return null
-  }
 
-  return (<BreakpointContext.Provider
-    value={{
-      breakpoint: breakpoint,
-    }}
-  >
-    {children}
-  </BreakpointContext.Provider>);
+  return (
+    <BreakpointContext.Provider
+      value={{
+        breakpoint: breakpoint,
+      }}
+    >
+      {width > 0 ? children : null}
+    </BreakpointContext.Provider>
+  );
 };
