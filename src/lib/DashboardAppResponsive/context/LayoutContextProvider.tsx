@@ -27,6 +27,7 @@ export interface LayoutContextProviderProps extends PropsWithChildren {
   components?: LayoutContextComponents;
   themeName?: string;
   layout?: ValueOrFunValue<ResourceOptions[]>;
+  resoucreProps?: any;
   /**
      * 列数量
      * 支持函数或者数字
@@ -112,7 +113,7 @@ export const LayoutContextProvider = ({
   themeName,
   minHeight = 861,
   layout: layoutParam,
-
+  resoucreProps = {},
   cols: colsParam = 12,
   rows: rowsParam = 12,
 
@@ -128,6 +129,7 @@ export const LayoutContextProvider = ({
   const HeaderInner = components?.headerInner || DefaultComponent;
   const Content = components?.content || DefaultContentComponent;
   const componentProps = {
+    ...resoucreProps,
     breakpoint,
     themeName,
   };

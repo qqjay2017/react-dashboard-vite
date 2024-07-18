@@ -26,11 +26,6 @@ export const RenderLayout = ({
 
   const { layout: layouts, colWidth, rowHeight } = useLayoutContext();
 
-  console.log({
-    rowHeight,
-    colWidth,
-  });
-
   // const { isDraggable, isResizable } = useDraggableContext();
 
   return (

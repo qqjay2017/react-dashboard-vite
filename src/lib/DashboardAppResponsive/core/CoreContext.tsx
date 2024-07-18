@@ -1,4 +1,3 @@
-
 import { PropsWithChildren } from "react";
 import {
   BreakpointContextProvider,
@@ -16,16 +15,17 @@ import {
   DraggableContextProviderProps,
 } from "../context/DraggableContextProvider";
 
-import { LayoutContextProvider, LayoutContextProviderProps } from "../context/LayoutContextProvider";
-
-
+import {
+  LayoutContextProvider,
+  LayoutContextProviderProps,
+} from "../context/LayoutContextProvider";
 
 export interface CoreContextProps
   extends PropsWithChildren,
-  LayoutContextProviderProps,
-  BreakpointContextProviderProps,
-  ThemeContextProviderProps,
-  DraggableContextProviderProps {
+    LayoutContextProviderProps,
+    BreakpointContextProviderProps,
+    ThemeContextProviderProps,
+    DraggableContextProviderProps {
   resoucreProps?: Record<string, any>;
   minHeight?: number;
 }
@@ -39,9 +39,7 @@ export const CoreContext = (props: CoreContextProps) => {
     isResizable = false,
   } = props;
   return (
-    <BreakpointContextProvider
-      breakpoints={breakpoints}
-    >
+    <BreakpointContextProvider breakpoints={breakpoints}>
       <LayoutContextProvider {...props}>
         <ThemeContextProvider {...props}>
           <ResourceDefinitionContextProvider>
@@ -55,6 +53,5 @@ export const CoreContext = (props: CoreContextProps) => {
         </ThemeContextProvider>
       </LayoutContextProvider>
     </BreakpointContextProvider>
-
   );
 };
