@@ -1,6 +1,6 @@
 {
   "name": "@core/rc-dashboard",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "type": "module",
   "sideEffects": false,
   "resolutions": {
